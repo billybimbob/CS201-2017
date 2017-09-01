@@ -1,6 +1,8 @@
 package lab1;
 
 import java.util.Scanner;
+
+//Exercise #2
 public class AgeCalculations {
 
 	public static void main(String[] args) {
