@@ -1,7 +1,9 @@
 package lab1;
 
 import java.util.Scanner;
+
 //This program converts F to C and vice-versa
+//Assignment #1
 public class TempConverter {
 
 	public static void main(String[] args) {

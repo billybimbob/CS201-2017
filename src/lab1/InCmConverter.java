@@ -2,6 +2,8 @@ package lab1;
 
 import java.util.Scanner;
 
+//This program will convert inches to centimeters
+//Assignment #3
 public class InCmConverter {
 
 	public static void main(String[] args) {
@@ -21,5 +23,5 @@ public class InCmConverter {
 	1				|		2.54				|		2.54				|
 	12				|		30.48				|		30.48				|
 	100				|		254					|		254.0				|
-	25				|		63.5				|		63.5					|
+	25				|		63.5				|		63.5				|
 */

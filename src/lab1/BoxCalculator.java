@@ -1,6 +1,9 @@
 package lab1;
 
 import java.util.Scanner;
+
+//This program will calculate the surface area of a box with inputed dimensions\nPlease input all dimensions in inches
+//Assignment #2
 public class BoxCalculator {
 
 	public static void main(String[] args) {

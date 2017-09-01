@@ -1,6 +1,9 @@
 package lab1;
 
 import java.util.Scanner;
+
+//Exercise #1 & 3
+
 public class EchoName {
 
 	//This program repeats the inputed name (complex I know)
