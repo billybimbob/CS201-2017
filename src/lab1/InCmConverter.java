@@ -19,9 +19,9 @@ public class InCmConverter {
 
 }
 
-/*  Test Data(in)	|		Expected Data		|		Actual Result		|
-	1				|		2.54				|		2.54				|
-	12				|		30.48				|		30.48				|
-	100				|		254					|		254.0				|
-	25				|		63.5				|		63.5				|
+/*  Test Data(in)	|	Expected Data		|	Actual Result		|
+	1		|		2.54		|		2.54		|
+	12		|		30.48		|		30.48		|
+	100		|		254			|		254.0		|
+	25		|		63.5		|		63.5		|
 */
