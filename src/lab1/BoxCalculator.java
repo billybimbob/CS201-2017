@@ -2,7 +2,7 @@ package lab1;
 
 import java.util.Scanner;
 
-//This program will calculate the surface area of a box with inputed dimensions\nPlease input all dimensions in inches
+//This program will calculate the surface area of a box with inputed dimensions
 //Assignment #2
 public class BoxCalculator {
 
@@ -17,7 +17,7 @@ public class BoxCalculator {
 		System.out.print("Enter the depth of the box: ");
 		int dep = kboard.nextInt();
 		
-		int surfArea = 2*len*wid + 2*len*dep + 2*wid*len;
+		int surfArea = 2*len*wid + 2*len*dep + 2*wid*len; //Calculates the surface area
 		System.out.println("The surface area of the box is " + surfArea);
 	}
 

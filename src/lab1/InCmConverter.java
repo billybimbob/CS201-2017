@@ -12,7 +12,7 @@ public class InCmConverter {
 	System.out.println("This program will convert inches to centimeters");
 	System.out.print("Please enter in any height: ");
 	double heightInches = kboard.nextInt();
-	double heightCenti = heightInches*2.54;
+	double heightCenti = heightInches*2.54; //Converts in to cm
 	
 	System.out.println("The height in centimeters is " + heightCenti);
 	}
