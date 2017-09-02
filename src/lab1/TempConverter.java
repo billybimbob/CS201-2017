@@ -22,7 +22,7 @@ public class TempConverter {
 	}
 
 }
-
+//I am satisfied with the results, as the expected answers match the acutal results
 
 /*  Test Condition	|	Test Data		|	Expected Data		|	Actual Result		|
 	Low Temp, F	|		32		|		0		|		0		|
