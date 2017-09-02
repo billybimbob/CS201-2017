@@ -25,10 +25,10 @@ public class TempConverter {
 
 
 /*  Test Condition	|		Test Data		|		Expected Data		|		Actual Result		|
-	Low Temp, F		|		32				|		0					|		0					|
-	Middle Temp, F	|		60				|		15.6				|		15.6				|
-	High Temp, F	|		212				|		100					|		100					|
-	Low Temp, C		|		0				|		32					|		32					|
-	Middle Temp, C	|		50				|		122					|		122					|
-	High Temp, C	|		100				|		212					|		212					|
+	Low Temp, F	|		32		|		0		|		0		|
+	Middle Temp, F	|		60		|		15.6		|		15.6		|
+	High Temp, F	|		212		|		100		|		100		|
+	Low Temp, C	|		0		|		32		|		32		|
+	Middle Temp, C	|		50		|		122		|		122		|
+	High Temp, C	|		100		|		212		|		212		|
 */
