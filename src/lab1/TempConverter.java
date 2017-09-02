@@ -24,7 +24,7 @@ public class TempConverter {
 }
 
 
-/*  Test Condition	|		Test Data	|		Expected Data	|		Actual Result		|
+/*  Test Condition	|	Test Data		|	Expected Data		|	Actual Result		|
 	Low Temp, F	|		32		|		0		|		0		|
 	Middle Temp, F	|		60		|		15.6		|		15.6		|
 	High Temp, F	|		212		|		100		|		100		|
