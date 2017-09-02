@@ -23,9 +23,9 @@ public class BoxCalculator {
 
 }
 
-/*  Test Data(l,w,h)	|		Expected Data		|		Actual Result		|
-	1,1,1				|		6					|		6					|
-	2,3,4				|		40					|		40					|
-	6,6,6				|		216					|		216					|
-	0,0,0				|		0					|		0					|
+/*  Test Data(l,w,h)	|	Expected Data		|	Actual Result		|
+	1,1,1				|		6		|		6		|
+	2,3,4				|		40		|		40		|
+	6,6,6				|		216		|		216		|
+	0,0,0				|		0		|		0		|
 */
