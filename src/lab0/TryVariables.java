@@ -10,7 +10,7 @@ public class TryVariables {
 		byte tiny = 19;
 		
 		float f = .0925F;
-	    double decimal = 0.725;
+		double decimal = 0.725;
 		double largeDouble = +6.022E23; // This is in scientific notation
 		
 		char character = 'A';
