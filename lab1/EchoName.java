@@ -13,7 +13,6 @@ public class EchoName {
 		System.out.print("Enter your name: ");
 		String name = kboard.nextLine();
 		char firstInitial = name.charAt(0);
-		
 		System.out.println("Your name is " + name);
 		System.out.println("Your first initial is " + firstInitial);
 	}
