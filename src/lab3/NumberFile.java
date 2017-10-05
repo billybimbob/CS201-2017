@@ -18,16 +18,18 @@ public class NumberFile {
 			accumulate = accumulate + input + " "; //accumulator for all the numbers
 			System.out.println("");
 		}
-		System.out.print("Enter a name for the numbers to be\nWritten to a file: ");
-		String name = kboard.nextLine();
+		System.out.print("\nEnter a name for the numbers to be\nWritten to a file: ");
+		String name = kboard.nextLine() + ".txt"; //makes the file name a text file
 		System.out.println("");
-		File outFile = new File(name);
+		FileWriter outFile = new FileWriter("C:\\Users\\funte\\eclipse-workspace\\CS201\\src\\lab3\\" + name); //sets the file location
+		//file location specific to my computer, may have to change
 		
-		BufferedWriter output = new BufferedWriter(new FileWriter("C:\\Users\\funte\\eclipse-workspace\\CS201\\src\\lab3\\" + outFile));
-        output.write(accumulate);
+		BufferedWriter output = new BufferedWriter(outFile);
+        output.write(accumulate); //writes accumulated string to file
         
         output.close();
 		kboard.close();
+		System.out.println("Your numbers have been written to a text file");
 	}
 
 }
