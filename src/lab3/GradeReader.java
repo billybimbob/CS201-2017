@@ -26,7 +26,7 @@ public class GradeReader {
 			
 			input.close();
 		} catch (Exception e) {
-			System.out.println("Something went wrong");
+			System.out.println("Something went wrong"); //entire program ends
 		}
 	}
 
