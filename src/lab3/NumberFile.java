@@ -36,7 +36,7 @@ public class NumberFile {
 	        output.close();
 	        System.out.println("Your numbers have been written to a text file");
 		} catch (Exception e) {
-			System.out.println("Something went wrong, file cannot be written"); //program ends, and file isn't written
+			System.out.println("Something went wrong, file cannot be written");
 		}
 		kboard.close();
 	}
