@@ -15,8 +15,8 @@ public class NumberFile {
 			if (input.equals("Done") || input.equals("done"))
 				break; // breaks out of the loop when "done" is entered
 					   // accounts for "done" being lowercase
-			try {
-				Integer.parseInt(input);
+			try { //checks if input is a number
+				Double.parseDouble(input);
 				accumulate = accumulate + input + " "; //accumulator for all the numbers
 			} catch (Exception e) {
 				System.out.println("That is not a number, please try again");
@@ -28,8 +28,7 @@ public class NumberFile {
 		String name = kboard.nextLine() + ".txt"; //makes the file name a text file
 		System.out.println("");
 		try {
-			FileWriter outFile = new FileWriter("C:\\Users\\funte\\eclipse-workspace\\CS201\\src\\lab3\\" + name); //sets the file location
-			//file location specific to my computer, may have to change
+			FileWriter outFile = new FileWriter(name); //set to the default file location
 			
 			BufferedWriter output = new BufferedWriter(outFile);
 	        output.write(accumulate); //writes accumulated string to file
@@ -37,7 +36,7 @@ public class NumberFile {
 	        output.close();
 	        System.out.println("Your numbers have been written to a text file");
 		} catch (Exception e) {
-			System.out.println("Something went wrong"); //not really sure when this would happen, program ends, and file isn't written
+			System.out.println("Something went wrong, file cannot be written"); //program ends, and file isn't written
 		}
 		kboard.close();
 	}
