@@ -19,7 +19,7 @@ public class NumberFile {
 				Integer.parseInt(input);
 				accumulate = accumulate + input + " "; //accumulator for all the numbers
 			} catch (Exception e) {
-				System.out.println("That is not a number, please try again"); //stays in the loop
+				System.out.println("That is not a number, please try again");
 			}
 			System.out.println("");
 		}
