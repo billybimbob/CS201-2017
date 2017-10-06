@@ -31,10 +31,10 @@ public class NumberFile {
 			FileWriter outFile = new FileWriter(name); //set to the default file location
 			
 			BufferedWriter output = new BufferedWriter(outFile);
-	        output.write(accumulate); //writes accumulated string to file
-	        
-	        output.close();
-	        System.out.println("Your numbers have been written to a text file");
+			output.write(accumulate); //writes accumulated string to file
+			
+			output.close();
+			System.out.println("Your numbers have been written to a text file");
 		} catch (Exception e) {
 			System.out.println("Something went wrong, file cannot be written");
 		}
