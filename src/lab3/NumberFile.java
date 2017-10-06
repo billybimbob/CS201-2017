@@ -15,7 +15,7 @@ public class NumberFile {
 			if (input.equals("Done") || input.equals("done"))
 				break; // breaks out of the loop when "done" is entered
 					   // accounts for "done" being lowercase
-			try {
+			try { //checks if the input is a number
 				Integer.parseInt(input);
 				accumulate = accumulate + input + " "; //accumulator for all the numbers
 			} catch (Exception e) {
