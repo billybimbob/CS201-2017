@@ -6,9 +6,9 @@ import java.util.Scanner;
 public class GradeReader {
 
 	public static void main(String[] args) {
-
-		File inFile = new File("C:\\Users\\funte\\eclipse-workspace\\CS201\\src\\lab3\\grades.csv"); //the file location of grades.csv, dependent on the computer
+	
 		try {
+			File inFile = new File("C:\\Users\\funte\\eclipse-workspace\\CS201\\src\\lab3\\grades.csv"); //the file location of grades.csv, dependent on the computer
 			Scanner input = new Scanner(inFile);
 			input.useDelimiter(","); //splits the lines into the name and the number
 			double accumulate = 0;
