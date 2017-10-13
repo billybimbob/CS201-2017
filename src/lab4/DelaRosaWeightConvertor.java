@@ -2,7 +2,7 @@ package lab4;
 
 public class DelaRosaWeightConvertor {
 
-	private int lbs;
+	private int lbs; //only one instance variable
 	
 	public DelaRosaWeightConvertor() { //default constructor
 		lbs = 0;

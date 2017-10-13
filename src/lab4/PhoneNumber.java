@@ -2,7 +2,7 @@ package lab4;
 
 public class PhoneNumber {
 	
-	private String areaCode, firstDigits, lastDigits;
+	private String areaCode, firstDigits, lastDigits; //instance variables
 	
 	public PhoneNumber() { //default constructor
 		areaCode = "800";
