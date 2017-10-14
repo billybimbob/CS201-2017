@@ -21,11 +21,9 @@ public class DelaRosaWeightConvertor {
 		return grams;
 	}
 	public String toStringPound() { //convert pounds variable to a String
-		String lbsString = "The weight in pounds is ";
-		return lbsString;
+		return Integer.toString(lbs);
 	}
 	public String toStringGrams() { //convert ponds variable to grams in String form
-		String gString = "The equivalent weight in grams is " + convertGrams();
-		return gString;
+		return Double.toString(convertGrams());
 	}
 }
