@@ -1,5 +1,5 @@
 //package test;
-
+/*
 import java.util.Scanner;
 
 //question 3
@@ -19,4 +19,4 @@ public class Iteration {
 		kboard.close();
 	}
 
-}
+}*/
