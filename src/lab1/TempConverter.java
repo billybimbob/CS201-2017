@@ -19,6 +19,7 @@ public class TempConverter {
 		double cTempCon = (cTemp * 9/5) + 32;	//Converts C to F
 		System.out.println("The temperature of Fahrenheit converted to Celcius is " + fTempCon);
 		System.out.println("The temperature of Celcius converted to Fahrenheit is " + cTempCon);
+		kboard.close();
 	}
 
 }

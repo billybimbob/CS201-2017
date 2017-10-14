@@ -16,6 +16,8 @@ public class EchoName {
 		
 		System.out.println("Your name is " + name);
 		System.out.println("Your first initial is " + firstInitial);
+		
+		kboard.close();
 	}
 
 }

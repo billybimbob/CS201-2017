@@ -19,6 +19,8 @@ public class BoxCalculator {
 		
 		int surfArea = 2*len*wid + 2*len*dep + 2*wid*len; //Calculates the surface area
 		System.out.println("The surface area of the box is " + surfArea);
+		
+		kboard.close();
 	}
 
 }

@@ -15,6 +15,7 @@ public class InCmConverter {
 	double heightCenti = heightInches*2.54; //Converts in to cm
 	
 	System.out.println("The height in centimeters is " + heightCenti);
+	kboard.close();
 	}
 
 }
