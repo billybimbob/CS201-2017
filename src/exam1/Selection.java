@@ -1,5 +1,5 @@
 //package test;
-
+/*
 import java.util.Scanner;
 
 //Question 2
@@ -18,4 +18,4 @@ public class Selection {
 		kboard.close();
 	}
 
-}
+}*/

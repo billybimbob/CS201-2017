@@ -1,5 +1,5 @@
 //package test;
-
+/*
 import java.util.Scanner;
 
 //Question 4
@@ -20,4 +20,4 @@ public class Arrays {
 		kboard.close();
 	}
 
-}
+}*/

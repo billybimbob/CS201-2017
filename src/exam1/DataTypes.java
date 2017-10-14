@@ -1,5 +1,5 @@
 //package test;
-
+/*
 import java.util.Scanner;
 
 //Question 1
@@ -24,4 +24,4 @@ public class DataTypes {
 		kboard.close();
 	}
 
-}
+}*/
