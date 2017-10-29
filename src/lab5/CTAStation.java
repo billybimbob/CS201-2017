@@ -5,7 +5,7 @@ public class CTAStation extends GeoLocation {
 	private String name, location;
 	private boolean opened, wheelchair;
 	
-	public CTAStation() {
+	public CTAStation() { //default constructor
 		super();
 		name = "Dummy";
 		location = "underground";

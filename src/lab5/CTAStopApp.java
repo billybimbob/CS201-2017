@@ -122,10 +122,10 @@ public class CTAStopApp {
 		if (statFound == 0)
 			System.out.println("No Stations were Found");
 	}
-	public static void displayDistance(Scanner keyboard) {
+	public static void displayDistance(Scanner keyboard) { //displays nearby stations based on inputed location
 		double curLat = 0, curLon = 0;
 		boolean validLoc = false;
-		do {		
+		do { //getting the location variables is kind of wonky as, the user needs to know precise location of where they are
 			try {
 				System.out.print("Enter your current latitude location: ");
 				curLat = Double.parseDouble(keyboard.nextLine());
