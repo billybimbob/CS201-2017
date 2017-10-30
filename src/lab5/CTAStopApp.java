@@ -97,8 +97,9 @@ public class CTAStopApp {
 		do {
 			System.out.println("Do You Want to Show Stations with Wheelchair Accessibility?");
 			System.out.print("Type in \'y\' for yes or \'n\' for no: ");
-			char response = keyboard.nextLine().charAt(0);
-			if (response == 'y' || response == 'n') { //checks if response is valid
+			char[] respStore = keyboard.nextLine().toCharArray();
+			if (respStore.length == 1 && (respStore[0] == 'y' || respStore[0] == 'n')) { //checks if response is valid, looks for specifically y or n
+				char response = respStore[0];
 				searchWheel = response=='y';
 				haveResponse = true;
 			} else {
