@@ -39,7 +39,7 @@ public class GeoLocation {
 	
 	//to String by printing out the latitude and longitude
 	public String toString() {
-		return "The latitude is " + latitude + " and longitude is " + longitude;
+		return "the latitude is " + latitude + " and longitude is " + longitude;
 	}
 
 	//calculate distance with the distance formula

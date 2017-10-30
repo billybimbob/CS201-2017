@@ -49,6 +49,9 @@ public class CTAStation extends GeoLocation {
 	}
 	
 	//checks if name, latitude and longitude are the same
+	public String toString() {
+		return "the station is " + name + " and " + super.toString();
+	}
 	public boolean equals (CTAStation station2) {
 		return (this.getName()==station2.getName() && this.getLatitude()==station2.getLatitude() && this.getLongitude()==station2.getLongitude());
 	}

@@ -8,7 +8,7 @@ public class CTAStopApp {
 
 	private static CTAStation[] greenLine;
 	
-	public static void main(String[] args) throws NumberFormatException {
+	public static void main(String[] args)  {
 		Scanner kboard = new Scanner(System.in);
 		try {
 			File inFile = new File("C:\\Users\\funte\\eclipse-workspace\\CS201\\src\\lab5\\greenLineStops.csv"); //file location varies based on computer
