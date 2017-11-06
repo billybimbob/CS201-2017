@@ -32,7 +32,7 @@ public class CTAStopAppNew {
 				CTAStation station = new CTAStation(inName, inLat, inLong, inLocation, wheelChair, false); //instantiate object with parsed parameters
 				
 				//both are if statements to account for stations that are both red and green line stations
-				//arrayList is not in order of the indices of on the csv file: red line stattion not in correct indices
+				//arrayList is not in order of the indices of on the csv file: red line station not in correct indices
 				if (redCheck != -1)
 					redLine.addStation(station); //create object based on parses of the current line
 				if (greenCheck != -1)
@@ -107,7 +107,7 @@ public class CTAStopAppNew {
 	}
 	
 	//methods referenced by other CTAStop methods
-	public static String lineCheck (Scanner keyboard, boolean both) { //method to ask for which color Line is desired, accounts if more color are added
+	public static String lineCheck (Scanner keyboard, boolean both) { //method to ask for which color Line is desired, accounts if more color are added, boolean if both is an option
 		String line = null;
 		while(true) {
 			String prompt = "Do you want the Red or Green line";
@@ -140,15 +140,17 @@ public class CTAStopAppNew {
 			int idxPre = -1, idxSuc = -1;
 			do { //checks if inputed names are names on the station
 				boolean validSuc = false, validPre = false;
+				
 				System.out.println("What is the name of the preceding Station");
 				System.out.print("(type in 'beginning' if want to insert station at first index): ");
 				preName = keyboard.nextLine().toLowerCase();
 				if (preName.equals("beginning")) { //accounts for if inserted station were to be at the beginning: no preceding station
-					idxPre = 0;
+					idxPre = -1;
 					validPre = true;
 				}
 				if (!validPre) {
-					for (CTAStation i: searching.getStops()) {
+					
+					for (CTAStation i: searching.getStops()) { //checks if name is in the station list
 						if (preName.equals(i.getName().toLowerCase()))
 							validPre = true;
 					}
@@ -158,39 +160,42 @@ public class CTAStopAppNew {
 				System.out.print("(type in 'end' if want to insert station at last index): ");
 				sucName = keyboard.nextLine();
 				if (sucName.equals("end")) { //accounts for if inserted station were to be at the end: no succeeding station
-					idxSuc = searching.getStops().size()-1;
+					idxSuc = searching.getStops().size();
 					validSuc = true;
 				}
 				if (!validSuc) {
-					for (CTAStation i: searching.getStops()) {
+					for (CTAStation i: searching.getStops()) { //same check as above
 						if (sucName.equals(i.getName().toLowerCase()))
 							validSuc = true;
 					}
 				}
-								
-				if (!(validPre && validSuc))
+				
+				if (!(validPre && validSuc)) //check to break out of loop
 					System.out.println("Not valid names");
 				else
 					validName = true;
+					
 			} while(!validName);
-
+			
+			//finds indices of inputed name
+			boolean foundPre = false, foundSuc = false;
 			for (int i = 0; i <= searching.getStops().size()-1; i++) {
 				if (preName.equals(searching.getStops().get(i).getName().toLowerCase())) {
 					idxPre = i;
-					break;
-				}
-			}
-			for (int i = 0; i <= searching.getStops().size()-1; i++) {
-				if (sucName.equals(searching.getStops().get(i).getName().toLowerCase())) {
+					foundPre = true;
+				} else if (sucName.equals(searching.getStops().get(i).getName().toLowerCase())) {
 					idxSuc = i;
-					break;
+					foundSuc = true;
 				}
+				if (foundPre && foundSuc)
+					break;
 			}
-			if (idxPre+1 == idxSuc-1) {
+		
+			if (idxPre+1 == idxSuc-1) { //checks if one index is in between the preceding and succeeding
 				idx = idxPre+1;
 				validIdx = true;
 			} else
-				System.out.println("The inputted stations have more or less than one station between");
+				System.out.println("The inputed stations have more or less than one station between");
 			
 		} while(!validIdx);
 		return idx;
@@ -246,7 +251,7 @@ public class CTAStopAppNew {
 		if (statFound == 0)
 			System.out.println("No Stations were Found");
 	}
-	public static void nearestStation (Scanner keyboard) { //displays nearby stations based on inputed location
+	public static void nearestStation (Scanner keyboard) { //displays the nearest station to inputed latitude and longitude
 		double curLat = 0, curLon = 0;
 		boolean validLoc = false;
 		do { //getting the location variables is kind of wonky as, the user needs to know precise location of where they are
@@ -263,20 +268,21 @@ public class CTAStopAppNew {
 		
 		CTAStation nearRed = redLine.nearestStation(curLat, curLon), nearGreen = greenLine.nearestStation(curLat, curLon);
 		
-		if (nearRed.calcDistance(curLat, curLon) < nearGreen.calcDistance(curLat, curLon)) {
+		if (nearRed.calcDistance(curLat, curLon) < nearGreen.calcDistance(curLat, curLon)) { //compares the nearest station of green and red line
 			System.out.println("The nearest station to you " + nearRed.getName());
 		} else {
 			System.out.println("The nearest station to you is " + nearGreen.getName() + " station");
 		}
 	}
-	public static void displaySpecific (Scanner keyboard) {
+	public static void displaySpecific (Scanner keyboard) { //displays instance variables of specified station
 		boolean validName = false, validRed = false, validGreen = false;
 		CTAStation lookStation = null;
-		String line = lineCheck(keyboard, true);
+		String line = lineCheck(keyboard, true); //determine if want red, green, or both
 		do { //getting the location variables is kind of wonky as, the user needs to know precise location of where they are
 			System.out.print("What station would you like the information of: ");
 			String inLoc = keyboard.nextLine().toLowerCase();
 			
+			//for loops determine if inputed name is in either list, boolean determine if method is called or not
 			for (CTAStation i: greenLine.getStops()) {
 				if (inLoc.equals(i.getName().toLowerCase()))
 					validGreen = true;
@@ -295,7 +301,7 @@ public class CTAStopAppNew {
 				validName = true;
 				break;
 			} else if (validGreen && validRed && line.equals("green and red")) {
-				if (greenLine.lookupStation(inLoc).equals(redLine.lookupStation(inLoc))) {
+				if (greenLine.lookupStation(inLoc).equals(redLine.lookupStation(inLoc))) { //checks if stations with the same name also have same location: Green and Red both have different Garfield stations
 					lookStation = greenLine.lookupStation(inLoc);
 					validName = true;
 					break;
@@ -306,7 +312,7 @@ public class CTAStopAppNew {
 		} while (!validName); //breaks out of loops if the input is a valid station
 		System.out.print(lookStation.toString());
 	}
-	public static void displayAll () {
+	public static void displayAll () { //calls toString method of both CTARoutes
 		System.out.println("All of the information for the Green Line Stations:");
 		System.out.println(greenLine.toString());
 		System.out.println("");
@@ -314,7 +320,7 @@ public class CTAStopAppNew {
 		System.out.println(redLine.toString());
 	}
 	
-	public static void addStation (Scanner keyboard) {
+	public static void addStation (Scanner keyboard) { //replaces station at index of list with new CTAStation with inputed data variables
 		boolean haveResponse = false;
 		String line = lineCheck(keyboard, false);
 		
@@ -354,36 +360,36 @@ public class CTAStopAppNew {
 		if (line.equals("red")) {
 			int index = findIndex(keyboard, redLine);
 			redLine.insertStation(index, new CTAStation(name, lat, lon, location, wheel, true));
-			System.out.println(name + " station was successfully added to the red line");
+			System.out.println(name + " station was successfully added to the Red line");
 		} else if (line.equals("green")) {
 			int index = findIndex(keyboard, greenLine);
 			greenLine.insertStation(index, new CTAStation(name, lat, lon, location, wheel, true));
-			System.out.println(name + " station was successfully added to the green line");
+			System.out.println(name + " station was successfully added to the Green line");
 		}
 		
 	}
-	public static void removeStation (Scanner keyboard) {
+	public static void removeStation (Scanner keyboard) { //removes station with specified name from specified color line
 		boolean validRemove = false;
 		String line = lineCheck(keyboard, true);
 		do {
 			System.out.print("What station would you like to remove: ");
 			String statName = keyboard.nextLine().toLowerCase();
 			
-			if (line.equals("green")) {
+			if (line.equals("green")) { //checks if name exists in list
 				for (CTAStation i: greenLine.getStops()) {
 					if (statName.equals(i.getName().toLowerCase())) {
 						greenLine.removeStation(i);
 						validRemove = true;
 					}
 				}
-			} else if (line.equals("red")) {
+			} else if (line.equals("red")) { //same as above
 				for (CTAStation i: redLine.getStops()) {
 					if (statName.equals(i.getName().toLowerCase())) {
 						redLine.removeStation(i);
 						validRemove = true;
 					}
 				}
-			} else if (line.equals("green and red")) {
+			} else if (line.equals("green and red")) { //same as above, but with both lists
 				CTAStation greenHold = null, redHold = null;
 				for (CTAStation i: greenLine.getStops()) {
 					if (statName.equals(i.getName().toLowerCase())) {
@@ -397,7 +403,7 @@ public class CTAStopAppNew {
 						validRemove = true;
 					}
 				}
-				if (greenHold.equals(redHold)) {
+				if (greenHold.equals(redHold)) { //stations have same location, otherwise, doesn't remove
 					greenLine.removeStation(greenHold);
 					redLine.removeStation(redHold);
 				}
