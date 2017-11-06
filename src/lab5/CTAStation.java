@@ -4,6 +4,7 @@ public class CTAStation extends GeoLocation {
 
 	private String name, location;
 	private boolean opened, wheelchair;
+	private int greenIdx, redIdx;
 	
 	public CTAStation() { //default constructor
 		super();
@@ -11,13 +12,18 @@ public class CTAStation extends GeoLocation {
 		location = "underground";
 		wheelchair = false;
 		opened = false;
+		greenIdx = -1;
+		redIdx = -1;
 	}
-	public CTAStation(String name, double latitude, double longitude, String location, boolean wheelchair, boolean opened) {
+	public CTAStation(String name, double latitude, double longitude, String location, boolean wheelchair, boolean opened, 
+			int greenIdx, int redIdx) {
 		super(latitude, longitude);
 		this.name = name;
 		this.location = location;
 		this.wheelchair = wheelchair;
 		this.opened = opened;
+		this.greenIdx = greenIdx;
+		this.redIdx = redIdx;
 	}
 	
 	//getters
@@ -32,6 +38,12 @@ public class CTAStation extends GeoLocation {
 	}
 	public boolean getOpened() {
 		return opened;
+	}
+	public int getGreenIdx() {
+		return greenIdx;
+	}
+	public int getRedIdx() {
+		return redIdx;
 	}
 	
 	//setters, the boolean values can only be 2 values, so made a switch method to make current boolean value the opposite

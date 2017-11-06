@@ -35,7 +35,7 @@ public class CTAStopApp {
 				String inLocation = input.next();
 				boolean wheelChair = Boolean.parseBoolean(input.next()), opened = Boolean.parseBoolean(input.next().trim()); //had to account for the \n on the last boolean, so used trim method
 				//System.out.println(Boolean.toString(wheelChair)+Boolean.toString(opened));
-				greenLine[count] = new CTAStation(inName, inLat, inLong, inLocation, wheelChair, opened); //create object based on parses of the current line
+				greenLine[count] = new CTAStation(inName, inLat, inLong, inLocation, wheelChair, opened, -1, -1); //create object based on parses of the current line
 				count++;
 			}
 			

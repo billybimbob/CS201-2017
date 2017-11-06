@@ -45,6 +45,43 @@ public class CTARoute {
 	public void insertStation(int indx, CTAStation adding) {
 		stops.add(indx,  adding);
 	}
+	public void sort(String lineColor) {
+		int count = 0;
+		while (count < stops.size()-1) {
+			int sortVal = -1, sortVal2 = -1;
+			switch(lineColor) {
+			case "green":
+				sortVal = stops.get(count).getGreenIdx();
+				sortVal2 = stops.get(count+1).getGreenIdx();
+				break;
+			case "red":
+				System.out.println("yes");
+				sortVal = stops.get(count).getRedIdx();
+				sortVal2 = stops.get(count+1).getRedIdx();
+				break;
+			}
+			if (sortVal > sortVal2) {
+				
+				for (int i = stops.size()-1; i >= 0; i--) {
+					switch(lineColor) {
+					case "green":
+						sortVal2 = stops.get(i).getGreenIdx();
+						break;
+					case "red":
+						sortVal2 = stops.get(i).getRedIdx();
+						break;
+					}
+					if (sortVal > sortVal2) {
+						stops.add(i, stops.remove(count));
+						count = 0;
+						break;
+					}
+				}
+			} else {
+				count += 1;
+			}
+		}
+	}
 	public CTAStation lookupStation(String looking) { //returns first instance of CTAStation matching the inputed name parameter
 		CTAStation match = null;
 		for (CTAStation station: stops) {

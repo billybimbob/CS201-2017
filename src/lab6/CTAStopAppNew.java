@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-
+//note: lab 5 classes referenced and modified
 public class CTAStopAppNew {
 
 	private static CTARoute greenLine, redLine;
@@ -29,7 +29,7 @@ public class CTAStopAppNew {
 				boolean wheelChair = Boolean.parseBoolean(input.next());
 				int redCheck = Integer.parseInt(input.next()), greenCheck = Integer.parseInt(input.next().trim()); //account for \n
 				
-				CTAStation station = new CTAStation(inName, inLat, inLong, inLocation, wheelChair, false); //instantiate object with parsed parameters
+				CTAStation station = new CTAStation(inName, inLat, inLong, inLocation, wheelChair, false, greenCheck, redCheck); //instantiate object with parsed parameters
 				
 				//both are if statements to account for stations that are both red and green line stations
 				//arrayList is not in order of the indices of on the csv file: red line station not in correct indices
@@ -38,6 +38,8 @@ public class CTAStopAppNew {
 				if (greenCheck != -1)
 					greenLine.addStation(station);
 			}
+			greenLine.sort("green");
+			redLine.sort("red");
 			
 			System.out.println("Welcome to the CTA Green Line Information Center");
 			userCommand:
@@ -359,11 +361,11 @@ public class CTAStopAppNew {
 		
 		if (line.equals("red")) {
 			int index = findIndex(keyboard, redLine);
-			redLine.insertStation(index, new CTAStation(name, lat, lon, location, wheel, true));
+			redLine.insertStation(index, new CTAStation(name, lat, lon, location, wheel, true, -1, index));
 			System.out.println(name + " station was successfully added to the Red line");
 		} else if (line.equals("green")) {
 			int index = findIndex(keyboard, greenLine);
-			greenLine.insertStation(index, new CTAStation(name, lat, lon, location, wheel, true));
+			greenLine.insertStation(index, new CTAStation(name, lat, lon, location, wheel, true, index, -1));
 			System.out.println(name + " station was successfully added to the Green line");
 		}
 		
