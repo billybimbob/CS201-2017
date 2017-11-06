@@ -32,7 +32,6 @@ public class CTAStopAppNew {
 				CTAStation station = new CTAStation(inName, inLat, inLong, inLocation, wheelChair, false, greenCheck, redCheck); //instantiate object with parsed parameters
 				
 				//both are if statements to account for stations that are both red and green line stations
-				//arrayList is not in order of the indices of on the csv file: red line station not in correct indices
 				if (redCheck != -1)
 					redLine.addStation(station); //create object based on parses of the current line
 				if (greenCheck != -1)
