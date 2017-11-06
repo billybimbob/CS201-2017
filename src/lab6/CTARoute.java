@@ -43,7 +43,7 @@ public class CTARoute {
 		stops.remove(removing);
 	}
 	public void insertStation(int indx, CTAStation adding) {
-		stops.set(indx, adding);
+		stops.add(indx,  adding);
 	}
 	public CTAStation lookupStation(String looking) { //returns first instance of CTAStation matching the inputed name parameter
 		CTAStation match = null;

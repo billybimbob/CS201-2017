@@ -320,7 +320,7 @@ public class CTAStopAppNew {
 		System.out.println(redLine.toString());
 	}
 	
-	public static void addStation (Scanner keyboard) { //replaces station at index of list with new CTAStation with inputed data variables
+	public static void addStation (Scanner keyboard) { //inserts station at index of list with new CTAStation with inputed data variables
 		boolean haveResponse = false;
 		String line = lineCheck(keyboard, false);
 		
