@@ -34,6 +34,18 @@ public class CTARoute {
 		}
 		return list;
 	}
+	public boolean equals(CTARoute comparing) { //compares name and list
+		boolean listCompare = true;
+		if (this.stops.size() == comparing.getStops().size()) { //checks if stops length is the same
+			for (int i = 0; i < stops.size(); i++) { //checks each station if equal
+				if (this.stops.get(i).equals(comparing.getStops().get(i)))
+					listCompare = false;
+			}
+		} else
+			listCompare = false;
+		
+		return this.getName().equals(comparing.getName()) && listCompare;
+	}
 	
 	//list methods of stops ArrayList
 	public void addStation(CTAStation adding) {
@@ -45,25 +57,24 @@ public class CTARoute {
 	public void insertStation(int indx, CTAStation adding) {
 		stops.add(indx,  adding);
 	}
-	public void sort(String lineColor) {
+	public void sort(String lineColor) { //sorts the stops list in ascending index of the inputed line color
 		int count = 0;
 		while (count < stops.size()-1) {
 			int sortVal = -1, sortVal2 = -1;
-			switch(lineColor) {
+			switch(lineColor) { //determines the index
 			case "green":
 				sortVal = stops.get(count).getGreenIdx();
 				sortVal2 = stops.get(count+1).getGreenIdx();
 				break;
 			case "red":
-				System.out.println("yes");
 				sortVal = stops.get(count).getRedIdx();
 				sortVal2 = stops.get(count+1).getRedIdx();
 				break;
 			}
-			if (sortVal > sortVal2) {
+			if (sortVal > sortVal2) { //starts forward, if greater, going to send to end of list
 				
 				for (int i = stops.size()-1; i >= 0; i--) {
-					switch(lineColor) {
+					switch(lineColor) { //same as above
 					case "green":
 						sortVal2 = stops.get(i).getGreenIdx();
 						break;
@@ -71,9 +82,9 @@ public class CTARoute {
 						sortVal2 = stops.get(i).getRedIdx();
 						break;
 					}
-					if (sortVal > sortVal2) {
+					if (sortVal > sortVal2) { //works backwards to determine where to switch
 						stops.add(i, stops.remove(count));
-						count = 0;
+						count = 0; //resets to beginning of list
 						break;
 					}
 				}
