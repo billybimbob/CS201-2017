@@ -25,6 +25,15 @@ public class CTARoute {
 		return stops;
 	}
 	
+	public String toString() {
+		String list = "";
+		for (CTAStation station: stops) {
+			list += station.toString() + "\n";
+			list += "---------------------------------------------------\n";
+		}
+		return list;
+	}
+	
 	//list methods
 	public void addStation(CTAStation adding) {
 		stops.add(adding);
@@ -38,12 +47,13 @@ public class CTARoute {
 	public CTAStation lookupStation(String looking) {
 		CTAStation match = null;
 		for (CTAStation station: stops) {
-			if (station.getName() == looking) {
+			if (station.getName().toLowerCase().equals(looking.toLowerCase())) {
 				match = station;
 				break;
 			}
 		}
-		return match; //need to add if null is returned
+		return match; //null is checked before this method is called
+			
 	}
 	public CTAStation nearestStation(double lat, double lon) {
 		CTAStation nearest = stops.get(0);
