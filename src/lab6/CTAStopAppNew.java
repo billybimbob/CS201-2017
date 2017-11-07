@@ -357,7 +357,7 @@ public class CTAStopAppNew {
 				System.out.println("Not a Valid Response\n");
 			}
 		} while (!haveResponse);
-		
+		//can only add to red and green line individually, as the station names are different for both
 		if (line.equals("red")) {
 			int index = findIndex(keyboard, redLine);
 			redLine.insertStation(index, new CTAStation(name, lat, lon, location, wheel, true, -1, index));
