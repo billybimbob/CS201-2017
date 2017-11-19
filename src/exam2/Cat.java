@@ -1,3 +1,4 @@
+/*
 package test2;
 
 public class Cat extends Animal{
@@ -9,3 +10,4 @@ public class Cat extends Animal{
 		System.out.println("Meow");
 	}
 }
+*/

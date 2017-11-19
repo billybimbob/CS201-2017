@@ -1,5 +1,5 @@
+/*
 package test2;
-
 
 public class Student {
 	private int id;
@@ -35,3 +35,4 @@ public class Student {
 		return this.name.equals(comparing.getName()) && id == comparing.getId();
 	}
 }
+*/

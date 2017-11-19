@@ -1,3 +1,4 @@
+/*
 package test2;
 
 public class Circle {
@@ -33,3 +34,4 @@ public class Circle {
 		return 2*Math.PI*this.getRadius();
 	}
 }
+*/

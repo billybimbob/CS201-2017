@@ -1,3 +1,4 @@
+/*
 package test2;
 
 public class Sphere extends Circle {
@@ -13,3 +14,4 @@ public class Sphere extends Circle {
 		return (4/3)*Math.PI*Math.pow(this.getRadius(), 3);
 	}
 }
+*/
