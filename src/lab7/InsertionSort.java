@@ -13,7 +13,7 @@ public class InsertionSort {
 				nameList[j] = nameList[j-1];
 				nameList[j-1] = store;
 				j-=1;
-			} //breaks out of loop when at end of list or when sorted section encountered
+			}
 			//breaking inserts j value essentially
 		}
 		
