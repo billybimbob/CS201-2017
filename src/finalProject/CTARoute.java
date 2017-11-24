@@ -1,6 +1,5 @@
 package finalProject;
 
-import lab5.*; //used CTAStation from previous lab
 import java.util.ArrayList;
 
 public class CTARoute {
@@ -24,6 +23,10 @@ public class CTARoute {
 	}
 	public ArrayList<CTAStation> getStops() {
 		return stops;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	public String toString() {

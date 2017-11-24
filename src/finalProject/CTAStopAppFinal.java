@@ -1,6 +1,5 @@
 package finalProject;
 
-import lab5.*; //used classes from previous lab;
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -8,18 +7,21 @@ import java.util.concurrent.TimeUnit;
 //note: lab 5 classes referenced and modified
 public class CTAStopAppFinal {
 
-	private static CTARoute greenLine, redLine;
+	//private static CTARoute greenLine, redLine;
 	
 	public static void main(String[] args)  {
 		Scanner kboard = new Scanner(System.in);
 		try {
-			File inFile = new File("C:\\Users\\funte\\eclipse-workspace\\CS201\\src\\lab6\\CTAStops.csv"); //file location varies based on computer
+			File inFile = new File("C:\\Users\\funte\\eclipse-workspace\\CS201\\src\\finalProject\\CTAStops.csv"); //file location varies based on computer
 			Scanner input = new Scanner(inFile);
 			
 			input.nextLine(); //accounts for header
+			input.nextLine();
 			input.useDelimiter(",|\\n"); //divides by commas and \n
-			greenLine = new CTARoute("Green Line");
-			redLine = new CTARoute("Red Line");
+			CTARoute //make each CTAline to store each station
+			blueLine = new CTARoute(), brownLine = new CTARoute("Brown Line"), greenLine = new CTARoute("Green Line"),
+			orangeLine = new CTARoute("Orange Line"), redLine = new CTARoute("Red Line"), pinkLine = new CTARoute("Pink Line"),
+			purpleLine = new CTARoute("Purple Line"), yellowLine = new CTARoute("Yellow Line");
 			
 			while(input.hasNextLine()) {
 				//parsing csv file
@@ -27,15 +29,25 @@ public class CTAStopAppFinal {
 				double inLat = Double.parseDouble(input.next()), inLong = Double.parseDouble(input.next());
 				String inLocation = input.next();
 				boolean wheelChair = Boolean.parseBoolean(input.next());
-				int redCheck = Integer.parseInt(input.next()), greenCheck = Integer.parseInt(input.next().trim()); //account for \n
 				
-				CTAStation station = new CTAStation(inName, inLat, inLong, inLocation, wheelChair, false, greenCheck, redCheck); //instantiate object with parsed parameters
+				int
+				redCheck = Integer.parseInt(input.next()), greenCheck = Integer.parseInt(input.next()),
+				blueCheck = Integer.parseInt(input.next()), brownCheck = Integer.parseInt(input.next()),
+				purpleCheck = Integer.parseInt(input.next()), pinkCheck = Integer.parseInt(input.next()),
+				orangeCheck = Integer.parseInt(input.next()), yellowCheck = Integer.parseInt(input.next().trim()); //account for \n
+		
+				CTAStation station = new CTAStation(inName, inLat, inLong, inLocation, wheelChair, false, blueCheck, brownCheck, greenCheck, pinkCheck, purpleCheck, orangeCheck, redCheck, yellowCheck); //instantiate object with parsed parameters
 				
-				//both are if statements to account for stations that are both red and green line stations
-				if (redCheck != -1)
-					redLine.addStation(station); //create object based on parses of the current line
+				//both are if statements to account for stations that are multiple lines
+				if (blueCheck != -1)
+					blueLine.addStation(station);
+				if (brownCheck != -1)
+					brownLine.addStation(station);
 				if (greenCheck != -1)
 					greenLine.addStation(station);
+				
+				if (redCheck != -1)
+					redLine.addStation(station); //create object based on parses of the current line
 			}
 			greenLine.sort("green");
 			redLine.sort("red");
