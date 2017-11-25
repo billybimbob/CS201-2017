@@ -19,7 +19,7 @@ public class CTAStopAppFinal {
 			input.nextLine();
 			input.useDelimiter(",|\\n"); //divides by commas and \n
 			CTARoute //make each CTAline to store each station
-			blueLine = new CTARoute(), brownLine = new CTARoute("Brown Line"), greenLine = new CTARoute("Green Line"),
+			blueLine = new CTARoute("Blue Line"), brownLine = new CTARoute("Brown Line"), greenLine = new CTARoute("Green Line"),
 			orangeLine = new CTARoute("Orange Line"), redLine = new CTARoute("Red Line"), pinkLine = new CTARoute("Pink Line"),
 			purpleLine = new CTARoute("Purple Line"), yellowLine = new CTARoute("Yellow Line");
 			
@@ -45,13 +45,28 @@ public class CTAStopAppFinal {
 					brownLine.addStation(station);
 				if (greenCheck != -1)
 					greenLine.addStation(station);
-				
+				if (orangeCheck != -1)
+					orangeLine.addStation(station);	
 				if (redCheck != -1)
 					redLine.addStation(station); //create object based on parses of the current line
-			}
-			greenLine.sort("green");
-			redLine.sort("red");
+				if (pinkCheck != -1)
+					pinkLine.addStation(station);
+				if (purpleCheck != -1)
+					purpleLine.addStation(station);
+				if (yellowCheck != -1)
+					yellowLine.addStation(station);
 			
+			}
+			blueLine.sort("blue");
+			brownLine.sort("brown");
+			greenLine.sort("green");
+			orangeLine.sort("orange");
+			redLine.sort("red");
+			pinkLine.sort("pink");
+			purpleLine.sort("purple");
+			yellowLine.sort("yellow");
+			
+			new CTASystem(blueLine, brownLine, greenLine, orangeLine, redLine, pinkLine, purpleLine, yellowLine); //not sure
 			System.out.println("Welcome to the CTA Green Line Information Center");
 			userCommand:
 			while(true) { //only breaks with the exit case in switch
@@ -216,16 +231,9 @@ public class CTAStopAppFinal {
 
 	//methods for each display of data
 	public static void displayStationNames() { //goes through array and prints name
-		ArrayList<CTAStation> redStops = redLine.getStops(), greenStops = greenLine.getStops();
-		System.out.println("All of the Stations on the CTA Green Line are: ");
-		for (int i = 0; i < greenStops.size(); i++) {
-			System.out.println(greenStops.get(i).getName());
-		}
-		System.out.println("");
-		System.out.println("All of the Stations on the CTA Red Line are: ");
-		for (int i = 0; i < redStops.size(); i++) {
-			System.out.println(redStops.get(i).getName());
-		}
+		ArrayList<CTAStation> stations = CTASystem.getAll();
+		for(CTAStation i: stations)
+			System.out.println(i.getName());
 	}
 	public static void displayWheelchair(Scanner keyboard) { //display wheelchair accessible or non-wheelchair accessible stations
 		boolean searchWheel = false, haveResponse = false;

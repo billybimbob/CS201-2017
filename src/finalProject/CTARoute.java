@@ -60,18 +60,89 @@ public class CTARoute {
 	public void insertStation(int indx, CTAStation adding) {
 		stops.add(indx,  adding);
 	}
+	public void sort(String lineColor) {
+		for (int i = 0; i < stops.size()-1; i++) {
+			int j = i+1;
+			int station1 = -1, station2 = -1;
+			switch(lineColor) {
+			case "blue":
+				station1 = stops.get(j).getBlueIdx();
+				station2 = stops.get(j-1).getBlueIdx();
+				break;
+			case "brown":
+				station1 = stops.get(j).getBrownIdx();
+				station2 = stops.get(j-1).getBrownIdx();
+				break;
+			case "green":
+				station1 = stops.get(j).getGreenIdx();
+				station2 = stops.get(j-1).getGreenIdx();
+				break;
+			case "orange":
+				station1 = stops.get(j).getOrangeIdx();
+				station2 = stops.get(j-1).getOrangeIdx();
+				break;
+			case "pink":
+				station1 = stops.get(j).getPinkIdx();
+				station2 = stops.get(j-1).getPinkIdx();
+				break;
+			case "purple":
+				station1 = stops.get(j).getPurpleIdx();
+				station2 = stops.get(j-1).getPurpleIdx();
+				break;
+			case "red":
+				station1 = stops.get(j).getRedIdx();
+				station2 = stops.get(j-1).getRedIdx();
+				break;
+			case "yellow":
+				station1 = stops.get(j).getYellowIdx();
+				station2 = stops.get(j-1).getYellowIdx();
+				break;
+			}
+			
+			while(j>=0 && station1 < station2) {
+				int store = station1;
+				station1 = station2;
+				station2 = store;
+			}
+		}
+	}
+	/*
 	public void sort(String lineColor) { //sorts the stops list in ascending index of the inputed line color
 		int count = 0;
 		while (count < stops.size()-1) {
 			int sortVal = -1, sortVal2 = -1;
 			switch(lineColor) { //determines the index
+			case "blue":
+				sortVal = stops.get(count).getBlueIdx();
+				sortVal2 = stops.get(count+1).getBlueIdx();
+				break;
+			case "brown":
+				sortVal = stops.get(count).getBrownIdx();
+				sortVal2 = stops.get(count+1).getBrownIdx();
+				break;
 			case "green":
 				sortVal = stops.get(count).getGreenIdx();
 				sortVal2 = stops.get(count+1).getGreenIdx();
 				break;
+			case "orange":
+				sortVal = stops.get(count).getOrangeIdx();
+				sortVal2 = stops.get(count+1).getOrangeIdx();
+				break;
 			case "red":
 				sortVal = stops.get(count).getRedIdx();
 				sortVal2 = stops.get(count+1).getRedIdx();
+				break;
+			case "pink":
+				sortVal = stops.get(count).getPinkIdx();
+				sortVal2 = stops.get(count+1).getPinkIdx();
+				break;
+			case "purple":
+				sortVal = stops.get(count).getPurpleIdx();
+				sortVal2 = stops.get(count+1).getPurpleIdx();
+				break;
+			case "yellow":
+				sortVal = stops.get(count).getYellowIdx();
+				sortVal2 = stops.get(count+1).getYellowIdx();
 				break;
 			}
 			if (sortVal > sortVal2) { //starts forward, if greater, going to send to end of list
@@ -96,6 +167,7 @@ public class CTARoute {
 			}
 		}
 	}
+	*/
 	public CTAStation lookupStation(String looking) { //returns first instance of CTAStation matching the inputed name parameter
 		CTAStation match = null;
 		for (CTAStation station: stops) {

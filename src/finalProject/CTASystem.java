@@ -8,14 +8,26 @@ public class CTASystem extends CTARoute {
 	
 	public CTASystem() {
 		this.setName("Chicago Transit System");
-		setBlueLine(new ArrayList<CTAStation>());
-		setBrownLine(new ArrayList<CTAStation>());
-		setGreenLine(new ArrayList<CTAStation>());
-		setOrangeLine(new ArrayList<CTAStation>());
-		setRedLine(new ArrayList<CTAStation>());
-		setPinkLine(new ArrayList<CTAStation>());
-		setPurpleLine(new ArrayList<CTAStation>());
-		setYellowLine(new ArrayList<CTAStation>());
+		blueLine = new ArrayList<CTAStation>();
+		brownLine = new ArrayList<CTAStation>();
+		greenLine = new ArrayList<CTAStation>();
+		orangeLine = new ArrayList<CTAStation>();
+		redLine = new ArrayList<CTAStation>();
+		pinkLine = new ArrayList<CTAStation>();
+		purpleLine = new ArrayList<CTAStation>();
+		yellowLine = new ArrayList<CTAStation>();
+	}
+	public CTASystem(CTARoute line1, CTARoute line2, CTARoute line3, CTARoute line4,
+			CTARoute line5, CTARoute line6, CTARoute line7, CTARoute line8) { //intentional shallow copy
+		this.setName("Chicago Transit System");
+		blueLine = new ArrayList<CTAStation>(line1.getStops());
+		brownLine = new ArrayList<CTAStation>(line2.getStops());
+		greenLine = new ArrayList<CTAStation>(line3.getStops());
+		orangeLine = new ArrayList<CTAStation>(line4.getStops());
+		redLine = new ArrayList<CTAStation>(line5.getStops());
+		pinkLine = new ArrayList<CTAStation>(line6.getStops());
+		purpleLine = new ArrayList<CTAStation>(line7.getStops());
+		yellowLine = new ArrayList<CTAStation>(line8.getStops());
 	}
 
 	//getters
@@ -42,6 +54,17 @@ public class CTASystem extends CTARoute {
 	}
 	public static ArrayList<CTAStation> getYellowLine() {
 		return yellowLine;
+	}
+	public static ArrayList<CTAStation> getAll() {
+		ArrayList<CTAStation> allStation = new ArrayList<CTAStation>();
+		allStation.addAll(blueLine);
+		allStation.addAll(brownLine);
+		allStation.addAll(greenLine);
+		allStation.addAll(orangeLine);
+		allStation.addAll(pinkLine);
+		allStation.addAll(purpleLine);
+		allStation.addAll(yellowLine);
+		return allStation;
 	}
 
 	//setters
