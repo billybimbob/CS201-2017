@@ -11,7 +11,7 @@ public class CTAStopApp {
 	public static void main(String[] args)  {
 		Scanner kboard = new Scanner(System.in);
 		try {
-			File inFile = new File("C:\\Users\\funte\\eclipse-workspace\\CS201\\src\\lab5\\greenLineStops.csv"); //file location varies based on computer
+			File inFile = new File("src\\lab5\\greenLineStops.csv"); //file location varies based on computer
 			Scanner input = new Scanner(inFile);
 			
 			int count = 0;

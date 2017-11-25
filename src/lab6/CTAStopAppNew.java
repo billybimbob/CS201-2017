@@ -13,7 +13,7 @@ public class CTAStopAppNew {
 	public static void main(String[] args)  {
 		Scanner kboard = new Scanner(System.in);
 		try {
-			File inFile = new File("C:\\Users\\funte\\eclipse-workspace\\CS201\\src\\lab6\\CTAStops.csv"); //file location varies based on computer
+			File inFile = new File("src\\lab6\\CTAStops.csv"); //file location varies based on computer
 			Scanner input = new Scanner(inFile);
 			
 			input.nextLine(); //accounts for header
