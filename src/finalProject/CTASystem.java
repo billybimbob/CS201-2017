@@ -4,7 +4,7 @@ import java.util.*;
 
 public class CTASystem extends CTARoute {
 
-	private static ArrayList<CTAStation> blueLine, brownLine, greenLine, orangeLine, redLine, pinkLine, purpleLine, yellowLine;
+	private ArrayList<CTAStation> blueLine, brownLine, greenLine, orangeLine, redLine, pinkLine, purpleLine, yellowLine;
 	
 	public CTASystem() {
 		this.setName("Chicago Transit System");
@@ -16,6 +16,7 @@ public class CTASystem extends CTARoute {
 		pinkLine = new ArrayList<CTAStation>();
 		purpleLine = new ArrayList<CTAStation>();
 		yellowLine = new ArrayList<CTAStation>();
+		stops = getAll();
 	}
 	public CTASystem(CTARoute line1, CTARoute line2, CTARoute line3, CTARoute line4,
 			CTARoute line5, CTARoute line6, CTARoute line7, CTARoute line8) { //intentional shallow copy
@@ -28,34 +29,35 @@ public class CTASystem extends CTARoute {
 		pinkLine = new ArrayList<CTAStation>(line6.getStops());
 		purpleLine = new ArrayList<CTAStation>(line7.getStops());
 		yellowLine = new ArrayList<CTAStation>(line8.getStops());
+		stops = getAll();
 	}
 
 	//getters
-	public static ArrayList<CTAStation> getBlueLine() {
+	public ArrayList<CTAStation> getBlueLine() {
 		return blueLine;
 	}
-	public static ArrayList<CTAStation> getBrownLine() {
+	public ArrayList<CTAStation> getBrownLine() {
 		return brownLine;
 	}
-	public static ArrayList<CTAStation> getGreenLine() {
+	public ArrayList<CTAStation> getGreenLine() {
 		return greenLine;
 	}
-	public static ArrayList<CTAStation> getOrangeLine() {
+	public ArrayList<CTAStation> getOrangeLine() {
 		return orangeLine;
 	}
-	public static ArrayList<CTAStation> getRedLine() {
+	public ArrayList<CTAStation> getRedLine() {
 		return redLine;
 	}
-	public static ArrayList<CTAStation> getPinkLine() {
+	public ArrayList<CTAStation> getPinkLine() {
 		return pinkLine;
 	}
-	public static ArrayList<CTAStation> getPurpleLine() {
+	public ArrayList<CTAStation> getPurpleLine() {
 		return purpleLine;
 	}
-	public static ArrayList<CTAStation> getYellowLine() {
+	public ArrayList<CTAStation> getYellowLine() {
 		return yellowLine;
 	}
-	public static ArrayList<CTAStation> getAll() {
+	public ArrayList<CTAStation> getAll() {
 		ArrayList<CTAStation> allStation = new ArrayList<CTAStation>();
 		allStation.addAll(blueLine);
 		allStation.addAll(brownLine);
@@ -68,31 +70,33 @@ public class CTASystem extends CTARoute {
 	}
 
 	//setters
-	public static void setBlueLine(ArrayList<CTAStation> blueLine) {
-		CTASystem.blueLine = blueLine;
+	public void setBlueLine(ArrayList<CTAStation> blueLine) {
+		this.blueLine = blueLine;
 	}
-	public static void setBrownLine(ArrayList<CTAStation> brownLine) {
-		CTASystem.brownLine = brownLine;
+	public void setBrownLine(ArrayList<CTAStation> brownLine) {
+		this.brownLine = brownLine;
 	}
-	public static void setGreenLine(ArrayList<CTAStation> greenLine) {
-		CTASystem.greenLine = greenLine;
+	public void setGreenLine(ArrayList<CTAStation> greenLine) {
+		this.greenLine = greenLine;
 	}
-	public static void setOrangeLine(ArrayList<CTAStation> orangeLine) {
-		CTASystem.orangeLine = orangeLine;
+	public void setOrangeLine(ArrayList<CTAStation> orangeLine) {
+		this.orangeLine = orangeLine;
 	}
-	public static void setRedLine(ArrayList<CTAStation> redLine) {
-		CTASystem.redLine = redLine;
+	public void setRedLine(ArrayList<CTAStation> redLine) {
+		this.redLine = redLine;
 	}
-	public static void setPinkLine(ArrayList<CTAStation> pinkLine) {
-		CTASystem.pinkLine = pinkLine;
+	public void setPinkLine(ArrayList<CTAStation> pinkLine) {
+		this.pinkLine = pinkLine;
 	}
-	public static void setPurpleLine(ArrayList<CTAStation> purpleLine) {
-		CTASystem.purpleLine = purpleLine;
+	public void setPurpleLine(ArrayList<CTAStation> purpleLine) {
+		this.purpleLine = purpleLine;
 	}
-	public static void setYellowLine(ArrayList<CTAStation> yellowLine) {
-		CTASystem.yellowLine = yellowLine;
+	public void setYellowLine(ArrayList<CTAStation> yellowLine) {
+		this.yellowLine = yellowLine;
 	}
-	
+	public void setStops() {
+		stops = this.getAll();
+	}
 	
 
 }

@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class CTAStopAppFinal {
 
 	//private static CTARoute greenLine, redLine;
+	private static CTASystem system;
 	
 	public static void main(String[] args)  {
 		Scanner kboard = new Scanner(System.in);
@@ -36,7 +37,8 @@ public class CTAStopAppFinal {
 				purpleCheck = Integer.parseInt(input.next()), pinkCheck = Integer.parseInt(input.next()),
 				orangeCheck = Integer.parseInt(input.next()), yellowCheck = Integer.parseInt(input.next().trim()); //account for \n
 		
-				CTAStation station = new CTAStation(inName, inLat, inLong, inLocation, wheelChair, false, blueCheck, brownCheck, greenCheck, pinkCheck, purpleCheck, orangeCheck, redCheck, yellowCheck); //instantiate object with parsed parameters
+				CTAStation station = new CTAStation(inName, inLat, inLong, inLocation, wheelChair, false,
+						blueCheck, brownCheck, greenCheck, pinkCheck, purpleCheck, orangeCheck, redCheck, yellowCheck); //instantiate object with parsed parameters
 				
 				//both are if statements to account for stations that are multiple lines
 				if (blueCheck != -1)
@@ -66,7 +68,7 @@ public class CTAStopAppFinal {
 			purpleLine.sort("purple");
 			yellowLine.sort("yellow");
 			
-			new CTASystem(blueLine, brownLine, greenLine, orangeLine, redLine, pinkLine, purpleLine, yellowLine); //not sure
+			system = new CTASystem(blueLine, brownLine, greenLine, orangeLine, redLine, pinkLine, purpleLine, yellowLine); //not sure
 			System.out.println("Welcome to the CTA Green Line Information Center");
 			userCommand:
 			while(true) { //only breaks with the exit case in switch
@@ -231,9 +233,8 @@ public class CTAStopAppFinal {
 
 	//methods for each display of data
 	public static void displayStationNames() { //goes through array and prints name
-		ArrayList<CTAStation> stations = CTASystem.getAll();
-		for(CTAStation i: stations)
-			System.out.println(i.getName());
+		for(CTAStation station: system.getStops())
+			System.out.println(station.getName());
 	}
 	public static void displayWheelchair(Scanner keyboard) { //display wheelchair accessible or non-wheelchair accessible stations
 		boolean searchWheel = false, haveResponse = false;
@@ -257,18 +258,14 @@ public class CTAStopAppFinal {
 		else
 			withOrOut = "without";
 		System.out.println("\nHere are the Stations " + withOrOut + " Wheelchair Accessibility:");
-		for (int i = 0; i < greenLine.getStops().size(); i++) { //goes through each station and checks the wheelchair boolean
-			if (greenLine.getStops().get(i).getWheelchair() == searchWheel) { //prints station name if true
-				System.out.println(greenLine.getStops().get(i).getName());
+		
+		for(CTAStation station: system.getStops()) {  //goes through each station and checks the wheelchair boolean
+			if(station.getWheelchair()==searchWheel) { //prints station name if true
+				System.out.println(station.getName());
 				statFound++;
 			}
 		}
-		for (int i = 0; i < redLine.getStops().size(); i++) { //goes through each station and checks the wheelchair boolean
-			if (redLine.getStops().get(i).getWheelchair() == searchWheel) { //prints station name if true
-				System.out.println(redLine.getStops().get(i).getName());
-				statFound++;
-			}
-		}
+		
 		if (statFound == 0)
 			System.out.println("No Stations were Found");
 	}
@@ -287,58 +284,34 @@ public class CTAStopAppFinal {
 			}
 		} while (!validLoc); //breaks out of loops if the input is a double
 		
-		CTAStation nearRed = redLine.nearestStation(curLat, curLon), nearGreen = greenLine.nearestStation(curLat, curLon);
+		CTAStation nearest = system.nearestStation(curLat, curLon);
+		System.out.println("The nearest station to you is " + nearest + " station");
 		
-		if (nearRed.calcDistance(curLat, curLon) < nearGreen.calcDistance(curLat, curLon)) { //compares the nearest station of green and red line
-			System.out.println("The nearest station to you " + nearRed.getName());
-		} else {
-			System.out.println("The nearest station to you is " + nearGreen.getName() + " station");
-		}
 	}
 	public static void displaySpecific (Scanner keyboard) { //displays instance variables of specified station
-		boolean validName = false, validRed = false, validGreen = false;
-		CTAStation lookStation = null;
-		String line = lineCheck(keyboard, true); //determine if want red, green, or both
+		boolean validName = false;
+		String inLoc = null;
+		
 		do { //getting the location variables is kind of wonky as, the user needs to know precise location of where they are
 			System.out.print("What station would you like the information of: ");
-			String inLoc = keyboard.nextLine().toLowerCase();
-			
-			//for loops determine if inputed name is in either list, boolean determine if method is called or not
-			for (CTAStation i: greenLine.getStops()) {
-				if (inLoc.equals(i.getName().toLowerCase()))
-					validGreen = true;
-			}
-			for (CTAStation i: redLine.getStops()) {
-				if (inLoc.equals(i.getName().toLowerCase()))
-					validRed = true;
-			}
-				
-			if (validRed && line.equals("red")) {
-				lookStation = redLine.lookupStation(inLoc);
-				validName = true;
-				break;
-			} else if (validGreen && line.equals("green")) {
-				lookStation = greenLine.lookupStation(inLoc);
-				validName = true;
-				break;
-			} else if (validGreen && validRed && line.equals("green and red")) {
-				if (greenLine.lookupStation(inLoc).equals(redLine.lookupStation(inLoc))) { //checks if stations with the same name also have same location: Green and Red both have different Garfield stations
-					lookStation = greenLine.lookupStation(inLoc);
+			inLoc = keyboard.nextLine().toLowerCase();
+			for(CTAStation station: system.getStops()) {
+				if (inLoc.equals(station.getName().toLowerCase())) {
 					validName = true;
 					break;
 				}
 			}
-			System.out.println("Not a Valid Station\n");
-			
+			if (!validName)
+				System.out.println("Not a Valid Station\n");
+					
 		} while (!validName); //breaks out of loops if the input is a valid station
+		
+		CTAStation lookStation = system.lookupStation(inLoc);
 		System.out.print(lookStation.toString());
 	}
 	public static void displayAll () { //calls toString method of both CTARoutes
-		System.out.println("All of the information for the Green Line Stations:");
-		System.out.println(greenLine.toString());
-		System.out.println("");
-		System.out.println("All of the information for the Red Line Stations:");
-		System.out.println(redLine.toString());
+		System.out.println("All of the information for CTA System Stations:");
+		System.out.println(system.toString());
 	}
 	
 	public static void addStation (Scanner keyboard) { //inserts station at index of list with new CTAStation with inputed data variables

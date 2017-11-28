@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class CTARoute {
 
 	private String name;
-	private ArrayList<CTAStation> stops;
+	protected ArrayList<CTAStation> stops; //protected since no setter
 	
 	//constructors
 	public CTARoute() { //default
@@ -23,10 +23,6 @@ public class CTARoute {
 	}
 	public ArrayList<CTAStation> getStops() {
 		return stops;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
 	}
 	
 	public String toString() {
@@ -50,6 +46,11 @@ public class CTARoute {
 		return this.getName().equals(comparing.getName()) && listCompare;
 	}
 	
+	//setters
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	//list methods of stops ArrayList
 	public void addStation(CTAStation adding) {
 		stops.add(adding);
@@ -61,9 +62,46 @@ public class CTARoute {
 		stops.add(indx,  adding);
 	}
 	public void sort(String lineColor) {
+		int[] idxStore = new int[stops.size()];
+		
+		switch(lineColor) { //makes int array based on color of line
+		case "blue":
+			for(int i = 0; i < stops.size(); i++)
+				idxStore[i] = stops.get(i).getBlueIdx();
+			break;
+		case "brown":
+			for(int i = 0; i < stops.size(); i++)
+				idxStore[i] = stops.get(i).getBrownIdx();
+			break;
+		case "green":
+			for(int i = 0; i < stops.size(); i++)
+				idxStore[i] = stops.get(i).getGreenIdx();
+			break;
+		case "orange":
+			for(int i = 0; i < stops.size(); i++)
+				idxStore[i] = stops.get(i).getOrangeIdx();
+			break;
+		case "pink":
+			for(int i = 0; i < stops.size(); i++)
+				idxStore[i] = stops.get(i).getPinkIdx();
+			break;
+		case "purple":
+			for(int i = 0; i < stops.size(); i++)
+				idxStore[i] = stops.get(i).getPurpleIdx();
+			break;
+		case "red":
+			for(int i = 0; i < stops.size(); i++)
+				idxStore[i] = stops.get(i).getRedIdx();
+			break;
+		case "yellow":
+			for(int i = 0; i < stops.size(); i++)
+				idxStore[i] = stops.get(i).getYellowIdx();
+			break;
+		}
+		
 		for (int i = 0; i < stops.size()-1; i++) {
 			int j = i+1;
-			int station1 = -1, station2 = -1;
+			/*
 			switch(lineColor) {
 			case "blue":
 				station1 = stops.get(j).getBlueIdx();
@@ -97,12 +135,13 @@ public class CTARoute {
 				station1 = stops.get(j).getYellowIdx();
 				station2 = stops.get(j-1).getYellowIdx();
 				break;
-			}
+			}*/
 			
-			while(j>=0 && station1 < station2) {
-				int store = station1;
-				station1 = station2;
-				station2 = store;
+			while(j>=1 && idxStore[j] < idxStore[j-1]) {
+				CTAStation store = stops.get(j);
+				stops.set(j, stops.get(j-1));
+				stops.set(j-1, store);
+				j-=1;
 			}
 		}
 	}
