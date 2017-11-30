@@ -57,8 +57,8 @@ public class CTAStopAppFinal {
 					purpleLine.addStation(station);
 				if (yellowCheck != -1)
 					yellowLine.addStation(station);
-			
 			}
+			
 			blueLine.sort("blue");
 			brownLine.sort("brown");
 			greenLine.sort("green");
@@ -67,7 +67,7 @@ public class CTAStopAppFinal {
 			pinkLine.sort("pink");
 			purpleLine.sort("purple");
 			yellowLine.sort("yellow");
-			
+					
 			system = new CTASystem(blueLine, brownLine, greenLine, orangeLine, redLine, pinkLine, purpleLine, yellowLine); //not sure
 			System.out.println("Welcome to the CTA Green Line Information Center");
 			userCommand:
@@ -364,45 +364,34 @@ public class CTAStopAppFinal {
 	}
 	public static void removeStation (Scanner keyboard) { //removes station with specified name from specified color line
 		boolean validRemove = false;
-		String line = lineCheck(keyboard, true);
+		//String line = lineCheck(keyboard, true);
 		do {
 			System.out.print("What station would you like to remove: ");
 			String statName = keyboard.nextLine().toLowerCase();
 			
-			if (line.equals("green")) { //checks if name exists in list
-				for (CTAStation i: greenLine.getStops()) {
-					if (statName.equals(i.getName().toLowerCase())) {
-						greenLine.removeStation(i);
-						validRemove = true;
-					}
+			//checks if name exists in list
+			CTAStation removing = null;
+			for (CTAStation i: system.getStops()) {
+				if (statName.equals(i.getName().toLowerCase())) {
+					removing = i;
+					validRemove = true;
+					break;
 				}
-			} else if (line.equals("red")) { //same as above
-				for (CTAStation i: redLine.getStops()) {
-					if (statName.equals(i.getName().toLowerCase())) {
-						redLine.removeStation(i);
-						validRemove = true;
-					}
-				}
-			} else if (line.equals("green and red")) { //same as above, but with both lists
-				CTAStation greenHold = null, redHold = null;
-				for (CTAStation i: greenLine.getStops()) {
-					if (statName.equals(i.getName().toLowerCase())) {
-						greenHold = i;
-						validRemove = true;
-					}
-				}
-				for (CTAStation i: redLine.getStops()) {
-					if (statName.equals(i.getName().toLowerCase())) {
-						redHold = i;
-						validRemove = true;
-					}
-				}
-				if (greenHold.equals(redHold)) { //stations have same location, otherwise, doesn't remove
-					greenLine.removeStation(greenHold);
-					redLine.removeStation(redHold);
-				}
-					
 			}
+			if (removing.getBlueIdx()!=-1)
+				system.getBlueLine().remove(removing);
+			if (removing.getBrownIdx()!=-1)
+				system.getBrownLine().remove(removing);
+			if (removing.getGreenIdx()!=-1)
+				system.getGreenLine().remove(removing);
+			if (removing.getOrangeIdx()!=-1)
+				system.getOrangeLine().remove(removing);
+			if (removing.getPinkIdx()!=-1)
+				system.getPinkLine().remove(removing);
+			if (removing.getPurpleIdx()!=-1)
+				system.getPurpleLine().remove(removing);
+			
+			
 			if (!validRemove)
 				System.out.println("Station(s) were not removed");
 			

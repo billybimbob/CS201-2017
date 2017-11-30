@@ -4,7 +4,7 @@ public class CTAStation extends GeoLocation {
 
 	private String name, location;
 	private boolean opened, wheelchair;
-	private int blueIdx, brownIdx, greenIdx, orangeIdx, pinkIdx, purpleIdx, redIdx, yellowIdx;
+	private int blueIdx, brownIdx, greenIdx, orangeIdx, pinkIdx, purpleIdx, redIdx, yellowIdx; //make into an array?
 	
 	public CTAStation() { //default constructor
 		super();
