@@ -67,35 +67,35 @@ public class CTARoute {
 		switch(lineColor) { //makes int array based on color of line, parallel array
 		case "blue":
 			for(int i = 0; i < stops.size(); i++)
-				idxStore[i] = stops.get(i).getBlueIdx();
+				idxStore[i] = stops.get(i).getColorIdx("blue");
 			break;
 		case "brown":
 			for(int i = 0; i < stops.size(); i++)
-				idxStore[i] = stops.get(i).getBrownIdx();
+				idxStore[i] = stops.get(i).getColorIdx("brown");
 			break;
 		case "green":
 			for(int i = 0; i < stops.size(); i++)
-				idxStore[i] = stops.get(i).getGreenIdx();
+				idxStore[i] = stops.get(i).getColorIdx("green");
 			break;
 		case "orange":
 			for(int i = 0; i < stops.size(); i++)
-				idxStore[i] = stops.get(i).getOrangeIdx();
+				idxStore[i] = stops.get(i).getColorIdx("orange");
 			break;
 		case "pink":
 			for(int i = 0; i < stops.size(); i++)
-				idxStore[i] = stops.get(i).getPinkIdx();
+				idxStore[i] = stops.get(i).getColorIdx("pink");
 			break;
 		case "purple":
 			for(int i = 0; i < stops.size(); i++)
-				idxStore[i] = stops.get(i).getPurpleIdx();
+				idxStore[i] = stops.get(i).getColorIdx("purple");
 			break;
 		case "red":
 			for(int i = 0; i < stops.size(); i++)
-				idxStore[i] = stops.get(i).getRedIdx();
+				idxStore[i] = stops.get(i).getColorIdx("red");
 			break;
 		case "yellow":
 			for(int i = 0; i < stops.size(); i++)
-				idxStore[i] = stops.get(i).getYellowIdx();
+				idxStore[i] = stops.get(i).getColorIdx("yellow");
 			break;
 		}
 		

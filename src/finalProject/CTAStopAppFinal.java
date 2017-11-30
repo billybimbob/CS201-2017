@@ -29,7 +29,15 @@ public class CTAStopAppFinal {
 				//parsing csv file
 				String inName = input.next();
 				double inLat = Double.parseDouble(input.next()), inLong = Double.parseDouble(input.next());
-				String inLocation = input.next();
+				String locCheck = input.next();
+				Location inLocation = null;
+				for (Location i: Location.values()) {
+					if (locCheck.equals(i.toString()))
+						inLocation = i;
+				}
+				if (inLocation==null)
+					inLocation = Location.name1;
+					
 				boolean wheelChair = Boolean.parseBoolean(input.next());
 				
 				int
@@ -37,7 +45,7 @@ public class CTAStopAppFinal {
 				blueCheck = Integer.parseInt(input.next()), brownCheck = Integer.parseInt(input.next()),
 				purpleCheck = Integer.parseInt(input.next()), pinkCheck = Integer.parseInt(input.next()),
 				orangeCheck = Integer.parseInt(input.next()), yellowCheck = Integer.parseInt(input.next().trim()); //account for \n
-		
+				
 				CTAStation station = new CTAStation(inName, inLat, inLong, inLocation, wheelChair, false,
 						blueCheck, brownCheck, greenCheck, pinkCheck, purpleCheck, orangeCheck, redCheck, yellowCheck); //instantiate object with parsed parameters
 				
@@ -317,7 +325,7 @@ public class CTAStopAppFinal {
 	
 	public static void addStation () { //inserts station at index of list with new CTAStation with inputed data variables
 		boolean haveResponse = false;
-		String line = lineCheck(keyboard, false);
+		//String line = lineCheck(keyboard, false);
 		
 		System.out.print("What is the name of the new Station: ");
 		String name = keyboard.nextLine();
@@ -335,8 +343,17 @@ public class CTAStopAppFinal {
 			}
 		} while (!haveResponse);
 		
-		System.out.print("What is the location of the new Station (elevated, subway, etc.): ");
-		String location = keyboard.nextLine();
+		Location location = Location.name1;
+		do {
+			System.out.print("What is the location of the new Station (elevated, subway, etc.): ");
+			String locCheck = keyboard.nextLine();
+			for (Location i: Location.values()) {
+				if (locCheck.equals(i.toString())) {
+					location = i;
+					haveResponse = true;
+				}
+			}
+		} while (!haveResponse);
 		
 		boolean wheel = false;
 		do {
@@ -379,18 +396,20 @@ public class CTAStopAppFinal {
 					break;
 				}
 			}
-			if (removing.getBlueIdx()!=-1)
+			if (removing.getColorIdx("blue")!=-1)
 				system.getBlueLine().remove(removing);
-			if (removing.getBrownIdx()!=-1)
+			if (removing.getColorIdx("brown")!=-1)
 				system.getBrownLine().remove(removing);
-			if (removing.getGreenIdx()!=-1)
+			if (removing.getColorIdx("green")!=-1)
 				system.getGreenLine().remove(removing);
-			if (removing.getOrangeIdx()!=-1)
+			if (removing.getColorIdx("orange")!=-1)
 				system.getOrangeLine().remove(removing);
-			if (removing.getPinkIdx()!=-1)
+			if (removing.getColorIdx("pink")!=-1)
 				system.getPinkLine().remove(removing);
-			if (removing.getPurpleIdx()!=-1)
+			if (removing.getColorIdx("purple")!=-1)
 				system.getPurpleLine().remove(removing);
+			if (removing.getColorIdx("yellow")!=-1)
+				system.getYellowLine().remove(removing);
 			
 			
 			if (!validRemove)
