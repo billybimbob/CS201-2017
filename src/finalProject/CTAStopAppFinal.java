@@ -9,9 +9,10 @@ public class CTAStopAppFinal {
 
 	//private static CTARoute greenLine, redLine;
 	private static CTASystem system;
+	private static Scanner keyboard;
 	
 	public static void main(String[] args)  {
-		Scanner kboard = new Scanner(System.in);
+		keyboard = new Scanner(System.in);
 		try {
 			File inFile = new File("C:\\Users\\funte\\eclipse-workspace\\CS201\\src\\finalProject\\CTAStops.csv"); //file location varies based on computer
 			Scanner input = new Scanner(inFile);
@@ -74,7 +75,7 @@ public class CTAStopAppFinal {
 			while(true) { //only breaks with the exit case in switch
 				boolean haveAction = false;
 				int choice = 0;
-				System.out.println("\nPlease Select One of the Following Commands to Display Specific Information:");
+				System.out.println("\n\nPlease Select One of the Following Commands to Display Specific Information:");
 				System.out.println("-----------------------------------------------");
 				System.out.println(""
 						+ "1. Display Station Names\n"
@@ -89,7 +90,7 @@ public class CTAStopAppFinal {
 				do {
 					try {
 						System.out.print("Select which Number You want: ");
-						choice = Integer.parseInt(kboard.nextLine());
+						choice = Integer.parseInt(keyboard.nextLine());
 					} catch (Exception e) {} //keeps program from crashing
 					
 					if ((choice <= 8 && choice > 0)) //Checks if input is valid
@@ -104,22 +105,22 @@ public class CTAStopAppFinal {
 					displayStationNames();
 					break;
 				case 2:
-					displayWheelchair(kboard);
+					displayWheelchair();
 					break;
 				case 3:
-					nearestStation(kboard);
+					nearestStation();
 					break;
 				case 4:
-					displaySpecific(kboard);
+					displaySpecific();
 					break;
 				case 5:
 					displayAll();
 					break;
 				case 6:
-					addStation(kboard);
+					addStation();
 					break;
 				case 7:
-					removeStation(kboard);
+					removeStation();
 					break;
 				case 8:
 					break userCommand;
@@ -129,15 +130,15 @@ public class CTAStopAppFinal {
 			
 			input.close();
 		} catch (Exception e) { //program should automatically end if exception thrown
-			//System.out.println(e);
+			System.out.println(e);
 			System.out.println("Something went wrong");
 		}
 		System.out.println("The CTA Information Center Has Closed");
-		kboard.close();
+		keyboard.close();
 	}
 	
 	//methods referenced by other CTAStop methods
-	public static String lineCheck (Scanner keyboard, boolean both) { //method to ask for which color Line is desired, accounts if more color are added, boolean if both is an option
+	public static String lineCheck (boolean both) { //method to ask for which color Line is desired, accounts if more color are added, boolean if both is an option
 		String line = null;
 		while(true) {
 			String prompt = "Do you want the Red or Green line";
@@ -162,7 +163,7 @@ public class CTAStopAppFinal {
 		
 		return line;
 	}
-	public static int findIndex (Scanner keyboard, CTARoute searching) { //finds index based on preceding and succeeding stations
+	public static int findIndex (CTARoute searching) { //finds index based on preceding and succeeding stations
 		int idx = -1;
 		boolean validName = false, validIdx = false;
 		do { //check if inputed names have one space between them
@@ -236,7 +237,7 @@ public class CTAStopAppFinal {
 		for(CTAStation station: system.getStops())
 			System.out.println(station.getName());
 	}
-	public static void displayWheelchair(Scanner keyboard) { //display wheelchair accessible or non-wheelchair accessible stations
+	public static void displayWheelchair() { //display wheelchair accessible or non-wheelchair accessible stations
 		boolean searchWheel = false, haveResponse = false;
 		do {
 			System.out.println("Do You Want to Show Stations with Wheelchair Accessibility?");
@@ -269,7 +270,7 @@ public class CTAStopAppFinal {
 		if (statFound == 0)
 			System.out.println("No Stations were Found");
 	}
-	public static void nearestStation (Scanner keyboard) { //displays the nearest station to inputed latitude and longitude
+	public static void nearestStation () { //displays the nearest station to inputed latitude and longitude
 		double curLat = 0, curLon = 0;
 		boolean validLoc = false;
 		do { //getting the location variables is kind of wonky as, the user needs to know precise location of where they are
@@ -277,7 +278,7 @@ public class CTAStopAppFinal {
 				System.out.print("Enter your current latitude location: ");
 				curLat = Double.parseDouble(keyboard.nextLine());
 				System.out.print("Enter your current longitude location: ");
-				curLon = keyboard.nextDouble();
+				curLon = Double.parseDouble(keyboard.nextLine());
 				validLoc = true;
 			} catch (Exception e) {
 				System.out.println("Invalid Input\n");
@@ -288,7 +289,7 @@ public class CTAStopAppFinal {
 		System.out.println("The nearest station to you is " + nearest + " station");
 		
 	}
-	public static void displaySpecific (Scanner keyboard) { //displays instance variables of specified station
+	public static void displaySpecific () { //displays instance variables of specified station
 		boolean validName = false;
 		String inLoc = null;
 		
@@ -314,7 +315,7 @@ public class CTAStopAppFinal {
 		System.out.println(system.toString());
 	}
 	
-	public static void addStation (Scanner keyboard) { //inserts station at index of list with new CTAStation with inputed data variables
+	public static void addStation () { //inserts station at index of list with new CTAStation with inputed data variables
 		boolean haveResponse = false;
 		String line = lineCheck(keyboard, false);
 		
@@ -362,7 +363,7 @@ public class CTAStopAppFinal {
 		}
 		
 	}
-	public static void removeStation (Scanner keyboard) { //removes station with specified name from specified color line
+	public static void removeStation () { //removes station with specified name from specified color line
 		boolean validRemove = false;
 		//String line = lineCheck(keyboard, true);
 		do {
@@ -396,6 +397,7 @@ public class CTAStopAppFinal {
 				System.out.println("Station(s) were not removed");
 			
 		} while (!validRemove);
+		system.setStops();
 		System.out.println("Station(s) successfully removed");
 	}
 

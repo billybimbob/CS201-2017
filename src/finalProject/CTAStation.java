@@ -94,12 +94,28 @@ public class CTAStation extends GeoLocation {
 	//prints all variables
 	public String toString() {
 		String baseState = name + " Station\n" + super.toString() + "\nLocation - " + location;
-		String wheelState = null;
+		String wheelState = null, colorState = "Line Colors - ";
 		if (wheelchair)
 			wheelState = "Wheelchair accessibility is present";
 		else
 			wheelState = "Wheelchair accessibility is not present";
-		return baseState + "\n" + wheelState;
+		
+		if (this.getBlueIdx()!=-1)
+			colorState+="Blue  ";
+		if (this.getBrownIdx()!=-1)
+			colorState+="Brown  ";
+		if (this.getGreenIdx()!=-1)
+			colorState+="Green  ";
+		if (this.getOrangeIdx()!=-1)
+			colorState+="Orange  ";
+		if (this.getPinkIdx()!=-1)
+			colorState+="Pink  ";
+		if (this.getPurpleIdx()!=-1)
+			colorState+="Purple  ";
+		if (this.getYellowIdx()!=-1)
+			colorState+="Yellow  ";
+		
+		return baseState + "\n" + wheelState + "\n" + colorState;
 	}
 	
 	//checks if name, latitude and longitude are the same

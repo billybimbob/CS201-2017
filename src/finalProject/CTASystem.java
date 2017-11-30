@@ -19,7 +19,7 @@ public class CTASystem extends CTARoute {
 		stops = getAll();
 	}
 	public CTASystem(CTARoute line1, CTARoute line2, CTARoute line3, CTARoute line4,
-			CTARoute line5, CTARoute line6, CTARoute line7, CTARoute line8) { //intentional shallow copy
+			CTARoute line5, CTARoute line6, CTARoute line7, CTARoute line8) { //intentional shallow copy (not shallow copies)
 		this.setName("Chicago Transit System");
 		blueLine = new ArrayList<CTAStation>(line1.getStops());
 		brownLine = new ArrayList<CTAStation>(line2.getStops());
