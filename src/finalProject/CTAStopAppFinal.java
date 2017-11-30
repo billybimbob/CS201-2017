@@ -315,8 +315,10 @@ public class CTAStopAppFinal {
 					
 		} while (!validName); //breaks out of loops if the input is a valid station
 		
-		CTAStation lookStation = system.lookupStation(inLoc);
-		System.out.print(lookStation.toString());
+		for (CTAStation station: system.lookupStation(inLoc)) {
+			System.out.println(station.toString());
+			System.out.println("---------------------------------------------------");
+		}
 	}
 	public static void displayAll () { //calls toString method of both CTARoutes
 		System.out.println("All of the information for CTA System Stations:");
@@ -370,11 +372,11 @@ public class CTAStopAppFinal {
 		} while (!haveResponse);
 		
 		if (line.equals("red")) {
-			int index = findIndex(keyboard, redLine);
+			int index = findIndex(redLine);
 			redLine.insertStation(index, new CTAStation(name, lat, lon, location, wheel, true, -1, index));
 			System.out.println(name + " station was successfully added to the Red line");
 		} else if (line.equals("green")) {
-			int index = findIndex(keyboard, greenLine);
+			int index = findIndex(greenLine);
 			greenLine.insertStation(index, new CTAStation(name, lat, lon, location, wheel, true, index, -1));
 			System.out.println(name + " station was successfully added to the Green line");
 		}

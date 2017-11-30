@@ -117,15 +117,24 @@ public class CTARoute {
 		}
 	}
 	
-	public CTAStation lookupStation(String looking) { //returns first instance of CTAStation matching the inputed name parameter
-		CTAStation match = null;
+	public ArrayList<CTAStation> lookupStation(String looking) { //returns first instance of CTAStation matching the inputed name parameter
+		ArrayList<CTAStation> matches = new ArrayList<CTAStation>();
 		for (CTAStation station: stops) {
 			if (station.getName().toLowerCase().equals(looking.toLowerCase())) {
-				match = station;
-				break;
+				
+				//System.out.println(station);
+				boolean sameStation = false;
+				for (CTAStation checkStation: matches) {
+					if (station.equals(checkStation)) {
+						sameStation = true;
+						//System.out.println("got here");
+					}
+				}
+				if (!sameStation)
+					matches.add(station);
 			}
 		}
-		return match; //null is checked before this method is called
+		return matches; //null is checked before this method is called
 			
 	}
 	public CTAStation nearestStation(double lat, double lon) { //returns nearest distance to location parameter in stops arraylist

@@ -125,6 +125,8 @@ public class CTAStation extends GeoLocation {
 			colorState+="Pink  ";
 		if (this.getColorIdx("purple")!=-1)
 			colorState+="Purple  ";
+		if (this.getColorIdx("red")!=-1)
+			colorState+="Red  ";
 		if (this.getColorIdx("yellow")!=-1)
 			colorState+="Yellow  ";
 		
