@@ -10,7 +10,7 @@ public class CTAStopAppFinal {
 	//private static CTARoute greenLine, redLine;
 	private static CTASystem system;
 	private static CTARoute blueLine, brownLine, greenLine, orangeLine, pinkLine, purpleLine, redLine, yellowLine;
-	private static Scanner keyboard;
+	public static Scanner keyboard;
 	
 	public static void main(String[] args)  {
 		keyboard = new Scanner(System.in);
@@ -191,7 +191,28 @@ public class CTAStopAppFinal {
 			System.out.println("Not a Valid Train Line");
 		} //breaks out of loops if the input is a valid station
 		return line;
-	}/*
+	}
+	public static String validStation() {
+		boolean validName = false;
+		String inLoc = null;
+		
+		do { //getting the location variables is kind of wonky as, the user needs to know precise location of where they are
+			System.out.print("Enter in a station: ");
+			inLoc = keyboard.nextLine().toLowerCase();
+			for(CTAStation station: system.getStops()) {
+				if (inLoc.equals(station.getName().toLowerCase())) {
+					validName = true;
+					break;
+				}
+			}
+			if (!validName)
+				System.out.println("Not a Valid Station\n");
+					
+		} while (!validName); //breaks out of loops if the input is a valid station
+		
+		return inLoc;
+	}
+	/*
 	public static int findIndex (CTARoute searching) { //finds index based on preceding and succeeding stations
 		int idx = -1;
 		boolean validName = false, validIdx = false;
@@ -322,27 +343,8 @@ public class CTAStopAppFinal {
 		System.out.println(yellowLine.toString());
 	}
 	public static void displaySpecific () { //displays instance variables of specified station
-		boolean validName = false;
-		String inLoc = null;
-		
-		do { //getting the location variables is kind of wonky as, the user needs to know precise location of where they are
-			System.out.print("What station would you like the information of: ");
-			inLoc = keyboard.nextLine().toLowerCase();
-			for(CTAStation station: system.getStops()) {
-				if (inLoc.equals(station.getName().toLowerCase())) {
-					validName = true;
-					break;
-				}
-			}
-			if (!validName)
-				System.out.println("Not a Valid Station\n");
-					
-		} while (!validName); //breaks out of loops if the input is a valid station
-		
-		for (CTAStation station: system.lookupStation(inLoc)) {
-			System.out.println(station.toString());
-			System.out.println("---------------------------------------------------");
-		}
+		String inLoc = validStation();
+		System.out.println(system.lookupStation(inLoc).toString());
 	}
 	public static void addStation () { //inserts station at index of list with new CTAStation with inputed data variables
 		boolean haveResponse = false;
@@ -446,27 +448,26 @@ public class CTAStopAppFinal {
 		boolean validRemove = false;
 		//String line = lineCheck(keyboard, true);
 		do {
-			System.out.print("What station would you like to remove: ");
-			String statName = keyboard.nextLine().toLowerCase();
+			String statName = validStation();
 			
 			//checks if name exists in list
-			ArrayList<CTAStation> removing = system.lookupStation(statName);
-			if (removing.size()!=0) { //which station do I want to remove
+			CTAStation removing = system.lookupStation(statName);
+			if (removing!=null) { //which station do I want to remove
 				validRemove = true;
-				if (removing.get(0).getColorIdx("blue")!=-1)
-					system.getBlueLine().remove(removing.get(0));
-				if (removing.get(0).getColorIdx("brown")!=-1)
-					system.getBrownLine().remove(removing.get(0));
-				if (removing.get(0).getColorIdx("green")!=-1)
-					system.getGreenLine().remove(removing.get(0));
-				if (removing.get(0).getColorIdx("orange")!=-1)
-					system.getOrangeLine().remove(removing.get(0));
-				if (removing.get(0).getColorIdx("pink")!=-1)
-					system.getPinkLine().remove(removing.get(0));
-				if (removing.get(0).getColorIdx("purple")!=-1)
-					system.getPurpleLine().remove(removing.get(0));
-				if (removing.get(0).getColorIdx("yellow")!=-1)
-					system.getYellowLine().remove(removing.get(0));
+				if (removing.getColorIdx("blue")!=-1)
+					blueLine.removeStation(removing);
+				if (removing.getColorIdx("brown")!=-1)
+					brownLine.removeStation(removing);
+				if (removing.getColorIdx("green")!=-1)
+					greenLine.removeStation(removing);
+				if (removing.getColorIdx("orange")!=-1)
+					orangeLine.removeStation(removing);
+				if (removing.getColorIdx("pink")!=-1)
+					pinkLine.removeStation(removing);
+				if (removing.getColorIdx("purple")!=-1)
+					purpleLine.removeStation(removing);
+				if (removing.getColorIdx("yellow")!=-1)
+					yellowLine.removeStation(removing);
 			} else {
 				System.out.println("Station(s) were not removed");
 			}

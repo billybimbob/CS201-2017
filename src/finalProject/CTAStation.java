@@ -86,6 +86,9 @@ public class CTAStation extends GeoLocation {
 		int colorNum = colorCheck(color);
 		return colorIdx[colorNum];
 	}
+	public int getColorIdx(int colorNum) {
+		return colorIdx[colorNum];
+	}
 	
 	//setters, the boolean values can only be 2 values, so made a switch method to make current boolean value the opposite
 	public void setName(String name) {

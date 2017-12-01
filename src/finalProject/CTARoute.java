@@ -117,24 +117,83 @@ public class CTARoute {
 		}
 	}
 	
-	public ArrayList<CTAStation> lookupStation(String looking) { //returns first instance of CTAStation matching the inputed name parameter
-		ArrayList<CTAStation> matches = new ArrayList<CTAStation>();
+	public CTAStation lookupStation(String looking) { //returns first instance of CTAStation matching the inputed name parameter
+		ArrayList<CTAStation> matchList = new ArrayList<CTAStation>();
+		CTAStation match = null;
 		for (CTAStation station: stops) {
 			if (station.getName().toLowerCase().equals(looking.toLowerCase())) {
 				
 				//System.out.println(station);
 				boolean sameStation = false;
-				for (CTAStation checkStation: matches) {
+				for (CTAStation checkStation: matchList) {
 					if (station.equals(checkStation)) {
 						sameStation = true;
 						//System.out.println("got here");
 					}
 				}
 				if (!sameStation)
-					matches.add(station);
+					matchList.add(station);
 			}
 		}
-		return matches; //null is checked before this method is called
+		if (matchList.size()!=1 && matchList.size()!=0) {
+			
+			int[] colors = new int[8]; //number of color lines on CTA
+			for (CTAStation i: matchList) {
+				for (int j = 0; j < colors.length; j++) { //makes list of color lines in matchList
+					if (i.getColorIdx(j)!=-1)
+						colors[j]++;
+				}
+			}
+			
+			boolean hasResponse = false;
+			do {
+			int count = 0;
+			for (int i = 0; i<colors.length; i++) {
+				if(colors[i]==1) {
+					count++;
+					System.out.print(count + ". ");
+					switch(count) {
+					case 0:
+						System.out.println("Blue");
+						break;
+					case 1:
+						System.out.println("Brown");
+						break;
+					case 2:
+						System.out.println("Green");
+						break;
+					case 3:
+						System.out.println("Orange");
+						break;
+					case 4:
+						System.out.println("Pink");
+						break;
+					case 5:
+						System.out.println("Purple");
+						break;
+					case 6:
+						System.out.println("Red");
+						break;
+					case 7:
+						System.out.println("Yellow");
+						break;
+					}
+				}
+			}
+			System.out.print("There are multiple stations with that name"
+					+ "\nSelect a line color (enter in a number): ");
+			try {
+				int num = Integer.parseInt(CTAStopAppFinal.keyboard.nextLine());
+				match = matchList.get(num-1);
+				hasResponse = true;
+			} catch(Exception e) {
+				System.out.println("Not a valid number");
+			}
+			} while(!hasResponse);
+		} else
+			match = matchList.get(0);
+		
+		return match; //null is checked before this method is called
 			
 	}
 	public CTAStation nearestStation(double lat, double lon) { //returns nearest distance to location parameter in stops arraylist
