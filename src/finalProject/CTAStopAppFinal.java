@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class CTAStopAppFinal {
 
 	private static CTASystem system;
+	private static ArrayList<String> addColors; //temporary?
 	public static Scanner keyboard; //public because referenced in other classes
 	public static final String[] lineColors = {"blue", "brown", "green", "orange", "pink", "purple", "red", "yellow"}; //same as keyboard
 	
@@ -76,7 +77,6 @@ public class CTAStopAppFinal {
 						+ "5. Delete a Station\n"
 						+ "6. Create Route\n"
 						+ "7. Display the Nearest Station\n"
-						+ "2. Display Stations with/without Wheelchair Access\n" //might get rid
 						+ "8. Exit");
 						
 				System.out.println("-----------------------------------------------");
@@ -143,6 +143,7 @@ public class CTAStopAppFinal {
 			String lineIn = keyboard.nextLine().toLowerCase();
 			try {
 				line = system.getColorLines(lineIn);
+				addColors.add(lineIn);
 				break validColor;
 			} catch (Exception e) {
 				System.out.println("Not a Valid Train Line");	
@@ -232,6 +233,7 @@ public class CTAStopAppFinal {
 		
 		haveResponse = false;
 		ArrayList<ArrayList<CTAStation>> linesAdd = new ArrayList<ArrayList<CTAStation>>();
+		addColors = new ArrayList<String>();
 		do {
 			ArrayList<CTAStation> line = lineCheck();
 			boolean addCheck = true;
@@ -257,11 +259,11 @@ public class CTAStopAppFinal {
 		for (int i = 0; i < linesAdd.size(); i++) {
 			do {
 				haveResponse = false;
-				System.out.print("Enter the index for color line " + i + ": "); //could specify color?
+				System.out.print("Enter the index for " + addColors.get(i) + " line: "); //could specify color?
 				try {
 					int index = Integer.parseInt(keyboard.nextLine());
-					linesAdd.get(i).add(index, newStat);
-					System.out.println(name + " station added to color line " + i);
+					linesAdd.get(i).add(index, newStat); //can't add to very last index
+					System.out.println(name + " station added to " + addColors.get(i) + " line");
 					haveResponse = true;
 				} catch(Exception e) {
 					System.out.println("Not a valid index");
