@@ -9,7 +9,7 @@ public class CTAStopAppFinal {
 
 	//private static CTARoute greenLine, redLine;
 	private static CTASystem system;
-	private static CTARoute blueLine, brownLine, greenLine, orangeLine, pinkLine, purpleLine, redLine, yellowLine;
+	//private static CTARoute blueLine, brownLine, greenLine, orangeLine, pinkLine, purpleLine, redLine, yellowLine;
 	public static Scanner keyboard;
 	
 	public static void main(String[] args)  {
@@ -23,10 +23,11 @@ public class CTAStopAppFinal {
 			input.useDelimiter(",|\\n"); //divides by commas and \n
 			
 			//make each CTAline to store each station
-			blueLine = new CTARoute("Blue Line"); brownLine = new CTARoute("Brown Line");
-			greenLine = new CTARoute("Green Line"); orangeLine = new CTARoute("Orange Line");
-			redLine = new CTARoute("Red Line"); pinkLine = new CTARoute("Pink Line");
-			purpleLine = new CTARoute("Purple Line"); yellowLine = new CTARoute("Yellow Line");
+			CTARoute
+			blueLine = new CTARoute("Blue Line"), brownLine = new CTARoute("Brown Line"),
+			greenLine = new CTARoute("Green Line"), orangeLine = new CTARoute("Orange Line"),
+			redLine = new CTARoute("Red Line"), pinkLine = new CTARoute("Pink Line"),
+			purpleLine = new CTARoute("Purple Line"), yellowLine = new CTARoute("Yellow Line");
 			
 			while(input.hasNextLine()) {
 				//parsing csv file
@@ -125,7 +126,7 @@ public class CTAStopAppFinal {
 					addStation();
 					break;
 				case 4:
-					
+					modifyStation();
 					break;
 				case 5:
 					removeStation();
@@ -197,7 +198,7 @@ public class CTAStopAppFinal {
 		String inLoc = null;
 		
 		do { //getting the location variables is kind of wonky as, the user needs to know precise location of where they are
-			System.out.print("Enter in a station: ");
+			System.out.print("Enter in a station name: ");
 			inLoc = keyboard.nextLine().toLowerCase();
 			for(CTAStation station: system.getStops()) {
 				if (inLoc.equals(station.getName().toLowerCase())) {
@@ -324,7 +325,7 @@ public class CTAStopAppFinal {
 	public static void displayAll () { //calls toString method of both CTARoutes
 		System.out.println("All of the information for CTA System Stations:");
 		System.out.println(system.toString());
-		
+		/*
 		System.out.print("Blue Line: \n---------------------------------------------------\n");
 		System.out.println(blueLine.toString());
 		System.out.print("Brown Line: \n---------------------------------------------------\n");
@@ -340,10 +341,11 @@ public class CTAStopAppFinal {
 		System.out.print("Red Line: \n---------------------------------------------------\n");
 		System.out.println(redLine.toString());
 		System.out.print("Yellow Line: \n---------------------------------------------------\n");
-		System.out.println(yellowLine.toString());
+		System.out.println(yellowLine.toString());*/
 	}
 	public static void displaySpecific () { //displays instance variables of specified station
 		String inLoc = validStation();
+		//System.out.println("---------------------------------------------------\n");
 		System.out.println(system.lookupStation(inLoc).toString());
 	}
 	public static void addStation () { //inserts station at index of list with new CTAStation with inputed data variables
@@ -442,7 +444,60 @@ public class CTAStopAppFinal {
 		}
 		system.setStops();
 	}
-	
+	public static void modifyStation () {
+		String statName = validStation();
+		CTAStation modStat = system.lookupStation(statName);
+		
+		modifying:
+		while(true) {
+			System.out.print(""
+					+ "1. Name\n"
+					+ "2. Location\n"
+					+ "3. Opened\n"
+					+ "4. Wheelchair\n"
+					+ "5. Exit\n"
+					+ "Which data do you want to modify (enter a number): ");
+			try {
+				int data = Integer.parseInt(keyboard.nextLine());
+				switch (data) {
+				case 1:
+					String newName = keyboard.nextLine();
+					modStat.setName(newName);
+					break;
+				case 2:
+					boolean haveResponse = false;
+					Location location = Location.name1;
+					do {
+						System.out.print("What is the location of the new Station (elevated, subway, etc.): ");
+						String locCheck = keyboard.nextLine();
+						for (Location i: Location.values()) {
+							if (locCheck.equals(i.toString())) {
+								location = i;
+								haveResponse = true;
+							}
+						}
+						if (!haveResponse)
+							System.out.println("Not a valid location\n");
+					} while (!haveResponse);
+					
+					modStat.setLocation(location);
+					break;
+				case 3:
+					modStat.switchOpened();
+					break;
+				case 4:
+					modStat.switchWheelchair();
+					break;
+				case 5:
+					break modifying;
+				}
+				System.out.println("Data successfully modified");
+			} catch (Exception e) {
+				System.out.println("Not valid input");
+			}
+		}
+		
+	}
 	
 	public static void removeStation () { //removes station with specified name from specified color line
 		boolean validRemove = false;
@@ -455,19 +510,19 @@ public class CTAStopAppFinal {
 			if (removing!=null) { //which station do I want to remove
 				validRemove = true;
 				if (removing.getColorIdx("blue")!=-1)
-					blueLine.removeStation(removing);
+					system.getBlueLine().remove(removing);
 				if (removing.getColorIdx("brown")!=-1)
-					brownLine.removeStation(removing);
+					system.getBrownLine().remove(removing);
 				if (removing.getColorIdx("green")!=-1)
-					greenLine.removeStation(removing);
+					system.getGreenLine().remove(removing);
 				if (removing.getColorIdx("orange")!=-1)
-					orangeLine.removeStation(removing);
+					system.getOrangeLine().remove(removing);
 				if (removing.getColorIdx("pink")!=-1)
-					pinkLine.removeStation(removing);
+					system.getPinkLine().remove(removing);
 				if (removing.getColorIdx("purple")!=-1)
-					purpleLine.removeStation(removing);
+					system.getPurpleLine().remove(removing);
 				if (removing.getColorIdx("yellow")!=-1)
-					yellowLine.removeStation(removing);
+					system.getYellowLine().remove(removing);
 			} else {
 				System.out.println("Station(s) were not removed");
 			}

@@ -29,7 +29,6 @@ public class CTARoute {
 		String list = "";
 		for (CTAStation station: stops) {
 			list += station.toString() + "\n";
-			list += "---------------------------------------------------\n";
 		}
 		return list;
 	}
