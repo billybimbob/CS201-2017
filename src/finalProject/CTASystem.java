@@ -4,7 +4,7 @@ import java.util.*;
 
 public class CTASystem extends CTARoute {
 
-	private ArrayList<CTAStation> blueLine, brownLine, greenLine, orangeLine, pinkLine, purpleLine, redLine, yellowLine;
+	private ArrayList<CTAStation> blueLine, brownLine, greenLine, orangeLine, pinkLine, purpleLine, redLine, yellowLine; //divides stops into separate parts
 	
 	public CTASystem() {
 		this.setName("Chicago Transit System");
@@ -95,7 +95,46 @@ public class CTASystem extends CTARoute {
 	public void setYellowLine(ArrayList<CTAStation> yellowLine) {
 		this.yellowLine = yellowLine;
 	}
+	public void setIndices(int color) {
+		switch(color) {
+		case 0:
+			for (int i = 0; i < getBlueLine().size(); i++)
+				getBlueLine().get(i).setColorIdx(color, i);
+			break;
+		case 1:
+			for (int i = 0; i < getBrownLine().size(); i++)
+				getBrownLine().get(i).setColorIdx(color, i);
+			break;
+		case 2:
+			for (int i = 0; i < getGreenLine().size(); i++)
+				getGreenLine().get(i).setColorIdx(color, i);
+			break;
+		case 3:
+			for (int i = 0; i < getOrangeLine().size(); i++)
+				getOrangeLine().get(i).setColorIdx(color, i);
+			break;
+		case 4:
+			for (int i = 0; i < getPinkLine().size(); i++)
+				getPinkLine().get(i).setColorIdx(color, i);
+			break;
+		case 5:
+			for (int i = 0; i < getPurpleLine().size(); i++)
+				getPurpleLine().get(i).setColorIdx(color, i);
+			break;
+		case 6:
+			for (int i = 0; i < getRedLine().size(); i++)
+				getRedLine().get(i).setColorIdx(color, i);
+			break;
+		case 7:
+			for (int i = 0; i < getYellowLine().size(); i++)
+				getYellowLine().get(i).setColorIdx(color, i);
+			break;
+		}
+	}
 	public void setStops() {
+		for (int i = 0; i < CTAStopAppFinal.lineColors.length; i++) {
+			setIndices(i);
+		}
 		stops = this.getAll();
 	}
 	

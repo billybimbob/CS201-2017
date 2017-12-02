@@ -134,7 +134,7 @@ public class CTAStation extends GeoLocation {
 		if (this.getColorIdx("yellow")!=-1)
 			colorState+="Yellow  ";
 		
-		return baseState + "\n" + wheelState + "\n" + colorState + "\n" + margin;
+		return baseState + "\n" + wheelState + "\n" + colorState + "\n" + margin + this.getColorIdx("red");
 	}
 	
 	//checks if name, latitude and longitude are the same
@@ -144,7 +144,7 @@ public class CTAStation extends GeoLocation {
 				&& this.getLongitude()==station2.getLongitude());
 	}
 	
-	public int colorCheck(String color) { //converts color name to color index
+	public static int colorCheck(String color) { //converts color name to color index
 		int colorNum = -1;
 		switch(color) {
 		case "blue":

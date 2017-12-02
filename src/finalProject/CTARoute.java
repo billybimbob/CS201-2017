@@ -49,6 +49,14 @@ public class CTARoute {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public void setIndices(int color) { //changes index variable of stations to match list indices (account for add and remove
+		for (int i = 0; i < stops.size(); i++)
+			stops.get(i).setColorIdx(color, i);
+	}
+	public void setIndices (String color) {
+		int colorNum = CTAStation.colorCheck(color);
+		this.setIndices(colorNum);
+	}
 	
 	//list methods of stops ArrayList
 	public void addStation(CTAStation adding) {
@@ -134,7 +142,7 @@ public class CTARoute {
 					matchList.add(station);
 			}
 		}
-		if (matchList.size()!=1 && matchList.size()!=0) {
+		if (matchList.size()!=1 && matchList.size()!=0) { //if multiple stations with same name found
 			
 			int[] colors = new int[8]; //number of color lines on CTA
 			for (CTAStation i: matchList) {
@@ -145,49 +153,49 @@ public class CTARoute {
 			}
 			
 			boolean hasResponse = false;
-			do {
-			int count = 0;
-			for (int i = 0; i<colors.length; i++) {
-				if(colors[i]==1) {
-					count++;
-					System.out.print(count + ". ");
-					switch(count) {
-					case 0:
-						System.out.println("Blue");
-						break;
-					case 1:
-						System.out.println("Brown");
-						break;
-					case 2:
-						System.out.println("Green");
-						break;
-					case 3:
-						System.out.println("Orange");
-						break;
-					case 4:
-						System.out.println("Pink");
-						break;
-					case 5:
-						System.out.println("Purple");
-						break;
-					case 6:
-						System.out.println("Red");
-						break;
-					case 7:
-						System.out.println("Yellow");
-						break;
+			do { //gets user input
+				int count = 0;
+				for (int i = 0; i < colors.length; i++) {
+					if(colors[i]>0) {
+						count++;
+						System.out.print(count + ". ");
+						switch(i) {
+						case 0:
+							System.out.println("Blue");
+							break;
+						case 1:
+							System.out.println("Brown");
+							break;
+						case 2:
+							System.out.println("Green");
+							break;
+						case 3:
+							System.out.println("Orange");
+							break;
+						case 4:
+							System.out.println("Pink");
+							break;
+						case 5:
+							System.out.println("Purple");
+							break;
+						case 6:
+							System.out.println("Red");
+							break;
+						case 7:
+							System.out.println("Yellow");
+							break;
+						}
 					}
 				}
-			}
-			System.out.print("There are multiple stations with that name"
-					+ "\nSelect a line color (enter in a number): ");
-			try {
-				int num = Integer.parseInt(CTAStopAppFinal.keyboard.nextLine());
-				match = matchList.get(num-1);
-				hasResponse = true;
-			} catch(Exception e) {
-				System.out.println("Not a valid number");
-			}
+				System.out.print("There are multiple stations with that name"
+						+ "\nSelect a line color (enter in a number): ");
+				try {
+					int num = Integer.parseInt(CTAStopAppFinal.keyboard.nextLine());
+					match = matchList.get(num-1);
+					hasResponse = true;
+				} catch(Exception e) {
+					System.out.println("Not a valid number");
+				}
 			} while(!hasResponse);
 		} else
 			match = matchList.get(0);
