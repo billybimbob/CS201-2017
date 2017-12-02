@@ -69,6 +69,36 @@ public class CTASystem extends CTARoute {
 		allStation.addAll(yellowLine);
 		return allStation;
 	}
+	
+	public String toString() {
+		String list = "";
+		list += "\nBlue Line: \n---------------------------------------------------\n";
+		for (CTAStation station: blueLine)
+			list += station.toString() + "\n";
+		list += "\nBrown Line: \n---------------------------------------------------\n";
+		for (CTAStation station: brownLine)
+			list += station.toString() + "\n";
+		list += "\nGreen Line: \n---------------------------------------------------\n";
+		for (CTAStation station: greenLine)
+			list += station.toString() + "\n";
+		list += "\nOrange Line: \n---------------------------------------------------\n";
+		for (CTAStation station: orangeLine)
+			list += station.toString() + "\n";
+		list += "\nPink Line: \n---------------------------------------------------\n";
+		for (CTAStation station: pinkLine)
+			list += station.toString() + "\n";
+		list += "\nPurple Line: \n---------------------------------------------------\n";
+		for (CTAStation station: purpleLine)
+			list += station.toString() + "\n";
+		list += "\nRed Line: \n---------------------------------------------------\n";
+		for (CTAStation station: redLine)
+			list += station.toString() + "\n";
+		list += "\nYellow Line: \n---------------------------------------------------\n";
+		for (CTAStation station: yellowLine)
+			list += station.toString() + "\n";
+		
+		return list;
+	}
 
 	//setters
 	public void setBlueLine(ArrayList<CTAStation> blueLine) {
@@ -98,36 +128,36 @@ public class CTASystem extends CTARoute {
 	public void setIndices(int color) {
 		switch(color) {
 		case 0:
-			for (int i = 0; i < getBlueLine().size(); i++)
-				getBlueLine().get(i).setColorIdx(color, i);
+			for (int i = 0; i < blueLine.size(); i++)
+				blueLine.get(i).setColorIdx(color, i);
 			break;
 		case 1:
-			for (int i = 0; i < getBrownLine().size(); i++)
-				getBrownLine().get(i).setColorIdx(color, i);
+			for (int i = 0; i < brownLine.size(); i++)
+				brownLine.get(i).setColorIdx(color, i);
 			break;
 		case 2:
-			for (int i = 0; i < getGreenLine().size(); i++)
-				getGreenLine().get(i).setColorIdx(color, i);
+			for (int i = 0; i < greenLine.size(); i++)
+				greenLine.get(i).setColorIdx(color, i);
 			break;
 		case 3:
-			for (int i = 0; i < getOrangeLine().size(); i++)
-				getOrangeLine().get(i).setColorIdx(color, i);
+			for (int i = 0; i < orangeLine.size(); i++)
+				orangeLine.get(i).setColorIdx(color, i);
 			break;
 		case 4:
-			for (int i = 0; i < getPinkLine().size(); i++)
-				getPinkLine().get(i).setColorIdx(color, i);
+			for (int i = 0; i < pinkLine.size(); i++)
+				pinkLine.get(i).setColorIdx(color, i);
 			break;
 		case 5:
-			for (int i = 0; i < getPurpleLine().size(); i++)
-				getPurpleLine().get(i).setColorIdx(color, i);
+			for (int i = 0; i < purpleLine.size(); i++)
+				purpleLine.get(i).setColorIdx(color, i);
 			break;
 		case 6:
-			for (int i = 0; i < getRedLine().size(); i++)
-				getRedLine().get(i).setColorIdx(color, i);
+			for (int i = 0; i < redLine.size(); i++)
+				redLine.get(i).setColorIdx(color, i);
 			break;
 		case 7:
-			for (int i = 0; i < getYellowLine().size(); i++)
-				getYellowLine().get(i).setColorIdx(color, i);
+			for (int i = 0; i < yellowLine.size(); i++)
+				yellowLine.get(i).setColorIdx(color, i);
 			break;
 		}
 	}

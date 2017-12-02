@@ -134,7 +134,7 @@ public class CTAStation extends GeoLocation {
 		if (this.getColorIdx("yellow")!=-1)
 			colorState+="Yellow  ";
 		
-		return baseState + "\n" + wheelState + "\n" + colorState + "\n" + margin + this.getColorIdx("red");
+		return baseState + "\n" + wheelState + "\n" + colorState + "\n" + margin;
 	}
 	
 	//checks if name, latitude and longitude are the same

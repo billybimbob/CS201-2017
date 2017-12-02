@@ -350,7 +350,6 @@ public class CTAStopAppFinal {
 	}
 	public static void addStation () { //inserts station at index of list with new CTAStation with inputed data variables
 		boolean haveResponse = false;
-		ArrayList<CTAStation> line = lineCheck();
 		
 		System.out.print("What is the name of the new Station: ");
 		String name = keyboard.nextLine();
@@ -369,7 +368,7 @@ public class CTAStopAppFinal {
 		} while (!haveResponse);
 		
 		haveResponse = false;
-		Location location = Location.name1;
+		Location location = null;
 		do {
 			System.out.print("What is the location of the new Station (elevated, subway, etc.): ");
 			String locCheck = keyboard.nextLine();
@@ -399,19 +398,44 @@ public class CTAStopAppFinal {
 		} while (!haveResponse);
 		
 		haveResponse = false;
-		int index = -1;
+		ArrayList<ArrayList<CTAStation>> linesAdd = new ArrayList<ArrayList<CTAStation>>();
 		do {
-			System.out.println("Enter the index: ");
-			try {
-				index = Integer.parseInt(keyboard.nextLine());
-				line.add(index, new CTAStation(name, lat, lon, location, wheel, true, -1, -1, -1, -1, -1, -1, -1, -1));
-				System.out.println(name + " station was succssfully added");
-				haveResponse = true;
-			} catch(Exception e) {
-				System.out.println("Not a valid index");
+			ArrayList<CTAStation> line = lineCheck();
+			boolean addCheck = true;
+			for (ArrayList<CTAStation> i: linesAdd) {
+				if (line.equals(i))
+					addCheck = false;
 			}
-
+			
+			if (addCheck)
+				linesAdd.add(line);
+			else
+				System.out.println("Color line already picked");
+			
+			System.out.println("Do you want to add station to more color lines?");
+			System.out.print("Type in \'y\' for yes or \'n\' for no: ");
+			char[] respStore = keyboard.nextLine().toCharArray();
+			if (respStore[0] == 'n') //only checks if response starts with n
+				haveResponse = true;
+			
 		} while(!haveResponse);
+		
+		CTAStation newStat = new CTAStation(name, lat, lon, location, wheel, true, -1, -1, -1, -1, -1, -1, -1, -1);
+		for (int i = 0; i < linesAdd.size(); i++) {
+			do {
+				haveResponse = false;
+				System.out.print("Enter the index for color line " + i + ": "); //could specify color?
+				try {
+					int index = Integer.parseInt(keyboard.nextLine());
+					linesAdd.get(i).add(index, newStat);
+					System.out.println(name + " station added to color line " + i);
+					haveResponse = true;
+				} catch(Exception e) {
+					System.out.println("Not a valid index");
+				}
+			} while(!haveResponse);
+		}
+		System.out.println(name + " station was succssfully added");
 		system.setStops();
 	}
 	
