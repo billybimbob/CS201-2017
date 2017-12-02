@@ -25,9 +25,9 @@ public class CTASystem extends CTARoute {
 		brownLine = new ArrayList<CTAStation>(line2.getStops());
 		greenLine = new ArrayList<CTAStation>(line3.getStops());
 		orangeLine = new ArrayList<CTAStation>(line4.getStops());
-		pinkLine = new ArrayList<CTAStation>(line6.getStops());
-		purpleLine = new ArrayList<CTAStation>(line7.getStops());
-		redLine = new ArrayList<CTAStation>(line5.getStops());
+		pinkLine = new ArrayList<CTAStation>(line5.getStops());
+		purpleLine = new ArrayList<CTAStation>(line6.getStops());
+		redLine = new ArrayList<CTAStation>(line7.getStops());
 		yellowLine = new ArrayList<CTAStation>(line8.getStops());
 		stops = getAll();
 	}

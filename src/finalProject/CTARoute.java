@@ -68,45 +68,13 @@ public class CTARoute {
 	public void insertStation(int indx, CTAStation adding) {
 		stops.add(indx,  adding);
 	}
-	public void sort(String lineColor) {
+	public void sort(int color) {
 		int[] idxStore = new int[stops.size()];
 		
-		switch(lineColor) { //makes int array based on color of line, parallel array
-		case "blue":
-			for(int i = 0; i < stops.size(); i++)
-				idxStore[i] = stops.get(i).getColorIdx("blue");
-			break;
-		case "brown":
-			for(int i = 0; i < stops.size(); i++)
-				idxStore[i] = stops.get(i).getColorIdx("brown");
-			break;
-		case "green":
-			for(int i = 0; i < stops.size(); i++)
-				idxStore[i] = stops.get(i).getColorIdx("green");
-			break;
-		case "orange":
-			for(int i = 0; i < stops.size(); i++)
-				idxStore[i] = stops.get(i).getColorIdx("orange");
-			break;
-		case "pink":
-			for(int i = 0; i < stops.size(); i++)
-				idxStore[i] = stops.get(i).getColorIdx("pink");
-			break;
-		case "purple":
-			for(int i = 0; i < stops.size(); i++)
-				idxStore[i] = stops.get(i).getColorIdx("purple");
-			break;
-		case "red":
-			for(int i = 0; i < stops.size(); i++)
-				idxStore[i] = stops.get(i).getColorIdx("red");
-			break;
-		case "yellow":
-			for(int i = 0; i < stops.size(); i++)
-				idxStore[i] = stops.get(i).getColorIdx("yellow");
-			break;
-		}
+		for(int i = 0; i < stops.size(); i++)
+			idxStore[i] = stops.get(i).getColorIdx(color); 
 		
-		for (int i = 0; i < stops.size()-1; i++) {
+		for (int i = 0; i < stops.size()-1; i++) { //insertion sort
 			int j = i+1;
 			
 			while(j>=1 && idxStore[j] < idxStore[j-1]) {
@@ -151,7 +119,6 @@ public class CTARoute {
 						colors[j]++;
 				}
 			}
-			
 			boolean hasResponse = false;
 			do { //gets user input
 				int count = 0;
