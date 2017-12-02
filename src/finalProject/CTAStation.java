@@ -5,7 +5,6 @@ public class CTAStation extends GeoLocation {
 	private String name;
 	private Location location;
 	private boolean opened, wheelchair;
-	//private int blueIdx, brownIdx, greenIdx, orangeIdx, pinkIdx, purpleIdx, redIdx, yellowIdx; //make into an array?
 	private int[] colorIdx; //blue, brown, green, orange, pink, purple, red, yellow
 	
 	public CTAStation() { //default constructor
@@ -13,15 +12,7 @@ public class CTAStation extends GeoLocation {
 		name = "Dummy";
 		location = Location.name1;
 		wheelchair = false;
-		opened = false;/*
-		blueIdx = -1;
-		brownIdx = -1;
-		greenIdx = -1;
-		orangeIdx = -1;
-		pinkIdx = -1;
-		purpleIdx = -1;
-		redIdx = -1;
-		yellowIdx = -1;*/
+		opened = false;
 		int[] idxStore = {-1, -1, -1, -1, -1, -1, -1, -1, -1};
 		colorIdx = idxStore;
 	}
@@ -32,15 +23,7 @@ public class CTAStation extends GeoLocation {
 		this.name = name;
 		this.location = location;
 		this.wheelchair = wheelchair;
-		this.opened = opened;/*
-		this.blueIdx = blueIdx;
-		this.brownIdx = brownIdx;
-		this.greenIdx = greenIdx;
-		this.orangeIdx = orangeIdx;
-		this.pinkIdx = pinkIdx;
-		this.purpleIdx = purpleIdx;
-		this.redIdx = redIdx;
-		this.yellowIdx = yellowIdx;*/
+		this.opened = opened;
 		int[] idxStore = {blueIdx, brownIdx, greenIdx, orangeIdx, pinkIdx, purpleIdx, redIdx, yellowIdx};
 		colorIdx = idxStore;
 	}
@@ -57,37 +40,13 @@ public class CTAStation extends GeoLocation {
 	}
 	public boolean getOpened() {
 		return opened;
-	}/*
-	public int getBlueIdx() {
-		return blueIdx;
-	}
-	public int getBrownIdx() {
-		return brownIdx;
-	}
-	public int getGreenIdx() {
-		return greenIdx;
-	}
-	public int getOrangeIdx() {
-		return orangeIdx;
-	}
-	public int getPinkIdx() {
-		return pinkIdx;
-	}
-	public int getPurpleIdx() {
-		return purpleIdx;
-	}
-	public int getRedIdx() {
-		return redIdx;
-	}
-	public int getYellowIdx() {
-		return yellowIdx;
-	}*/
-	public int getColorIdx(String color) {
-		int colorNum = colorCheck(color);
-		return colorIdx[colorNum];
 	}
 	public int getColorIdx(int colorNum) {
 		return colorIdx[colorNum];
+	}
+	public int getColorIdx(String color) {
+		int colorNum = colorCheck(color);
+		return getColorIdx(colorNum);
 	}
 	
 	//setters, the boolean values can only be 2 values, so made a switch method to make current boolean value the opposite
@@ -117,22 +76,12 @@ public class CTAStation extends GeoLocation {
 		else
 			wheelState = "Wheelchair Accessibility - not present";
 		
-		if (this.getColorIdx("blue")!=-1)
-			colorState+="Blue  ";
-		if (this.getColorIdx("brown")!=-1)
-			colorState+="Brown  ";
-		if (this.getColorIdx("green")!=-1)
-			colorState+="Green  ";
-		if (this.getColorIdx("orange")!=-1)
-			colorState+="Orange  ";
-		if (this.getColorIdx("pink")!=-1)
-			colorState+="Pink  ";
-		if (this.getColorIdx("purple")!=-1)
-			colorState+="Purple  ";
-		if (this.getColorIdx("red")!=-1)
-			colorState+="Red  ";
-		if (this.getColorIdx("yellow")!=-1)
-			colorState+="Yellow  ";
+		for (String color: CTAStopAppFinal.lineColors) {
+			if (this.getColorIdx(color)!=-1) {
+				char upperCase = (char)(color.charAt(0) - 32); //based on character difference between upper and lower being 32
+				colorState += (upperCase + color.substring(1) + "  ");
+			}
+		}
 		
 		return baseState + "\n" + wheelState + "\n" + colorState + "\n" + margin;
 	}
@@ -146,31 +95,11 @@ public class CTAStation extends GeoLocation {
 	
 	public static int colorCheck(String color) { //converts color name to color index
 		int colorNum = -1;
-		switch(color) {
-		case "blue":
-			colorNum = 0;
-			break;
-		case "brown":
-			colorNum = 1;
-			break;
-		case "green":
-			colorNum = 2;
-			break;
-		case "orange":
-			colorNum = 3;
-			break;
-		case "pink":
-			colorNum = 4;
-			break;
-		case "purple":
-			colorNum = 5;
-			break;
-		case "red":
-			colorNum = 6;
-			break;
-		case "yellow":
-			colorNum = 7;
-			break;
+		for (int i = 0; i < CTAStopAppFinal.lineColors.length; i++) {
+			if (color.equals(CTAStopAppFinal.lineColors[i])) {
+				colorNum = i;
+				break;
+			}
 		}
 		
 		return colorNum;

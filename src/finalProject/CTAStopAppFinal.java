@@ -8,14 +8,13 @@ import java.util.concurrent.TimeUnit;
 public class CTAStopAppFinal {
 
 	private static CTASystem system;
-	//private static CTARoute blueLine, brownLine, greenLine, orangeLine, pinkLine, purpleLine, redLine, yellowLine;
 	public static Scanner keyboard; //public because referenced in other classes
-	public static final String[] lineColors = {"blue", "brown", "green", "orange", "pink", "purple", "red", "yellow"};
+	public static final String[] lineColors = {"blue", "brown", "green", "orange", "pink", "purple", "red", "yellow"}; //same as keyboard
 	
 	public static void main(String[] args)  {
 		keyboard = new Scanner(System.in);
 		try {
-			File inFile = new File("C:\\Users\\funte\\eclipse-workspace\\CS201\\src\\finalProject\\CTAStops.csv"); //file location varies based on computer
+			File inFile = new File("C:\\Users\\narwhal\\eclipse-workspace\\CS201\\src\\finalProject\\CTAStops.csv"); //file location varies based on computer
 			Scanner input = new Scanner(inFile);
 			
 			input.nextLine(); //accounts for header
@@ -125,7 +124,8 @@ public class CTAStopAppFinal {
 			input.close();
 			
 		} catch (Exception e) { //program should automatically end if exception thrown
-			System.out.println(e);
+			e.printStackTrace();
+			//System.out.println(e);
 			System.out.println("Something went wrong");
 		}
 		System.out.println("The CTA Information Center Has Closed");
@@ -141,35 +141,12 @@ public class CTAStopAppFinal {
 			System.out.print("Which Line Color Do You Want: ");
 			
 			String lineIn = keyboard.nextLine().toLowerCase();
-			switch(lineIn) {
-			case "blue":
-				line = system.getBlueLine();
+			try {
+				line = system.getColorLines(lineIn);
 				break validColor;
-			case "brown":
-				line = system.getBrownLine();
-				break validColor;
-			case "green":
-				line = system.getGreenLine();
-				break validColor;
-			case "orange":
-				line = system.getOrangeLine();
-				break validColor;
-			case "pink":
-				line = system.getPinkLine();
-				break validColor;
-			case "purple":
-				line = system.getPurpleLine();
-				break validColor;
-			case "red":
-				line = system.getRedLine();
-				break validColor;
-			case "yellow":
-				line = system.getYellowLine();
-				break validColor;
-			default:
+			} catch (Exception e) {
 				System.out.println("Not a Valid Train Line");	
 			}
-			
 		} //breaks out of loops if the input is a valid station
 		return line;
 	}
@@ -311,6 +288,7 @@ public class CTAStopAppFinal {
 				int data = Integer.parseInt(keyboard.nextLine());
 				switch (data) {
 				case 1:
+					System.out.print("What is the new name for the Station: ");
 					String newName = keyboard.nextLine();
 					modStat.setName(newName);
 					break;
@@ -358,20 +336,10 @@ public class CTAStopAppFinal {
 			if (removing!=null) { //which station do I want to remove
 				validRemove = true;
 				
-				if (removing.getColorIdx("blue")!=-1) //change to int parameters?
-					system.getBlueLine().remove(removing);
-				if (removing.getColorIdx("brown")!=-1)
-					system.getBrownLine().remove(removing);
-				if (removing.getColorIdx("green")!=-1)
-					system.getGreenLine().remove(removing);
-				if (removing.getColorIdx("orange")!=-1)
-					system.getOrangeLine().remove(removing);
-				if (removing.getColorIdx("pink")!=-1)
-					system.getPinkLine().remove(removing);
-				if (removing.getColorIdx("purple")!=-1)
-					system.getPurpleLine().remove(removing);
-				if (removing.getColorIdx("yellow")!=-1)
-					system.getYellowLine().remove(removing);
+				for (String i: lineColors) {
+					if (removing.getColorIdx(i)!=1)
+						system.getColorLines(i).remove(removing);
+				}
 			} else {
 				System.out.println("Station(s) were not removed");
 			}
@@ -395,7 +363,7 @@ public class CTAStopAppFinal {
 		} while (!validLoc); //breaks out of loops if the input is a double
 		
 		CTAStation nearest = system.nearestStation(curLat, curLon);
-		System.out.println("The nearest station to you is " + nearest + " station");
+		System.out.println("The nearest station to you:\n" + nearest);
 	}
 	public static void writeFile () { //bufferedwriter doesn't add \n
 		try {
