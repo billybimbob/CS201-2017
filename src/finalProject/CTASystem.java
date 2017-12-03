@@ -8,7 +8,7 @@ public class CTASystem extends CTARoute {
 	
 	public CTASystem() {
 		this.setName("Chicago Transit System");
-		for (int i = 0; i < CTAStopAppFinal.lineColors.length; i++)
+		for (int i = 0; i < HandleData.lineColors.length; i++)
 			colorLines.add(new ArrayList<CTAStation>());
 		
 		stops = getStops();
@@ -33,7 +33,7 @@ public class CTASystem extends CTARoute {
 	}
 	public ArrayList<CTAStation> getStops() {
 		ArrayList<CTAStation> allStation = new ArrayList<CTAStation>();
-		for (String i: CTAStopAppFinal.lineColors)
+		for (String i: HandleData.lineColors)
 			allStation.addAll(getColorLines(i));
 		
 		return allStation;
@@ -41,7 +41,7 @@ public class CTASystem extends CTARoute {
 	
 	public String toString() {
 		String list = "";
-		for (String color: CTAStopAppFinal.lineColors) {
+		for (String color: HandleData.lineColors) {
 			char upperCase = (char)(color.charAt(0) - 32); //based on character difference between upper and lower being 32
 			list += "\n" + upperCase + color.substring(1) + " Line: \n---------------------------------------------------\n";
 			for (CTAStation station: getColorLines(color))
@@ -57,11 +57,10 @@ public class CTASystem extends CTARoute {
 			getColorLines(color).get(i).setColorIdx(color, i);
 	}
 	public void setStops() {
-		for (int i = 0; i < CTAStopAppFinal.lineColors.length; i++) {
+		for (int i = 0; i < HandleData.lineColors.length; i++) {
 			setIndices(i);
 		}
 		stops = this.getStops();
 	}
 	
-
 }

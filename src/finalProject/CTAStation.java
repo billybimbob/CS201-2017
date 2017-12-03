@@ -76,7 +76,7 @@ public class CTAStation extends GeoLocation {
 		else
 			wheelState = "Wheelchair Accessibility - not present";
 		
-		for (String color: CTAStopAppFinal.lineColors) {
+		for (String color: HandleData.lineColors) {
 			if (this.getColorIdx(color)!=-1) {
 				char upperCase = (char)(color.charAt(0) - 32); //based on character difference between upper and lower being 32
 				colorState += (upperCase + color.substring(1) + "  ");
@@ -95,8 +95,8 @@ public class CTAStation extends GeoLocation {
 	
 	public static int colorCheck(String color) { //converts color name to color index
 		int colorNum = -1;
-		for (int i = 0; i < CTAStopAppFinal.lineColors.length; i++) {
-			if (color.equals(CTAStopAppFinal.lineColors[i])) {
+		for (int i = 0; i < HandleData.lineColors.length; i++) {
+			if (color.equals(HandleData.lineColors[i])) {
 				colorNum = i;
 				break;
 			}

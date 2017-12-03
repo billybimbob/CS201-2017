@@ -1,10 +1,8 @@
 package finalProject;
 
-import java.io.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-//note: lab 5 classes referenced and modified
 public class CTAStopAppFinal {
 
 	public static Scanner keyboard; //public because referenced in other classes
@@ -48,25 +46,25 @@ public class CTAStopAppFinal {
 					HandleData.displayAll();
 					break;
 				case 2:
-					displaySpecific();
+					HandleData.displaySpecific();
 					break;
 				case 3:
-					addStation();
+					HandleData.addStation();
 					break;
 				case 4:
-					modifyStation();
+					HandleData.modifyStation();
 					break;
 				case 5:
-					removeStation();
+					HandleData.removeStation();
 					break;
 				case 6:
-					createRoute();
+					HandleData.createRoute();
 					break;
 				case 7:
-					nearestStation();
+					HandleData.nearestStation();
 					break;
 				case 8: //need to write to text file
-					writeFile();
+					FileReader.writeFile();
 					break userCommand;
 				}
 				TimeUnit.SECONDS.sleep(2); //waits 2 seconds between each display of info

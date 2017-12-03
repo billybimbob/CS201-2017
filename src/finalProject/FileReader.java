@@ -1,9 +1,9 @@
 package finalProject;
 
-import java.io.File;
+import java.io.*;
 import java.util.Scanner;
 
-public class FileReader { //reads from inputted file
+public class FileReader { //reads from inputed file
 
 	public static void parseFile() {
 		try {
@@ -45,19 +45,33 @@ public class FileReader { //reads from inputted file
 						indices[0], indices[1], indices[2], indices[3], indices[4], indices[5], indices[6], indices[7]); //instantiate object with parsed parameters
 				
 				//both are if statements to account for stations that are multiple lines
-				for (int i = 0; i < DisplayData.lineColors.length; i++) { //add to each list if index is not -1
+				for (int i = 0; i < HandleData.lineColors.length; i++) { //add to each list if index is not -1
 					if (indices[i] != -1)
 						lines[i].addStation(station);
 				}
 			}
-			for (int i = 0; i < DisplayData.lineColors.length; i++) //sorts each list
+			for (int i = 0; i < HandleData.lineColors.length; i++) //sorts each list
 				lines[i].sort(i);
 					
-			DisplayData.system = new CTASystem(lines[0], lines[1], lines[2], lines[3], lines[4], lines[5], lines[6], lines[7]); //not sure
+			HandleData.system = new CTASystem(lines[0], lines[1], lines[2], lines[3], lines[4], lines[5], lines[6], lines[7]); //not sure
 			
 			input.close();
 		} catch(Exception e) {
-			System.out.println("Something went wrong reading the file");
+			System.out.println("Something went wrong when reading the file");
+		}
+	}
+	
+	public static void writeFile () { //bufferedwriter doesn't add \n
+		try {
+			FileWriter outFile = new FileWriter("CTA Train System.txt"); //set to the default file location
+			
+			BufferedWriter output = new BufferedWriter(outFile);
+			output.write(HandleData.system.toString()); //writes accumulated string to file
+			
+			output.close();
+			System.out.println("The CTA System has been written to a text file");
+		} catch (Exception e) {
+			System.out.println("Something went wrong, file cannot be written");
 		}
 	}
 }

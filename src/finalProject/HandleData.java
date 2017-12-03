@@ -1,14 +1,12 @@
 package finalProject;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.util.ArrayList;
 
-public class HandleData { //interprets the inputted data
+public class HandleData { //interprets the inputed data
 
 	private static ArrayList<String> addColors; //temporary?
 	public static CTASystem system;
-	public static final String[] lineColors = {"blue", "brown", "green", "orange", "pink", "purple", "red", "yellow"}; //public becasue referenced in other classes
+	public static final String[] lineColors = {"blue", "brown", "green", "orange", "pink", "purple", "red", "yellow"}; //public because referenced in other classes
 	
 
 	//methods referenced by other displaydata methods
@@ -19,7 +17,7 @@ public class HandleData { //interprets the inputted data
 		while(true) {
 			System.out.print("Which Line Color Do You Want: ");
 			
-			String lineIn = keyboard.nextLine().toLowerCase();
+			String lineIn = CTAStopAppFinal.keyboard.nextLine().toLowerCase();
 			try {
 				line = system.getColorLines(lineIn);
 				addColors.add(lineIn);
@@ -30,13 +28,13 @@ public class HandleData { //interprets the inputted data
 		} //breaks out of loops if the input is a valid station
 		return line;
 	}
-	public static String validStation(String addPrompt) {
+	public static String validStation(String addPrompt) { //gets user input and check if name is a name in list
 		boolean validName = false;
 		String inLoc = null;
 		
 		do { //getting the location variables is kind of wonky as, the user needs to know precise location of where they are
 			System.out.print("Enter in a station name " + addPrompt + ": ");
-			inLoc = keyboard.nextLine().toLowerCase();
+			inLoc = CTAStopAppFinal.keyboard.nextLine().toLowerCase();
 			for(CTAStation station: system.getStops()) {
 				if (inLoc.equals(station.getName().toLowerCase())) {
 					validName = true;
@@ -65,15 +63,15 @@ public class HandleData { //interprets the inputted data
 		boolean haveResponse = false;
 		
 		System.out.print("What is the name of the new Station: ");
-		String name = keyboard.nextLine();
+		String name = CTAStopAppFinal.keyboard.nextLine();
 		
 		double lat = 0, lon = 0;
 		do {
 			try {
 				System.out.print("What is the latitude of the new Station: ");
-				lat = Double.parseDouble(keyboard.nextLine());
+				lat = Double.parseDouble(CTAStopAppFinal.keyboard.nextLine());
 				System.out.print("What is the longitude of the new Station: ");
-				lon = Double.parseDouble(keyboard.nextLine());
+				lon = Double.parseDouble(CTAStopAppFinal.keyboard.nextLine());
 				haveResponse = true;
 			} catch (Exception e) {
 				System.out.println("Not a valid input");
@@ -84,7 +82,7 @@ public class HandleData { //interprets the inputted data
 		Location location = null;
 		do {
 			System.out.print("What is the location of the new Station (elevated, subway, etc.): ");
-			String locCheck = keyboard.nextLine();
+			String locCheck = CTAStopAppFinal.keyboard.nextLine();
 			for (Location i: Location.values()) {
 				if (locCheck.equals(i.toString())) {
 					location = i;
@@ -100,7 +98,7 @@ public class HandleData { //interprets the inputted data
 		do {
 			System.out.println("Is the the new Station wheelchair accessible");
 			System.out.print("Type in \'y\' for yes or \'n\' for no: ");
-			char[] respStore = keyboard.nextLine().toCharArray();
+			char[] respStore = CTAStopAppFinal.keyboard.nextLine().toCharArray();
 			if (respStore.length == 1 && (respStore[0] == 'y' || respStore[0] == 'n')) { //checks if response is valid, looks for specifically y or n
 				char response = respStore[0];
 				wheel = response=='y';
@@ -128,7 +126,7 @@ public class HandleData { //interprets the inputted data
 			
 			System.out.println("Do you want to add station to more color lines?");
 			System.out.print("Type in \'y\' for yes or \'n\' for no: ");
-			char[] respStore = keyboard.nextLine().toCharArray();
+			char[] respStore = CTAStopAppFinal.keyboard.nextLine().toCharArray();
 			if (respStore[0] == 'n') //only checks if response starts with n
 				haveResponse = true;
 			
@@ -140,7 +138,7 @@ public class HandleData { //interprets the inputted data
 				haveResponse = false;
 				System.out.print("Enter the index for " + addColors.get(i) + " line: "); //could specify color?
 				try {
-					int index = Integer.parseInt(keyboard.nextLine());
+					int index = Integer.parseInt(CTAStopAppFinal.keyboard.nextLine());
 					linesAdd.get(i).add(index, newStat); //can't add to very last index
 					System.out.println(name + " station added to " + addColors.get(i) + " line");
 					haveResponse = true;
@@ -152,7 +150,7 @@ public class HandleData { //interprets the inputted data
 		System.out.println(name + " station was succssfully added");
 		system.setStops();
 	}
-	public static void modifyStation () {
+	public static void modifyStation () { //modify an existing station's data
 		String statName = validStation("to modify");
 		CTAStation modStat = system.lookupStation(statName);
 		
@@ -166,11 +164,11 @@ public class HandleData { //interprets the inputted data
 					+ "5. Exit\n"
 					+ "Which data do you want to modify (enter a number): ");
 			try {
-				int data = Integer.parseInt(keyboard.nextLine());
+				int data = Integer.parseInt(CTAStopAppFinal.keyboard.nextLine());
 				switch (data) {
 				case 1:
 					System.out.print("What is the new name for the Station: ");
-					String newName = keyboard.nextLine();
+					String newName = CTAStopAppFinal.keyboard.nextLine();
 					modStat.setName(newName);
 					break;
 				case 2:
@@ -178,7 +176,7 @@ public class HandleData { //interprets the inputted data
 					Location location = Location.name1;
 					do {
 						System.out.print("What is the location of the new Station (elevated, subway, etc.): ");
-						String locCheck = keyboard.nextLine();
+						String locCheck = CTAStopAppFinal.keyboard.nextLine();
 						for (Location i: Location.values()) {
 							if (locCheck.equals(i.toString())) {
 								location = i;
@@ -242,9 +240,9 @@ public class HandleData { //interprets the inputted data
 		do { //getting the location variables is kind of wonky as, the user needs to know precise location of where they are
 			try {
 				System.out.print("Enter your current latitude location: ");
-				curLat = Double.parseDouble(keyboard.nextLine());
+				curLat = Double.parseDouble(CTAStopAppFinal.keyboard.nextLine());
 				System.out.print("Enter your current longitude location: ");
-				curLon = Double.parseDouble(keyboard.nextLine());
+				curLon = Double.parseDouble(CTAStopAppFinal.keyboard.nextLine());
 				validLoc = true;
 			} catch (Exception e) {
 				System.out.println("Invalid Input\n");
@@ -253,19 +251,6 @@ public class HandleData { //interprets the inputted data
 		
 		CTAStation nearest = system.nearestStation(curLat, curLon);
 		System.out.println("The nearest station to you:\n" + nearest);
-	}
-	public static void writeFile () { //bufferedwriter doesn't add \n
-		try {
-			FileWriter outFile = new FileWriter("CTA Train System.txt"); //set to the default file location
-			
-			BufferedWriter output = new BufferedWriter(outFile);
-			output.write(system.toString()); //writes accumulated string to file
-			
-			output.close();
-			System.out.println("The CTA System has been written to a text file");
-		} catch (Exception e) {
-			System.out.println("Something went wrong, file cannot be written");
-		}
 	}
 	
 }
