@@ -110,9 +110,9 @@ public class CTARoute {
 					matchList.add(station);
 			}
 		}
-		if (matchList.size()!=1 && matchList.size()!=0) { //if multiple stations with same name found
-			
-			int[] colors = new int[8]; //number of color lines on CTA
+		
+		if (matchList.size()>1) { //if multiple stations with same name found
+			int[] colors = new int[CTAStopAppFinal.lineColors.length]; //number of color lines on CTA
 			for (CTAStation i: matchList) {
 				for (int j = 0; j < colors.length; j++) { //makes list of color lines in matchList
 					if (i.getColorIdx(j)!=-1)
@@ -123,35 +123,10 @@ public class CTARoute {
 			do { //gets user input
 				int count = 0;
 				for (int i = 0; i < colors.length; i++) {
-					if(colors[i]>0) {
+					for (int j = 0; j < colors[i]; j++) {
 						count++;
-						System.out.print(count + ". ");
-						switch(i) {
-						case 0:
-							System.out.println("Blue");
-							break;
-						case 1:
-							System.out.println("Brown");
-							break;
-						case 2:
-							System.out.println("Green");
-							break;
-						case 3:
-							System.out.println("Orange");
-							break;
-						case 4:
-							System.out.println("Pink");
-							break;
-						case 5:
-							System.out.println("Purple");
-							break;
-						case 6:
-							System.out.println("Red");
-							break;
-						case 7:
-							System.out.println("Yellow");
-							break;
-						}
+						char upperCase = (char)(CTAStopAppFinal.lineColors[i].charAt(0)-32);
+						System.out.println(count + ". " + upperCase + CTAStopAppFinal.lineColors[i].substring(1));
 					}
 				}
 				System.out.print("There are multiple stations with that name"
