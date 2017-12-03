@@ -10,6 +10,7 @@ public class CTAStopAppFinal {
 	public static void main(String[] args)  {
 		keyboard = new Scanner(System.in);
 		try {
+			FileReader.parseFile();
 			System.out.println("Welcome to the CTA Green Line Information Center");
 			userCommand:
 			while(true) { //only breaks with the exit case in switch
@@ -71,8 +72,8 @@ public class CTAStopAppFinal {
 			}
 			
 		} catch (Exception e) { //program should automatically end if exception thrown
-			//e.printStackTrace();
-			System.out.println(e);
+			e.printStackTrace();
+			//System.out.println(e);
 			System.out.println("Something went wrong");
 		}
 		System.out.println("The CTA Information Center Has Closed");
