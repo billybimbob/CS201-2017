@@ -6,6 +6,7 @@ public class HandleData { //interprets the inputed data
 
 	private static ArrayList<String> addColors; //temporary?
 	public static CTASystem system;
+	public static int[] systemCenter; //index where stations all converge based on line
 	public static final String[] lineColors = {"blue", "brown", "green", "orange", "pink", "purple", "red", "yellow"}; //public because referenced in other classes
 	
 
@@ -232,10 +233,24 @@ public class HandleData { //interprets the inputed data
 		direction.add(system.lookupStation(startName));
 		String endName = validStation("for the destination");
 		direction.add(system.lookupStation(endName));
+		System.out.println("");
 		
 		direction = system.formDirection(direction);
-		for(CTAStation i: direction) {
-			System.out.println(i);
+		for(int i = 0; i < direction.size()-1; i++) {
+			String ending = null;
+			if (i==direction.size()-2)
+				ending = "arrive";
+			else
+				ending = "transfer";
+			
+			for (int j = 0; j < lineColors.length; j++) {
+				if (direction.get(i+1).getColorIdx(j)!=-1 && direction.get(i).getColorIdx(j)!=-1) { //under assumption 1st color match is one correct
+					System.out.println(i + ". From " + direction.get(i).getName() + " Station, ride for "
+							+ Math.abs((direction.get(i+1).getColorIdx(j)-direction.get(i).getColorIdx(j)))
+							+ " stops and " + ending + " at " + direction.get(i+1).getName() + " Station");
+					break;
+				}
+			}
 		}
 	}
 	public static void nearestStation () { //displays the nearest station to inputed latitude and longitude

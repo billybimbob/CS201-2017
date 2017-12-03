@@ -63,26 +63,34 @@ public class CTASystem extends CTARoute {
 		stops = this.getStops();
 	}
 	
-	public CTAStation searchLine (ArrayList<CTAStation> searching, boolean oneWay, int startIdx) { //finds the next station with multiple color lines
+	public CTAStation searchLine (ArrayList<CTAStation> searching, int color, int startIdx) { //finds the next station with multiple color lines
 		CTAStation multiStat = null;
 		do {
+			//System.out.println("got here");
 			CTAStation statCheck = null;
-			if (oneWay) {
+			if (startIdx > HandleData.systemCenter[color])
+				statCheck = searching.get(--startIdx);
+			else
 				statCheck = searching.get(++startIdx);
-			} else {
-				if (startIdx > searching.size()/2)
-					statCheck = searching.get(--startIdx);
-				else
-					statCheck = searching.get(++startIdx);
-			}
 			
-			if (statCheck.getNumLines() > 1)
+			if (statCheck.getNumLines() > 1 || startIdx == HandleData.systemCenter[color])
 				multiStat = statCheck;
 		} while(multiStat == null);
 		
 		return multiStat;
 	}
-	public boolean sameLine (CTAStation station1, CTAStation station2) {
+	public ArrayList<CTAStation> possibleStations (CTAStation refStation) { //returns list of all multiple stations near inputed station
+		ArrayList<CTAStation> possibleStations = new ArrayList<CTAStation>();
+		
+		for (int i = 0; i < refStation.getColorIdx().length; i++) {
+			if (refStation.getColorIdx()[i]!=-1) {
+				System.out.println(HandleData.systemCenter[i]);
+				possibleStations.add(searchLine(getColorLines(i), i, refStation.getColorIdx(i)));
+			}
+		}
+		return possibleStations;
+	}
+	public boolean sameLine (CTAStation station1, CTAStation station2) { //checks if stations are on same line
 		boolean sameLine = false;
 		for (int j = 0; j < HandleData.lineColors.length; j++) {
 			if (station1.getColorIdx(j)!=-1 && station2.getColorIdx(j)!=-1)
@@ -93,50 +101,47 @@ public class CTASystem extends CTARoute {
 	}
 																//direction parameter should be two stations
 	public ArrayList<CTAStation> formDirection(ArrayList<CTAStation> direction) { //adds list of stations to get first index to last index
-		boolean directionFound = false;
-		int count = 0;
+		boolean directionFound = false, forward = true;
+		int countFor = 0, countBack = 1;
 		do {
-			boolean sameLine = sameLine(direction.get(count), direction.get(direction.size()-1));
-			/*ArrayList<String> colorSearch = new ArrayList<String>();
-			for (int j = 0; j < HandleData.lineColors.length; j++) {
-				if (direction.get(count).getColorIdx(j)!=-1) {
-					colorSearch.add(HandleData.lineColors[j]);
-					
-					if (direction.get(direction.size()-1).getColorIdx(j)!=-1) {
-						endColor.add(HandleData.lineColors[j]);
-						sameLine = true;
-					}
-				}
-			}*/
+			for(CTAStation i: direction)
+				System.out.println(i);
+			int count = 0;
+			if (forward)
+				count = countFor;
+			else
+				count = direction.size()-countBack;
 			
+			boolean sameLine = sameLine(direction.get(countFor), direction.get(direction.size()-countBack));
+
 			if (sameLine)
 				directionFound = true;
 			else {
-				ArrayList<CTAStation> possibleStats = new ArrayList<CTAStation>();
-				for (int i: direction.get(count).getColorIdx()) {
-					if (i!=-1) {
-						boolean oneWay = true;
-						if (HandleData.lineColors[i]=="blue" || HandleData.lineColors[i]=="green" || HandleData.lineColors[i]=="red")
-							oneWay = false;
-						possibleStats.add(searchLine(getColorLines(i), oneWay, direction.get(count).getColorIdx(i)));
-					}
-				}
+
+				ArrayList<CTAStation> possibleStats = possibleStations(direction.get(count));
+
 				CTAStation addRoute = null;
 				int highestColor = 1;
-				
+
 				for (CTAStation i: possibleStats) {
 					if (sameLine(i, direction.get(direction.size()-1))) {
 						addRoute = i;
 						directionFound = true;
 						break;
 					}
+					
 					if (i.getNumLines()>highestColor) {
 						addRoute = i;
 						highestColor = i.getNumLines();
 					}
 				}
 				direction.add(direction.size()-1, addRoute);
-				count++;
+				if (forward)
+					countFor++;
+				else
+					countBack++;
+				System.out.println("got here");
+				forward = !forward;
 			}
 		} while(!directionFound);
 		

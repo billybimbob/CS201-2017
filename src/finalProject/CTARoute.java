@@ -111,13 +111,15 @@ public class CTARoute {
 					matchList.add(station);
 			}
 		}
-		
+
 		if (matchList.size()>1) { //if multiple stations with same name found
 			int[] colors = new int[HandleData.lineColors.length]; //number of color lines on CTA
 			for (CTAStation i: matchList) {
 				for (int j = 0; j < colors.length; j++) { //makes list of color lines in matchList
-					if (i.getColorIdx(j)!=-1)
+					if (i.getColorIdx(j)!=-1) {
 						colors[j]++;
+						break;
+					}
 				}
 			}
 			boolean hasResponse = false;
