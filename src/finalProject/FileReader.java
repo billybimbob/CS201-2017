@@ -54,8 +54,6 @@ public class FileReader { //reads from inputed file
 				lines[i].sort(i);
 					
 			HandleData.system = new CTASystem(lines[0], lines[1], lines[2], lines[3], lines[4], lines[5], lines[6], lines[7]); //not sure
-			int[] centerStore = {17, 25, 15, 13, 15, 19, 19, 2};
-			HandleData.systemCenter = centerStore;
 			
 			input.close();
 		} catch(Exception e) {

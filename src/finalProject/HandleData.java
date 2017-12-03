@@ -6,7 +6,7 @@ public class HandleData { //interprets the inputed data
 
 	private static ArrayList<String> addColors; //temporary?
 	public static CTASystem system;
-	public static int[] systemCenter; //index where stations all converge based on line
+	public static int[] systemCenter = {17, 25, 15, 13, 15, 19, 19, 2}; //index where stations all converge based on line
 	public static final String[] lineColors = {"blue", "brown", "green", "orange", "pink", "purple", "red", "yellow"}; //public because referenced in other classes
 	
 
@@ -141,6 +141,9 @@ public class HandleData { //interprets the inputed data
 				try {
 					int index = Integer.parseInt(CTAStopAppFinal.keyboard.nextLine());
 					linesAdd.get(i).add(index, newStat); //can't add to very last index
+					if (index < systemCenter[i])
+						systemCenter[i]++;
+					
 					System.out.println(name + " station added to " + addColors.get(i) + " line");
 					haveResponse = true;
 				} catch(Exception e) {
@@ -217,8 +220,11 @@ public class HandleData { //interprets the inputed data
 				validRemove = true;
 				
 				for (String i: lineColors) {
-					if (removing.getColorIdx(i)!=1)
+					if (removing.getColorIdx(i)!=1) {
 						system.getColorLines(i).remove(removing);
+						if (removing.getColorIdx(i) < systemCenter[CTAStation.colorCheck(i)])
+							systemCenter[CTAStation.colorCheck(i)]--;
+					}
 				}
 			} else {
 				System.out.println("Station(s) were not removed");
@@ -252,7 +258,7 @@ public class HandleData { //interprets the inputed data
 			if (i==direction.size()-2)
 				ending = "arrive";
 			else
-				ending = "transfer to " + colorTrans[i+1] + " Line ";
+				ending = "transfer to " + colorTrans[i+1] + " Line";
 			
 			for (int j = 0; j < lineColors.length; j++) {
 				if (direction.get(i+1).getColorIdx(j)!=-1 && direction.get(i).getColorIdx(j)!=-1) { //under assumption 1st color match is one correct
