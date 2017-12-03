@@ -77,6 +77,7 @@ public class CTASystem extends CTARoute {
 				multiStat = statCheck;
 		} while(multiStat == null);
 		
+		//System.out.println(multiStat);
 		return multiStat;
 	}
 	public ArrayList<CTAStation> possibleStations (CTAStation refStation) { //returns list of all multiple stations near inputed station
@@ -84,7 +85,8 @@ public class CTASystem extends CTARoute {
 		
 		for (int i = 0; i < refStation.getColorIdx().length; i++) {
 			if (refStation.getColorIdx()[i]!=-1) {
-				//System.out.println(HandleData.systemCenter[i]);
+				//System.out.println("yes");
+				//System.out.println(HandleData.systemCenter[i] + " " + refStation.getColorIdx(i));
 				possibleStations.add(searchLine(getColorLines(i), i, refStation.getColorIdx(i)));
 			}
 		}
@@ -101,17 +103,20 @@ public class CTASystem extends CTARoute {
 	}
 																//direction parameter should be two stations
 	public ArrayList<CTAStation> formDirection(ArrayList<CTAStation> direction) { //adds list of stations to get first index to last index
+		
 		boolean directionFound = false, forward = true;
 		int countFor = 0, countBack = 1;
 		do {
+			//System.out.println(direction);
 			int count = 0;
 			if (forward)
 				count = countFor;
 			else
 				count = direction.size()-countBack;
 			
+			//System.out.println(direction.get(countFor) + " " + direction.get(direction.size()-countBack));
 			boolean sameLine = sameLine(direction.get(countFor), direction.get(direction.size()-countBack));
-
+			
 			if (sameLine)
 				directionFound = true;
 			else {
@@ -119,8 +124,9 @@ public class CTASystem extends CTARoute {
 				ArrayList<CTAStation> possibleStats = possibleStations(direction.get(count));
 
 				CTAStation addRoute = null;
-				int highestColor = 1;
+				int highestColor = 0;
 
+				//System.out.println("possibile" + possibleStats);
 				for (CTAStation i: possibleStats) {
 					if (sameLine(i, direction.get(direction.size()-1))) {
 						addRoute = i;

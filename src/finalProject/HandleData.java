@@ -234,12 +234,19 @@ public class HandleData { //interprets the inputed data
 		System.out.println("Station(s) successfully removed");
 	}
 	public static void createRoute() {
-		ArrayList<CTAStation> direction = new ArrayList<CTAStation>(); //list of stations to get from start to destination
-		String startName = validStation("to start at");
-		direction.add(system.lookupStation(startName));
-		String endName = validStation("for the destination");
-		direction.add(system.lookupStation(endName));
-		System.out.println("");
+		ArrayList<CTAStation> direction = null;
+		while(true) {
+			direction = new ArrayList<CTAStation>(); //list of stations to get from start to destination
+			String startName = validStation("to start at");
+			direction.add(system.lookupStation(startName));
+			String endName = validStation("for the destination");
+			direction.add(system.lookupStation(endName));
+			if (!(startName.equals(endName)))
+				break;
+			else
+				System.out.println("Error, same station");
+		}
+		System.out.println("\nHere are the directions:");
 		
 		direction = system.formDirection(direction);
 		String[] colorTrans = new String[direction.size()-1];
