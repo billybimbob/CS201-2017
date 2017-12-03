@@ -84,7 +84,7 @@ public class CTASystem extends CTARoute {
 		
 		for (int i = 0; i < refStation.getColorIdx().length; i++) {
 			if (refStation.getColorIdx()[i]!=-1) {
-				System.out.println(HandleData.systemCenter[i]);
+				//System.out.println(HandleData.systemCenter[i]);
 				possibleStations.add(searchLine(getColorLines(i), i, refStation.getColorIdx(i)));
 			}
 		}
@@ -104,8 +104,6 @@ public class CTASystem extends CTARoute {
 		boolean directionFound = false, forward = true;
 		int countFor = 0, countBack = 1;
 		do {
-			for(CTAStation i: direction)
-				System.out.println(i);
 			int count = 0;
 			if (forward)
 				count = countFor;
@@ -140,7 +138,7 @@ public class CTASystem extends CTARoute {
 					countFor++;
 				else
 					countBack++;
-				System.out.println("got here");
+				
 				forward = !forward;
 			}
 		} while(!directionFound);

@@ -236,18 +236,29 @@ public class HandleData { //interprets the inputed data
 		System.out.println("");
 		
 		direction = system.formDirection(direction);
+		String[] colorTrans = new String[direction.size()-1];
+		for (int i = 0; i < colorTrans.length; i++) {
+			for (int j = 0; j < lineColors.length; j++) {
+				if (direction.get(i+1).getColorIdx(j)!=-1 && direction.get(i).getColorIdx(j)!=-1) {
+					char capital = (char)(lineColors[j].charAt(0)-32);
+					colorTrans[i] = capital + lineColors[j].substring(1);
+				}
+			}
+		}
+		for (String i: colorTrans)
+			System.out.println(i);
 		for(int i = 0; i < direction.size()-1; i++) {
 			String ending = null;
 			if (i==direction.size()-2)
 				ending = "arrive";
 			else
-				ending = "transfer";
+				ending = "transfer to " + colorTrans[i+1] + " Line ";
 			
 			for (int j = 0; j < lineColors.length; j++) {
 				if (direction.get(i+1).getColorIdx(j)!=-1 && direction.get(i).getColorIdx(j)!=-1) { //under assumption 1st color match is one correct
-					System.out.println(i + ". From " + direction.get(i).getName() + " Station, ride for "
+					System.out.println(i+1 + ". From " + direction.get(i).getName() + " Station, ride for "
 							+ Math.abs((direction.get(i+1).getColorIdx(j)-direction.get(i).getColorIdx(j)))
-							+ " stops and " + ending + " at " + direction.get(i+1).getName() + " Station");
+							+ " stop(s) and " + ending + " at " + direction.get(i+1).getName() + " Station");
 					break;
 				}
 			}
