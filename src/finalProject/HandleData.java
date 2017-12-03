@@ -227,12 +227,16 @@ public class HandleData { //interprets the inputed data
 		System.out.println("Station(s) successfully removed");
 	}
 	public static void createRoute() {
+		ArrayList<CTAStation> direction = new ArrayList<CTAStation>(); //list of stations to get from start to destination
 		String startName = validStation("to start at");
-		CTAStation startStat = system.lookupStation(startName);
+		direction.add(system.lookupStation(startName));
 		String endName = validStation("for the destination");
-		CTAStation endStat = system.lookupStation(endName);
+		direction.add(system.lookupStation(endName));
 		
-		
+		direction = system.formDirection(direction);
+		for(CTAStation i: direction) {
+			System.out.println(i);
+		}
 	}
 	public static void nearestStation () { //displays the nearest station to inputed latitude and longitude
 		double curLat = 0, curLon = 0;

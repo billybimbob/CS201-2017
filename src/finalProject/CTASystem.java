@@ -63,4 +63,83 @@ public class CTASystem extends CTARoute {
 		stops = this.getStops();
 	}
 	
+	public CTAStation searchLine (ArrayList<CTAStation> searching, boolean oneWay, int startIdx) { //finds the next station with multiple color lines
+		CTAStation multiStat = null;
+		do {
+			CTAStation statCheck = null;
+			if (oneWay) {
+				statCheck = searching.get(++startIdx);
+			} else {
+				if (startIdx > searching.size()/2)
+					statCheck = searching.get(--startIdx);
+				else
+					statCheck = searching.get(++startIdx);
+			}
+			
+			if (statCheck.getNumLines() > 1)
+				multiStat = statCheck;
+		} while(multiStat == null);
+		
+		return multiStat;
+	}
+	public boolean sameLine (CTAStation station1, CTAStation station2) {
+		boolean sameLine = false;
+		for (int j = 0; j < HandleData.lineColors.length; j++) {
+			if (station1.getColorIdx(j)!=-1 && station2.getColorIdx(j)!=-1)
+				sameLine = true;
+		}
+		
+		return sameLine;
+	}
+																//direction parameter should be two stations
+	public ArrayList<CTAStation> formDirection(ArrayList<CTAStation> direction) { //adds list of stations to get first index to last index
+		boolean directionFound = false;
+		int count = 0;
+		do {
+			boolean sameLine = sameLine(direction.get(count), direction.get(direction.size()-1));
+			/*ArrayList<String> colorSearch = new ArrayList<String>();
+			for (int j = 0; j < HandleData.lineColors.length; j++) {
+				if (direction.get(count).getColorIdx(j)!=-1) {
+					colorSearch.add(HandleData.lineColors[j]);
+					
+					if (direction.get(direction.size()-1).getColorIdx(j)!=-1) {
+						endColor.add(HandleData.lineColors[j]);
+						sameLine = true;
+					}
+				}
+			}*/
+			
+			if (sameLine)
+				directionFound = true;
+			else {
+				ArrayList<CTAStation> possibleStats = new ArrayList<CTAStation>();
+				for (int i: direction.get(count).getColorIdx()) {
+					if (i!=-1) {
+						boolean oneWay = true;
+						if (HandleData.lineColors[i]=="blue" || HandleData.lineColors[i]=="green" || HandleData.lineColors[i]=="red")
+							oneWay = false;
+						possibleStats.add(searchLine(getColorLines(i), oneWay, direction.get(count).getColorIdx(i)));
+					}
+				}
+				CTAStation addRoute = null;
+				int highestColor = 1;
+				
+				for (CTAStation i: possibleStats) {
+					if (sameLine(i, direction.get(direction.size()-1))) {
+						addRoute = i;
+						directionFound = true;
+						break;
+					}
+					if (i.getNumLines()>highestColor) {
+						addRoute = i;
+						highestColor = i.getNumLines();
+					}
+				}
+				direction.add(direction.size()-1, addRoute);
+				count++;
+			}
+		} while(!directionFound);
+		
+		return direction;
+	}
 }

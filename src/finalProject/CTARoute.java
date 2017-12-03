@@ -92,7 +92,8 @@ public class CTARoute {
 		}
 	}
 	
-	public CTAStation lookupStation(String looking) { //returns first instance of CTAStation matching the inputed name parameter
+	//search methods
+	public CTAStation lookupStation(String looking) { //returns CTAStation matching the inputed name parameter, accounts for stations with same name
 		ArrayList<CTAStation> matchList = new ArrayList<CTAStation>();
 		CTAStation match = null;
 		for (CTAStation station: stops) {

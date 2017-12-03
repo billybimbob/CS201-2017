@@ -5,6 +5,7 @@ public class CTAStation extends GeoLocation {
 	private String name;
 	private Location location;
 	private boolean opened, wheelchair;
+	private int numLines; //number of colors station is on
 	private int[] colorIdx; //blue, brown, green, orange, pink, purple, red, yellow
 	
 	public CTAStation() { //default constructor
@@ -15,6 +16,7 @@ public class CTAStation extends GeoLocation {
 		opened = false;
 		int[] idxStore = {-1, -1, -1, -1, -1, -1, -1, -1, -1};
 		colorIdx = idxStore;
+		setNumLines();
 	}
 	public CTAStation(String name, double latitude, double longitude, Location location, boolean wheelchair, boolean opened, 
 			int blueIdx, int brownIdx, int greenIdx, int orangeIdx, 
@@ -26,6 +28,7 @@ public class CTAStation extends GeoLocation {
 		this.opened = opened;
 		int[] idxStore = {blueIdx, brownIdx, greenIdx, orangeIdx, pinkIdx, purpleIdx, redIdx, yellowIdx};
 		colorIdx = idxStore;
+		setNumLines();
 	}
 	
 	//getters
@@ -41,12 +44,18 @@ public class CTAStation extends GeoLocation {
 	public boolean getOpened() {
 		return opened;
 	}
+	public int[] getColorIdx() {
+		return colorIdx;
+	}
 	public int getColorIdx(int colorNum) {
 		return colorIdx[colorNum];
 	}
 	public int getColorIdx(String color) {
 		int colorNum = colorCheck(color);
 		return getColorIdx(colorNum);
+	}
+	public int getNumLines() {
+		return numLines;
 	}
 	
 	//setters, the boolean values can only be 2 values, so made a switch method to make current boolean value the opposite
@@ -64,6 +73,14 @@ public class CTAStation extends GeoLocation {
 	}
 	public void setColorIdx(int color, int changeIdx) {
 		this.colorIdx[color] = changeIdx;
+		setNumLines();
+	}
+	public void setNumLines() {
+		numLines = 0;
+		for (int color: this.getColorIdx()) {
+			if (color!=-1)
+				numLines++;
+		}
 	}
 	
 	//prints all variables
