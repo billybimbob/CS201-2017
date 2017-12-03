@@ -57,8 +57,8 @@ public class HandleData { //interprets the inputed data
 	}
 	public static void displaySpecific () { //displays instance variables of specified station
 		String inLoc = validStation("to show information");
-		//System.out.println("---------------------------------------------------\n");
-		System.out.println(system.lookupStation(inLoc).toString());
+		String stationDisplay = "---------------------------------------------------\n" + system.lookupStation(inLoc).toString();
+		System.out.println(stationDisplay);
 	}
 	public static void addStation () { //inserts station at index of list with new CTAStation with inputed data variables
 		boolean haveResponse = false;
@@ -249,32 +249,46 @@ public class HandleData { //interprets the inputed data
 		System.out.println("\nHere are the directions:");
 		
 		direction = system.formDirection(direction);
-		String[] colorTrans = new String[direction.size()-1];
-		for (int i = 0; i < colorTrans.length; i++) {
+		ArrayList<String> colorTrans = new ArrayList<String>();
+		for (int i = 0; i < direction.size()-1; i++) {
 			for (int j = 0; j < lineColors.length; j++) {
 				if (direction.get(i+1).getColorIdx(j)!=-1 && direction.get(i).getColorIdx(j)!=-1) {
 					char capital = (char)(lineColors[j].charAt(0)-32);
-					colorTrans[i] = capital + lineColors[j].substring(1);
+					colorTrans.add(capital + lineColors[j].substring(1));
 				}
 			}
 		}
+		while (colorTrans.size() < direction.size()) { //needed to prevent indexoutofbounds
+			colorTrans.add("blah");
+		}
+		/*
 		for (String i: colorTrans)
 			System.out.println(i);
+		*/
+		int sameCount = 0, stepCount = 1;
 		for(int i = 0; i < direction.size()-1; i++) {
+			if (i < direction.size()-2 && colorTrans.get(i).equals(colorTrans.get(i+1)))
+				sameCount = i+2;
+			else
+				sameCount = i+1;
+			
 			String ending = null;
 			if (i==direction.size()-2)
 				ending = "arrive";
 			else
-				ending = "transfer to " + colorTrans[i+1] + " Line";
+				ending = "transfer to " + colorTrans.get(i+1) + " Line";
 			
 			for (int j = 0; j < lineColors.length; j++) {
-				if (direction.get(i+1).getColorIdx(j)!=-1 && direction.get(i).getColorIdx(j)!=-1) { //under assumption 1st color match is one correct
-					System.out.println(i+1 + ". From " + direction.get(i).getName() + " Station, ride for "
-							+ Math.abs((direction.get(i+1).getColorIdx(j)-direction.get(i).getColorIdx(j)))
-							+ " stop(s) and " + ending + " at " + direction.get(i+1).getName() + " Station");
+				if (direction.get(sameCount).getColorIdx(j)!=-1 && direction.get(i).getColorIdx(j)!=-1) { //under assumption 1st color match is one correct
+					System.out.println(stepCount + ". From " + direction.get(i).getName() + " Station, ride for "
+							+ Math.abs((direction.get(sameCount).getColorIdx(j)-direction.get(i).getColorIdx(j)))
+							+ " stop(s) and " + ending + " at " + direction.get(sameCount).getName() + " Station");
 					break;
 				}
 			}
+			stepCount++;
+			if (sameCount == i+2)
+				i++;
 		}
 	}
 	public static void nearestStation () { //displays the nearest station to inputed latitude and longitude
