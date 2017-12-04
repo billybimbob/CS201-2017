@@ -238,29 +238,33 @@ public class HandleData { //interprets the inputed data
 		while(true) {
 			direction = new ArrayList<CTAStation>(); //list of stations to get from start to destination
 			String startName = validStation("to start at");
-			direction.add(system.lookupStation(startName));
+			CTAStation startStat = system.lookupStation(startName);
 			String endName = validStation("for the destination");
-			direction.add(system.lookupStation(endName));
-			if (!(startName.equals(endName)))
+			CTAStation endStat = system.lookupStation(endName);
+			if (!(startStat.equals(endStat))) {
+				direction.add(startStat);
+				direction.add(endStat);
 				break;
-			else
+			} else
 				System.out.println("Error, same station");
 		}
 		System.out.println("\nHere are the directions:");
 		
 		direction = system.formDirection(direction);
 		System.out.println(direction);
-		ArrayList<String> colorTrans = new ArrayList<String>();
+		String[] colorTrans = new String[direction.size()];
 		for (int i = 0; i < direction.size()-1; i++) {
 			for (int j = 0; j < lineColors.length; j++) {
 				if (direction.get(i+1).getColorIdx(j)!=-1 && direction.get(i).getColorIdx(j)!=-1) {
 					char capital = (char)(lineColors[j].charAt(0)-32);
-					colorTrans.add(capital + lineColors[j].substring(1));
+					colorTrans[i] = capital + lineColors[j].substring(1);
+					break;
 				}
 			}
 		}
-		while (colorTrans.size() < direction.size()) { //needed to prevent indexoutofbounds
-			colorTrans.add("blah");
+		for (int i = 0; i < colorTrans.length-1; i++) { //fills in null gaps, occur when transfer from lake to state/lake
+			if (colorTrans[i]==null && colorTrans[i+1]!=null)
+				colorTrans[i] = colorTrans[i+1];
 		}
 		
 		for (String i: colorTrans)
@@ -268,23 +272,35 @@ public class HandleData { //interprets the inputed data
 		
 		int sameCount = 0, stepCount = 1;
 		for(int i = 0; i < direction.size()-1; i++) {
-			if (i < direction.size()-2 && colorTrans.get(i).equals(colorTrans.get(i+1)))
+			if (i < direction.size()-2 && colorTrans[i].equals(colorTrans[i+1]))
 				sameCount = i+2;
 			else
 				sameCount = i+1;
 			
 			String ending = null;
-			if (i==direction.size()-2)
-				ending = "arrive";
+			if (i==direction.size()-2 || sameCount==direction.size()-1)
+				ending = "Arrive";
 			else
-				ending = "transfer to " + colorTrans.get(i+1) + " Line";
+				ending = "Transfer to " + colorTrans[sameCount] + " Line";
 			
+			//System.out.println("sameCount" + direction.get(sameCount));
+			//System.out.println("i" + direction.get(i));
 			boolean addStep = false;
 			for (int j = 0; j < lineColors.length; j++) {
-				if (direction.get(sameCount).getColorIdx(j)!=-1 && direction.get(i).getColorIdx(j)!=-1) { //under assumption 1st color match is one correct
-					System.out.println(stepCount + ". From " + direction.get(i).getName() + " Station, ride for "
-							+ Math.abs((direction.get(sameCount).getColorIdx(j)-direction.get(i).getColorIdx(j)))
-							+ " stop(s) and " + ending + " at " + direction.get(sameCount).getName() + " Station");
+				if (direction.get(sameCount).getColorIdx(j)!=-1 && direction.get(i).getColorIdx(j)!=-1
+						|| sameCount==direction.size()-1 && direction.get(sameCount).getColorIdx(j)!=-1) { //under assumption 1st color match is one correct
+					int numStops = 0;
+					CTAStation fromStat = null;
+					if ((direction.get(sameCount).getColorIdx(j)==-1 || direction.get(i).getColorIdx(j)==-1) && sameCount==direction.size()-1) {
+						numStops = Math.abs(systemCenter[j]-direction.get(sameCount).getColorIdx(j));
+						fromStat = system.getColorLines(j).get(systemCenter[j]);
+					} else {
+						numStops = Math.abs((direction.get(sameCount).getColorIdx(j)-direction.get(i).getColorIdx(j)));
+						fromStat = direction.get(i);
+					}
+						
+					System.out.println(stepCount + ". From " + fromStat.getName() + " Station - Ride for " + numStops
+							+ " stop(s)\n   " + ending + " at " + direction.get(sameCount).getName() + " Station");
 					addStep = true;
 					break;
 				}
