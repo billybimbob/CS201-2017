@@ -73,7 +73,13 @@ public class CTASystem extends CTARoute {
 			else
 				statCheck = searching.get(++startIdx);
 			
-			if (statCheck.getNumLines() > 1 || startIdx == HandleData.systemCenter[color])
+			boolean nearCenter = false;
+			for (int i = startIdx-1; i < startIdx+2; i++) {
+				if (i==HandleData.systemCenter[color])
+					nearCenter = true;
+			}
+				
+			if (statCheck.getNumLines() > 1 && !nearCenter || startIdx == HandleData.systemCenter[color])
 				multiStat = statCheck;
 		} while(multiStat == null);
 		
