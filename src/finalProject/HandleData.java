@@ -2,28 +2,28 @@ package finalProject;
 
 import java.util.ArrayList;
 
-public class HandleData { //interprets the inputed data
+public class HandleData { //interprets and stores the inputed data
 
 	private static ArrayList<String> addColors; //temporary?
 	public static CTASystem system;
 	public static int[] systemCenter = {17, 25, 15, 13, 15, 19, 19, 2}; //index where stations all converge based on line
-	public static final String[] lineColors = {"blue", "brown", "green", "orange", "pink", "purple", "red", "yellow"}; //public because referenced in other classes
+	public static final String[] lineColors = {"blue", "brown", "green", "orange", "pink", "purple", "red", "yellow"}; //public because referenced in other classes, list of all line colors
 	
 
 	//methods referenced by other displaydata methods
 	public static ArrayList<CTAStation> lineCheck () { //method to ask for which color Line is desired, accounts if more color are added, boolean if both is an option
-		ArrayList<CTAStation> line= null;
+		ArrayList<CTAStation> line = null; //arraylist to return
 		
 		validColor:
 		while(true) {
 			System.out.print("Which Line Color Do You Want: ");
 			
-			String lineIn = CTAStopAppFinal.keyboard.nextLine().toLowerCase();
+			String lineIn = CTAStopAppFinal.keyboard.nextLine().toLowerCase(); //user input
 			try {
 				line = system.getColorLines(lineIn);
 				addColors.add(lineIn);
 				break validColor;
-			} catch (Exception e) {
+			} catch (Exception e) { //exception if lineIn not a valid color
 				System.out.println("Not a Valid Train Line");	
 			}
 		} //breaks out of loops if the input is a valid station

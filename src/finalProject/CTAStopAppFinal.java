@@ -3,14 +3,14 @@ package finalProject;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class CTAStopAppFinal {
+public class CTAStopAppFinal { //class where main method is, foundation for ui
 
 	public static Scanner keyboard; //public because referenced in other classes
 	
 	public static void main(String[] args)  {
-		keyboard = new Scanner(System.in);
+		keyboard = new Scanner(System.in); //scanner for user input
 		try {
-			FileReader.parseFile();
+			FileReader.parseFile(); //parses the file
 			System.out.println("Welcome to the CTA Green Line Information Center");
 			userCommand:
 			while(true) { //only breaks with the exit case in switch
@@ -32,7 +32,7 @@ public class CTAStopAppFinal {
 				do {
 					try {
 						System.out.print("Select which Number You want: ");
-						choice = Integer.parseInt(keyboard.nextLine());
+						choice = Integer.parseInt(keyboard.nextLine()); //user input
 					} catch (Exception e) {} //keeps program from crashing
 					
 					if ((choice <= 8 && choice > 0)) //Checks if input is valid
