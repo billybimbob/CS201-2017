@@ -15,17 +15,17 @@ public class FileReader { //reads from inputed file
 			input.useDelimiter(",|\\n"); //divides by commas and \n
 			
 			//make each CTAline to store each station
-			CTARoute[] lines = {
+			CTARoute[] lines = { //all color lines; used as parameter for CTASystem
 			new CTARoute("Blue Line"), new CTARoute("Brown Line"), new CTARoute("Green Line"), new CTARoute("Orange Line"),
 			new CTARoute("Pink Line"), new CTARoute("Purple Line"), new CTARoute("Red Line"), new CTARoute("Yellow Line")};
 			
 			while(input.hasNextLine()) {
-				//parsing csv file
+				//parsing csv file; each variable used for parameter for station object
 				String inName = input.next();
 				double inLat = Double.parseDouble(input.next()), inLong = Double.parseDouble(input.next());
 				String locCheck = input.next();
 				Location inLocation = null;
-				for (Location i: Location.values()) {
+				for (Location i: Location.values()) { //checks if location value is valid
 					if (locCheck.equals(i.toString()))
 						inLocation = i;
 				}
@@ -34,7 +34,7 @@ public class FileReader { //reads from inputed file
 					
 				boolean wheelChair = Boolean.parseBoolean(input.next());
 				
-				int
+				int //indices
 				redCheck = Integer.parseInt(input.next()), greenCheck = Integer.parseInt(input.next()),
 				blueCheck = Integer.parseInt(input.next()), brownCheck = Integer.parseInt(input.next()),
 				purpleCheck = Integer.parseInt(input.next()), pinkCheck = Integer.parseInt(input.next()),

@@ -68,10 +68,10 @@ public class CTARoute {
 	public void insertStation(int indx, CTAStation adding) {
 		stops.add(indx,  adding);
 	}
-	public void sort(int color) {
+	public void sort(int color) { //sorts color index based on argument
 		int[] idxStore = new int[stops.size()];
 		
-		for(int i = 0; i < stops.size(); i++)
+		for(int i = 0; i < stops.size(); i++) //gets the color indices
 			idxStore[i] = stops.get(i).getColorIdx(color); 
 		
 		for (int i = 0; i < stops.size()-1; i++) { //insertion sort
@@ -94,13 +94,13 @@ public class CTARoute {
 	
 	//search methods
 	public CTAStation lookupStation(String looking) { //returns CTAStation matching the inputed name parameter, accounts for stations with same name
-		ArrayList<CTAStation> matchList = new ArrayList<CTAStation>();
-		CTAStation match = null;
-		for (CTAStation station: stops) {
+		ArrayList<CTAStation> matchList = new ArrayList<CTAStation>(); //all stations with matching name
+		CTAStation match = null; //station returning
+		for (CTAStation station: stops) { //adds all stations with matching name as argument
 			if (station.getName().toLowerCase().equals(looking.toLowerCase())) {
 				
 				//System.out.println(station);
-				boolean sameStation = false;
+				boolean sameStation = false; //checks if matching name is the same as a station on list
 				for (CTAStation checkStation: matchList) {
 					if (station.equals(checkStation)) {
 						sameStation = true;
@@ -124,7 +124,7 @@ public class CTARoute {
 			}
 			boolean hasResponse = false;
 			do { //gets user input
-				int count = 0;
+				int count = 0; //counter for ui
 				for (int i = 0; i < colors.length; i++) {
 					for (int j = 0; j < colors[i]; j++) {
 						count++;
@@ -138,7 +138,7 @@ public class CTARoute {
 					int num = Integer.parseInt(CTAStopAppFinal.keyboard.nextLine());
 					match = matchList.get(num-1);
 					hasResponse = true;
-				} catch(Exception e) {
+				} catch(Exception e) { //may have indexoutofbounds
 					System.out.println("Not a valid number");
 				}
 			} while(!hasResponse);

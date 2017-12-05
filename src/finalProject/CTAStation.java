@@ -6,7 +6,7 @@ public class CTAStation extends GeoLocation {
 	private Location location;
 	private boolean opened, wheelchair;
 	private int numLines; //number of colors station is on
-	private int[] colorIdx; //blue, brown, green, orange, pink, purple, red, yellow
+	private int[] colorIdx; //blue, brown, green, orange, pink, purple, red, yellow; index of station on each color line
 	
 	public CTAStation() { //default constructor
 		super();
@@ -47,10 +47,10 @@ public class CTAStation extends GeoLocation {
 	public int[] getColorIdx() {
 		return colorIdx;
 	}
-	public int getColorIdx(int colorNum) {
+	public int getColorIdx(int colorNum) { //gets on of the indices
 		return colorIdx[colorNum];
 	}
-	public int getColorIdx(String color) {
+	public int getColorIdx(String color) { //converts to and int
 		int colorNum = colorCheck(color);
 		return getColorIdx(colorNum);
 	}
@@ -71,7 +71,7 @@ public class CTAStation extends GeoLocation {
 	public void switchOpened() {
 		opened = !opened;
 	}
-	public void setColorIdx(int color, int changeIdx) {
+	public void setColorIdx(int color, int changeIdx) { //sets a specific index
 		this.colorIdx[color] = changeIdx;
 		setNumLines();
 	}
@@ -110,8 +110,8 @@ public class CTAStation extends GeoLocation {
 				&& this.getLongitude()==station2.getLongitude());
 	}
 	
-	public static int colorCheck(String color) { //converts color name to color index
-		int colorNum = -1;
+	public static int colorCheck(String color) { //converts color name to color index; list of colors ordered alphabetically
+		int colorNum = -1; //number returning
 		for (int i = 0; i < HandleData.lineColors.length; i++) {
 			if (color.equals(HandleData.lineColors[i])) {
 				colorNum = i;

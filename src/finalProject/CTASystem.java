@@ -142,7 +142,7 @@ public class CTASystem extends CTARoute {
 				int highestColor = 0;
 
 				for (CTAStation i: possibleStats) { //determines which of the possible stations to add
-					if ((forward && sameLine(i, direction.get(direction.size()-countBack)))
+					if ((forward && sameLine(i, direction.get(direction.size()-countBack))) //depends on if going forward or backward
 							|| (!forward && sameLine(i, direction.get(countFor)))) { //adds if on same color line as next station
 						addRoute = i;
 						directionFound = true;
@@ -153,13 +153,13 @@ public class CTASystem extends CTARoute {
 						highestColor = i.getNumLines();
 					}
 				}
-				direction.add(direction.size()-countBack, addRoute); //
-				if (forward)
+				direction.add(direction.size()-countBack, addRoute); //add in front of destination
+				if (forward) //progresses index
 					countFor++;
 				else
 					countBack++;
 				
-				forward = !forward;
+				forward = !forward; //swaps from forward and backward
 			}
 		} while(!directionFound);
 		
