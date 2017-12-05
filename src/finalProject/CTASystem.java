@@ -103,6 +103,7 @@ public class CTASystem extends CTARoute {
 	}
 	public boolean sameLine (CTAStation station1, CTAStation station2) { //checks if stations are on same line
 		boolean sameLine = false; //default not on sameLine
+		System.out.println("\nstation1" + station1 + "\nstation2" + station2);
 		for (int j = 0; j < HandleData.lineColors.length; j++) { //loops through all color lines
 			if (station1.getColorIdx(j)!=-1 && station2.getColorIdx(j)!=-1) //check for same color line
 				sameLine = true;
@@ -117,17 +118,22 @@ public class CTASystem extends CTARoute {
 		boolean directionFound = false, forward = true; //boolean to alternate between searching for a station at the starting station and destination
 		int countFor = 0, countBack = 1; //indices for searching stations
 		do {
-			//System.out.println(direction);
 			int count = 0; //index for each instance of check; either the countFor or countBack, based on forward boolean
 			if (forward)
 				count = countFor;
 			else
 				count = direction.size()-countBack;
 			
-			//System.out.println(direction.get(countFor) + " " + direction.get(direction.size()-countBack));
+			//System.out.println("start\n" + direction.get(countFor) + "\nend\n" + direction.get(direction.size()-countBack));
 			boolean sameLine = sameLine(direction.get(countFor), direction.get(direction.size()-countBack)); //checks if on sameLine, thus forming route
 			
-			if (sameLine)
+			boolean centerStation = false; //checks if added station is at hub station, and can then transfer to any other station
+			for (int i = 0; i < direction.get(count).getColorIdx().length; i++) {
+				if (direction.get(count).getColorIdx(i) == HandleData.systemCenter[i])
+					centerStation = true;
+			}
+				
+			if (sameLine || centerStation)
 				directionFound = true; //will break out of loop
 			else { //searching for station to transfer to
 
@@ -136,20 +142,20 @@ public class CTASystem extends CTARoute {
 				CTAStation addRoute = null; //station to add
 				int highestColor = 0;
 
-				//System.out.println("possibile" + possibleStats);
 				for (CTAStation i: possibleStats) { //determines which of the possible stations to add
-					if (sameLine(i, direction.get(direction.size()-1))) { //adds if on same color line as destination
+					if ((forward && sameLine(i, direction.get(direction.size()-countBack)))
+							|| (!forward && sameLine(i, direction.get(countFor)))) { //adds if on same color line as next station
 						addRoute = i;
 						directionFound = true;
+						System.out.println("got here");
 						break; //breaks out of for loop
 					}
-					
 					if (i.getNumLines()>highestColor) { //the station with the highest amount of color lines will be added
 						addRoute = i;
 						highestColor = i.getNumLines();
 					}
 				}
-				direction.add(direction.size()-1, addRoute);
+				direction.add(direction.size()-countBack, addRoute); //
 				if (forward)
 					countFor++;
 				else
