@@ -94,7 +94,6 @@ public class CTASystem extends CTARoute {
 		
 		for (int i = 0; i < refStation.getColorIdx().length; i++) { //checks on which color line to call searchLine
 			if (refStation.getColorIdx()[i]!=-1) {
-				//System.out.println("yes");
 				//System.out.println(HandleData.systemCenter[i] + " " + refStation.getColorIdx(i));
 				possibleStations.add(searchLine(getColorLines(i), i, refStation.getColorIdx(i)));
 			}
@@ -103,7 +102,7 @@ public class CTASystem extends CTARoute {
 	}
 	public boolean sameLine (CTAStation station1, CTAStation station2) { //checks if stations are on same line
 		boolean sameLine = false; //default not on sameLine
-		System.out.println("\nstation1" + station1 + "\nstation2" + station2);
+		//System.out.println("\nstation1" + station1 + "\nstation2" + station2);
 		for (int j = 0; j < HandleData.lineColors.length; j++) { //loops through all color lines
 			if (station1.getColorIdx(j)!=-1 && station2.getColorIdx(j)!=-1) //check for same color line
 				sameLine = true;
@@ -147,7 +146,6 @@ public class CTASystem extends CTARoute {
 							|| (!forward && sameLine(i, direction.get(countFor)))) { //adds if on same color line as next station
 						addRoute = i;
 						directionFound = true;
-						System.out.println("got here");
 						break; //breaks out of for loop
 					}
 					if (i.getNumLines()>highestColor) { //the station with the highest amount of color lines will be added

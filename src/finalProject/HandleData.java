@@ -251,8 +251,8 @@ public class HandleData { //interprets and stores the inputed data
 		System.out.println("\nHere are the directions:");
 		
 		direction = system.formDirection(direction);
-		System.out.println(direction);
-		String[] colorTrans = new String[direction.size()];
+		//System.out.println(direction);
+		String[] colorTrans = new String[direction.size()-1];
 		for (int i = 0; i < direction.size()-1; i++) {
 			for (int j = 0; j < lineColors.length; j++) {
 				if (direction.get(i+1).getColorIdx(j)!=-1 && direction.get(i).getColorIdx(j)!=-1) {
@@ -266,17 +266,21 @@ public class HandleData { //interprets and stores the inputed data
 			if (colorTrans[i]==null && colorTrans[i+1]!=null)
 				colorTrans[i] = colorTrans[i+1];
 		}
-		
+		/*
 		for (String i: colorTrans)
 			System.out.println(i);
-		
+		*/
 		int sameCount = 0, stepCount = 1;
 		for(int i = 0; i < direction.size()-1; i++) {
-			if (i < direction.size()-2 && colorTrans[i].equals(colorTrans[i+1]))
-				sameCount = i+2;
-			else
-				sameCount = i+1;
-			
+			sameCount = i+1;
+			while (sameCount < direction.size()-2 && colorTrans[sameCount].equals(colorTrans[i])) {
+				sameCount++;
+				/*
+				if (i < direction.size()-2 && colorTrans[i].equals(colorTrans[i+1]))
+					sameCount = i+2;
+				else
+					sameCount = i+1;*/
+			}
 			String ending = null;
 			if (i==direction.size()-2 || sameCount==direction.size()-1)
 				ending = "Arrive";
@@ -305,9 +309,11 @@ public class HandleData { //interprets and stores the inputed data
 					break;
 				}
 			}
+			/*
 			if (sameCount == i+2)
-				i++;
-			else if (addStep)
+				i++;*/
+			i+=(sameCount-i)-1;
+			if (addStep)
 				stepCount++;
 		}
 	}
