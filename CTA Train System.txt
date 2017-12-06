@@ -1,0 +1,1146 @@
+
+Blue Line: 
+---------------------------------------------------
+O`Hare Station
+Latitude - 41.981127 	Longitude - -87.900876
+Location - underground
+Wheelchair Accessibility - present
+Line Colors - Blue  
+---------------------------------------------------
+Rosemont Station
+Latitude - 41.983507 	Longitude - -87.859388
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Blue  
+---------------------------------------------------
+Cumberland Station
+Latitude - 41.9842246 	Longitude - -87.838028
+Location - surface
+Wheelchair Accessibility - present
+Line Colors - Blue  
+---------------------------------------------------
+Harlem Station
+Latitude - 41.982456 	Longitude - -87.80705
+Location - surface
+Wheelchair Accessibility - present
+Line Colors - Blue  
+---------------------------------------------------
+Jefferson Park Station
+Latitude - 41.970833 	Longitude - -87.761111
+Location - surface
+Wheelchair Accessibility - present
+Line Colors - Blue  
+---------------------------------------------------
+Montrose Station
+Latitude - 41.961539 	Longitude - -87.743574
+Location - surface
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Irving Park Station
+Latitude - 41.952964 	Longitude - -87.729263
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Addison Station
+Latitude - 41.964167 	Longitude - -87.719167
+Location - surface
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Belmont Station
+Latitude - 41.955833 	Longitude - -87.711667
+Location - subway
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Logan Square Station
+Latitude - 41.929722 	Longitude - -87.708611
+Location - subway
+Wheelchair Accessibility - present
+Line Colors - Blue  
+---------------------------------------------------
+California Station
+Latitude - 41.921944 	Longitude - -87.696944
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Western Station
+Latitude - 41.916111 	Longitude - -87.6875
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Blue  
+---------------------------------------------------
+Damen Station
+Latitude - 41.909722 	Longitude - -87.6775
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Division Station
+Latitude - 41.903333 	Longitude - -87.666389
+Location - subway
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Chicago Station
+Latitude - 41.896111 	Longitude - -87.655278
+Location - subway
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Grand Station
+Latitude - 41.891111 	Longitude - -87.6475
+Location - subway
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Clark/Lake Station
+Latitude - 41.885767 	Longitude - -87.630885
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Blue  Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+Washington Station
+Latitude - 41.883164 	Longitude - -87.62944
+Location - subway
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Monroe Station
+Latitude - 41.880703 	Longitude - -87.629378
+Location - subway
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Jackson Station
+Latitude - 41.878153 	Longitude - -87.627596
+Location - subway
+Wheelchair Accessibility - present
+Line Colors - Blue  Red  
+---------------------------------------------------
+LaSalle Station
+Latitude - 41.875568 	Longitude - -87.631722
+Location - subway
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Clinton Station
+Latitude - 41.875539 	Longitude - -87.640984
+Location - subway
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+UIC-Halsted Station
+Latitude - 41.875474 	Longitude - -87.649707
+Location - surface
+Wheelchair Accessibility - present
+Line Colors - Blue  
+---------------------------------------------------
+Racine Station
+Latitude - 41.87592 	Longitude - -87.659458
+Location - surface
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Illinois Medical District Station
+Latitude - 41.875706 	Longitude - -87.673932
+Location - surface
+Wheelchair Accessibility - present
+Line Colors - Blue  
+---------------------------------------------------
+Western Station
+Latitude - 41.875478 	Longitude - -87.688436
+Location - surface
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Kedzie-Homan Station
+Latitude - 41.874341 	Longitude - -87.70604
+Location - surface
+Wheelchair Accessibility - present
+Line Colors - Blue  
+---------------------------------------------------
+Pulaski Station
+Latitude - 41.873797 	Longitude - -87.725663
+Location - surface
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Cicero Station
+Latitude - 41.871574 	Longitude - -87.745154
+Location - surface
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Austin Station
+Latitude - 41.970851 	Longitude - -87.776812
+Location - surface
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Oak Park Station
+Latitude - 41.872108 	Longitude - -87.791602
+Location - surface
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Harlem Station
+Latitude - 41.87349 	Longitude - -87.806961
+Location - surface
+Wheelchair Accessibility - not present
+Line Colors - Blue  
+---------------------------------------------------
+Forest Park Station
+Latitude - 41.874257 	Longitude - -87.817318
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Blue  
+---------------------------------------------------
+
+Brown Line: 
+---------------------------------------------------
+Kimball Station
+Latitude - 41.967628 	Longitude - -87.712934
+Location - at-grade
+Wheelchair Accessibility - present
+Line Colors - Brown  
+---------------------------------------------------
+Kedzie Station
+Latitude - 41.966099 	Longitude - -87.709426
+Location - at-grade
+Wheelchair Accessibility - present
+Line Colors - Brown  
+---------------------------------------------------
+Francisco Station
+Latitude - 41.966155 	Longitude - -87.702099
+Location - at-grade
+Wheelchair Accessibility - present
+Line Colors - Brown  
+---------------------------------------------------
+Rockwell Station
+Latitude - 41.966208 	Longitude - -87.69472
+Location - at-grade
+Wheelchair Accessibility - present
+Line Colors - Brown  
+---------------------------------------------------
+Western Station
+Latitude - 41.966259 	Longitude - -87.688448
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  
+---------------------------------------------------
+Damen Station
+Latitude - 41.966398 	Longitude - -87.679004
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  
+---------------------------------------------------
+Montrose Station
+Latitude - 41.96165 	Longitude - -87.675162
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  
+---------------------------------------------------
+Irving Park Station
+Latitude - 41.954387 	Longitude - -87.674956
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  
+---------------------------------------------------
+Addison Station
+Latitude - 41.946972 	Longitude - -87.674728
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  
+---------------------------------------------------
+Paulina Station
+Latitude - 41.943722 	Longitude - -87.670858
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  
+---------------------------------------------------
+Southport Station
+Latitude - 41.943822 	Longitude - -87.663383
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  
+---------------------------------------------------
+Belmont Station
+Latitude - 41.939751 	Longitude - -87.65338
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  Red  
+---------------------------------------------------
+Wellington Station
+Latitude - 41.936203 	Longitude - -87.653239
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  
+---------------------------------------------------
+Diversey Station
+Latitude - 41.932748 	Longitude - -87.653155
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  
+---------------------------------------------------
+Fullerton Station
+Latitude - 41.925051 	Longitude - -87.62866
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  Red  
+---------------------------------------------------
+Armitage Station
+Latitude - 41.918234 	Longitude - -87.652659
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  
+---------------------------------------------------
+Sedgwick Station
+Latitude - 41.910397 	Longitude - -87.638631
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  
+---------------------------------------------------
+Chicago Station
+Latitude - 41.896467 	Longitude - -87.635833
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  
+---------------------------------------------------
+Merchandise Mart Station
+Latitude - 41.888675 	Longitude - -87.633966
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  
+---------------------------------------------------
+Washington/Wells Station
+Latitude - 41.882541 	Longitude - -87.633824
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Orange  Pink  Purple  
+---------------------------------------------------
+Quincy Station
+Latitude - 41.878752 	Longitude - -87.633703
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Orange  Pink  Purple  
+---------------------------------------------------
+LaSalle/Van Buren Station
+Latitude - 41.8768 	Longitude - -87.631739
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Orange  Pink  Purple  
+---------------------------------------------------
+Harold Washington Library Station
+Latitude - 41.876862 	Longitude - -87.628196
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Orange  Pink  Purple  
+---------------------------------------------------
+Adams/Wabash Station
+Latitude - 41.884431 	Longitude - -87.6261
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+Randolph/Wabash Station
+Latitude - 41.884431 	Longitude - -87.626149
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+State/Lake Station
+Latitude - 41.88574 	Longitude - -87.627835
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+Clark/Lake Station
+Latitude - 41.885767 	Longitude - -87.630885
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Blue  Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+
+Green Line: 
+---------------------------------------------------
+Harlem Station
+Latitude - 41.88706 	Longitude - -87.80486
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  
+---------------------------------------------------
+Oak Park Station
+Latitude - 41.886784 	Longitude - -87.794324
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Green  
+---------------------------------------------------
+Ridgeland Station
+Latitude - 41.886784 	Longitude - -87.784628
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Green  
+---------------------------------------------------
+Austin Station
+Latitude - 41.887293 	Longitude - -87.774135
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Green  
+---------------------------------------------------
+Central Station
+Latitude - 41.887389 	Longitude - -87.76565
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  
+---------------------------------------------------
+Laramie Station
+Latitude - 41.887163 	Longitude - -87.754986
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  
+---------------------------------------------------
+Cicero Station
+Latitude - 41.886519 	Longitude - -87.744698
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  
+---------------------------------------------------
+Pulaski Station
+Latitude - 41.885412 	Longitude - -87.725404
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  
+---------------------------------------------------
+Conservatory-Central Park Drive Station
+Latitude - 41.884904 	Longitude - -87.716513
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  
+---------------------------------------------------
+Kenzie Station
+Latitude - 41.884321 	Longitude - -87.706155
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  
+---------------------------------------------------
+California Station
+Latitude - 41.88422 	Longitude - -87.696234
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  
+---------------------------------------------------
+Ashland Station
+Latitude - 41.885268 	Longitude - -87.666969
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  Pink  
+---------------------------------------------------
+Morgan Station
+Latitude - 41.8856 	Longitude - -87.6522
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  Pink  
+---------------------------------------------------
+Clinton Station
+Latitude - 41.885678 	Longitude - -87.641782
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  Pink  
+---------------------------------------------------
+Clark/Lake Station
+Latitude - 41.885767 	Longitude - -87.630885
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Blue  Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+State/Lake Station
+Latitude - 41.88574 	Longitude - -87.627835
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+Randolph/Wabash Station
+Latitude - 41.884431 	Longitude - -87.626149
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+Adams/Wabash Station
+Latitude - 41.884431 	Longitude - -87.6261
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+Roosevelt Station
+Latitude - 41.867368 	Longitude - -87.627402
+Location - elevated/subway
+Wheelchair Accessibility - present
+Line Colors - Green  Orange  Red  
+---------------------------------------------------
+Cermak-McCormick Station
+Latitude - 41.8531548 	Longitude - -87.626423
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  
+---------------------------------------------------
+35th-Bronzeville-IIT Station
+Latitude - 41.831677 	Longitude - -87.625826
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  
+---------------------------------------------------
+Indiana Station
+Latitude - 41.821732 	Longitude - -87.621371
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  
+---------------------------------------------------
+43rd Station
+Latitude - 41.816462 	Longitude - -87.619021
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  
+---------------------------------------------------
+47th Station
+Latitude - 41.8094 	Longitude - -87.61909
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  
+---------------------------------------------------
+51st Station
+Latitude - 41.8022 	Longitude - -87.61903
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  
+---------------------------------------------------
+Garfield Station
+Latitude - 41.79454 	Longitude - -87.61835
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  
+---------------------------------------------------
+
+Orange Line: 
+---------------------------------------------------
+Midway Station
+Latitude - 41.78661 	Longitude - -87.737875
+Location - at-grade
+Wheelchair Accessibility - present
+Line Colors - Orange  
+---------------------------------------------------
+Pulaski Station
+Latitude - 41.799756 	Longitude - -87.724493
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Orange  
+---------------------------------------------------
+Kedzie Station
+Latitude - 41.804236 	Longitude - -87.704406
+Location - embankment
+Wheelchair Accessibility - present
+Line Colors - Orange  
+---------------------------------------------------
+Western Station
+Latitude - 41.804546 	Longitude - -87.684019
+Location - embankment
+Wheelchair Accessibility - present
+Line Colors - Orange  
+---------------------------------------------------
+35th/Archer Station
+Latitude - 41.829353 	Longitude - -87.680622
+Location - embankment
+Wheelchair Accessibility - present
+Line Colors - Orange  
+---------------------------------------------------
+Ashland Station
+Latitude - 41.839234 	Longitude - -87.665317
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Orange  
+---------------------------------------------------
+Halsted Station
+Latitude - 41.84678 	Longitude - -87.648088
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Orange  
+---------------------------------------------------
+Roosevelt Station
+Latitude - 41.867368 	Longitude - -87.627402
+Location - elevated/subway
+Wheelchair Accessibility - present
+Line Colors - Green  Orange  Red  
+---------------------------------------------------
+Harold Washington Library Station
+Latitude - 41.876862 	Longitude - -87.628196
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Orange  Pink  Purple  
+---------------------------------------------------
+LaSalle/Van Buren Station
+Latitude - 41.8768 	Longitude - -87.631739
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Orange  Pink  Purple  
+---------------------------------------------------
+Quincy Station
+Latitude - 41.878752 	Longitude - -87.633703
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Orange  Pink  Purple  
+---------------------------------------------------
+Washington/Wells Station
+Latitude - 41.882541 	Longitude - -87.633824
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Orange  Pink  Purple  
+---------------------------------------------------
+Clark/Lake Station
+Latitude - 41.885767 	Longitude - -87.630885
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Blue  Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+State/Lake Station
+Latitude - 41.88574 	Longitude - -87.627835
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+Randolph/Wabash Station
+Latitude - 41.884431 	Longitude - -87.626149
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+Adams/Wabash Station
+Latitude - 41.884431 	Longitude - -87.6261
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+
+Pink Line: 
+---------------------------------------------------
+54th/Cermak Station
+Latitude - 41.851663 	Longitude - -87.759598
+Location - at-grade
+Wheelchair Accessibility - present
+Line Colors - Pink  
+---------------------------------------------------
+Cicero Station
+Latitude - 41.85182 	Longitude - -87.745336
+Location - at-grade
+Wheelchair Accessibility - present
+Line Colors - Pink  
+---------------------------------------------------
+Kostner Station
+Latitude - 41.853751 	Longitude - -87.733258
+Location - at-grade
+Wheelchair Accessibility - present
+Line Colors - Pink  
+---------------------------------------------------
+Pulaski Station
+Latitude - 41.853732 	Longitude - -87.724311
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Pink  
+---------------------------------------------------
+Central Park Station
+Latitude - 41.853839 	Longitude - -87.714842
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Pink  
+---------------------------------------------------
+Kedzie Station
+Latitude - 41.853964 	Longitude - -87.705408
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Pink  
+---------------------------------------------------
+California Station
+Latitude - 41.854109 	Longitude - -87.694774
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Pink  
+---------------------------------------------------
+Western Station
+Latitude - 41.854225 	Longitude - -87.685129
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Pink  
+---------------------------------------------------
+Damen Station
+Latitude - 41.854517 	Longitude - -87.675975
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Pink  
+---------------------------------------------------
+18th Station
+Latitude - 41.857955 	Longitude - -87.669178
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Pink  
+---------------------------------------------------
+Polk Station
+Latitude - 41.871551 	Longitude - -87.66953
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Pink  
+---------------------------------------------------
+Ashland Station
+Latitude - 41.885268 	Longitude - -87.666969
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  Pink  
+---------------------------------------------------
+Morgan Station
+Latitude - 41.8856 	Longitude - -87.6522
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  Pink  
+---------------------------------------------------
+Clinton Station
+Latitude - 41.885678 	Longitude - -87.641782
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Green  Pink  
+---------------------------------------------------
+Clark/Lake Station
+Latitude - 41.885767 	Longitude - -87.630885
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Blue  Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+State/Lake Station
+Latitude - 41.88574 	Longitude - -87.627835
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+Randolph/Wabash Station
+Latitude - 41.884431 	Longitude - -87.626149
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+Adams/Wabash Station
+Latitude - 41.884431 	Longitude - -87.6261
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+Harold Washington Library Station
+Latitude - 41.876862 	Longitude - -87.628196
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Orange  Pink  Purple  
+---------------------------------------------------
+LaSalle/Van Buren Station
+Latitude - 41.8768 	Longitude - -87.631739
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Orange  Pink  Purple  
+---------------------------------------------------
+Quincy Station
+Latitude - 41.878752 	Longitude - -87.633703
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Orange  Pink  Purple  
+---------------------------------------------------
+Washington/Wells Station
+Latitude - 41.882541 	Longitude - -87.633824
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Orange  Pink  Purple  
+---------------------------------------------------
+
+Purple Line: 
+---------------------------------------------------
+Linden Station
+Latitude - 42.07379 	Longitude - -87.69056
+Location - at-grade
+Wheelchair Accessibility - present
+Line Colors - Purple  
+---------------------------------------------------
+Central Station
+Latitude - 42.06395 	Longitude - -87.685742
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Purple  
+---------------------------------------------------
+Noyes Station
+Latitude - 42.058088 	Longitude - -87.683196
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Purple  
+---------------------------------------------------
+Foster Station
+Latitude - 42.054136 	Longitude - -87.683604
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Purple  
+---------------------------------------------------
+Davis Station
+Latitude - 42.04771 	Longitude - -87.68363
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Purple  
+---------------------------------------------------
+Dempster Station
+Latitude - 42.04187 	Longitude - -87.68237
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Purple  
+---------------------------------------------------
+Main Station
+Latitude - 42.03333 	Longitude - -87.67925
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Purple  
+---------------------------------------------------
+South Boulevard Station
+Latitude - 42.02792 	Longitude - -87.67919
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Purple  
+---------------------------------------------------
+Howard Station
+Latitude - 42.019063 	Longitude - -87.672892
+Location - embankment
+Wheelchair Accessibility - present
+Line Colors - Purple  Red  Yellow  
+---------------------------------------------------
+Wilson Station
+Latitude - 41.964273 	Longitude - -87.657588
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Purple  Red  
+---------------------------------------------------
+Sheridan Station
+Latitude - 41.953775 	Longitude - -87.654929
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Purple  Red  
+---------------------------------------------------
+Belmont Station
+Latitude - 41.939751 	Longitude - -87.65338
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  Red  
+---------------------------------------------------
+Wellington Station
+Latitude - 41.936203 	Longitude - -87.653239
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  
+---------------------------------------------------
+Diversey Station
+Latitude - 41.932748 	Longitude - -87.653155
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  
+---------------------------------------------------
+Fullerton Station
+Latitude - 41.925051 	Longitude - -87.62866
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  Red  
+---------------------------------------------------
+Armitage Station
+Latitude - 41.918234 	Longitude - -87.652659
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  
+---------------------------------------------------
+Sedgwick Station
+Latitude - 41.910397 	Longitude - -87.638631
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  
+---------------------------------------------------
+Chicago Station
+Latitude - 41.896467 	Longitude - -87.635833
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  
+---------------------------------------------------
+Clark/Lake Station
+Latitude - 41.885767 	Longitude - -87.630885
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Blue  Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+State/Lake Station
+Latitude - 41.88574 	Longitude - -87.627835
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+Randolph/Wabash Station
+Latitude - 41.884431 	Longitude - -87.626149
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+Adams/Wabash Station
+Latitude - 41.884431 	Longitude - -87.6261
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Green  Orange  Pink  Purple  
+---------------------------------------------------
+Harold Washington Library Station
+Latitude - 41.876862 	Longitude - -87.628196
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Orange  Pink  Purple  
+---------------------------------------------------
+LaSalle/Van Buren Station
+Latitude - 41.8768 	Longitude - -87.631739
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Orange  Pink  Purple  
+---------------------------------------------------
+Quincy Station
+Latitude - 41.878752 	Longitude - -87.633703
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Brown  Orange  Pink  Purple  
+---------------------------------------------------
+Washington/Wells Station
+Latitude - 41.882541 	Longitude - -87.633824
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Orange  Pink  Purple  
+---------------------------------------------------
+Merchandise Mart Station
+Latitude - 41.888675 	Longitude - -87.633966
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  
+---------------------------------------------------
+
+Red Line: 
+---------------------------------------------------
+Howard Station
+Latitude - 42.019063 	Longitude - -87.672892
+Location - embankment
+Wheelchair Accessibility - present
+Line Colors - Purple  Red  Yellow  
+---------------------------------------------------
+Jarvis Station
+Latitude - 42.015876 	Longitude - -87.669092
+Location - embankment
+Wheelchair Accessibility - not present
+Line Colors - Red  
+---------------------------------------------------
+Morse Station
+Latitude - 42.008362 	Longitude - -87.665909
+Location - embankment
+Wheelchair Accessibility - not present
+Line Colors - Red  
+---------------------------------------------------
+Loyola Station
+Latitude - 42.001073 	Longitude - -87.661061
+Location - embankment
+Wheelchair Accessibility - present
+Line Colors - Red  
+---------------------------------------------------
+Granville Station
+Latitude - 41.993664 	Longitude - -87.659202
+Location - embankment
+Wheelchair Accessibility - present
+Line Colors - Red  
+---------------------------------------------------
+Thorndale Station
+Latitude - 41.990259 	Longitude - -87.659076
+Location - embankment
+Wheelchair Accessibility - not present
+Line Colors - Red  
+---------------------------------------------------
+Bryn Mawr Station
+Latitude - 41.983504 	Longitude - -87.65884
+Location - embankment
+Wheelchair Accessibility - not present
+Line Colors - Red  
+---------------------------------------------------
+Berwyn Station
+Latitude - 41.977984 	Longitude - -87.658668
+Location - embankment
+Wheelchair Accessibility - not present
+Line Colors - Red  
+---------------------------------------------------
+Argyle Station
+Latitude - 41.973453 	Longitude - -87.65853
+Location - embankment
+Wheelchair Accessibility - not present
+Line Colors - Red  
+---------------------------------------------------
+Lawrence Station
+Latitude - 41.969139 	Longitude - -87.658493
+Location - embankment
+Wheelchair Accessibility - not present
+Line Colors - Red  
+---------------------------------------------------
+Wilson Station
+Latitude - 41.964273 	Longitude - -87.657588
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Purple  Red  
+---------------------------------------------------
+Sheridan Station
+Latitude - 41.953775 	Longitude - -87.654929
+Location - elevated
+Wheelchair Accessibility - not present
+Line Colors - Purple  Red  
+---------------------------------------------------
+Addison Station
+Latitude - 41.947428 	Longitude - -87.653626
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Red  
+---------------------------------------------------
+Belmont Station
+Latitude - 41.939751 	Longitude - -87.65338
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  Red  
+---------------------------------------------------
+Fullerton Station
+Latitude - 41.925051 	Longitude - -87.62866
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Brown  Purple  Red  
+---------------------------------------------------
+North/Clybourn Station
+Latitude - 41.910655 	Longitude - -87.649177
+Location - subway
+Wheelchair Accessibility - not present
+Line Colors - Red  
+---------------------------------------------------
+Clark/Division Station
+Latitude - 41.90392 	Longitude - -87.631412
+Location - subway
+Wheelchair Accessibility - present
+Line Colors - Red  
+---------------------------------------------------
+Chicago Station
+Latitude - 41.896671 	Longitude - -87.628176
+Location - subway
+Wheelchair Accessibility - present
+Line Colors - Red  
+---------------------------------------------------
+Grand Station
+Latitude - 41.891665 	Longitude - -87.628021
+Location - subway
+Wheelchair Accessibility - present
+Line Colors - Red  
+---------------------------------------------------
+Lake Station
+Latitude - 41.884809 	Longitude - -87.627813
+Location - subway
+Wheelchair Accessibility - present
+Line Colors - Red  
+---------------------------------------------------
+Monroe Station
+Latitude - 41.880745 	Longitude - -87.627696
+Location - subway
+Wheelchair Accessibility - not present
+Line Colors - Red  
+---------------------------------------------------
+Jackson Station
+Latitude - 41.878153 	Longitude - -87.627596
+Location - subway
+Wheelchair Accessibility - present
+Line Colors - Blue  Red  
+---------------------------------------------------
+Harrison Station
+Latitude - 41.874039 	Longitude - -87.627479
+Location - subway
+Wheelchair Accessibility - not present
+Line Colors - Red  
+---------------------------------------------------
+Roosevelt Station
+Latitude - 41.867368 	Longitude - -87.627402
+Location - elevated/subway
+Wheelchair Accessibility - present
+Line Colors - Green  Orange  Red  
+---------------------------------------------------
+Cermak-Chinatown Station
+Latitude - 41.853206 	Longitude - -87.630968
+Location - elevated
+Wheelchair Accessibility - present
+Line Colors - Red  
+---------------------------------------------------
+Sox-35th Station
+Latitude - 41.831191 	Longitude - -87.630636
+Location - surface
+Wheelchair Accessibility - present
+Line Colors - Red  
+---------------------------------------------------
+47th Station
+Latitude - 41.810318 	Longitude - -87.63094
+Location - surface
+Wheelchair Accessibility - present
+Line Colors - Red  
+---------------------------------------------------
+Garfield Station
+Latitude - 41.79542 	Longitude - -87.631157
+Location - surface
+Wheelchair Accessibility - present
+Line Colors - Red  
+---------------------------------------------------
+63rd Station
+Latitude - 41.780536 	Longitude - -87.630952
+Location - surface
+Wheelchair Accessibility - present
+Line Colors - Red  
+---------------------------------------------------
+69th Station
+Latitude - 41.768367 	Longitude - -87.625724
+Location - surface
+Wheelchair Accessibility - present
+Line Colors - Red  
+---------------------------------------------------
+79th Station
+Latitude - 41.750419 	Longitude - -87.625112
+Location - surface
+Wheelchair Accessibility - present
+Line Colors - Red  
+---------------------------------------------------
+87th Station
+Latitude - 41.735372 	Longitude - -87.624717
+Location - surface
+Wheelchair Accessibility - present
+Line Colors - Red  
+---------------------------------------------------
+95th/Dan Ryan Station
+Latitude - 41.722377 	Longitude - -87.624342
+Location - surface
+Wheelchair Accessibility - present
+Line Colors - Red  
+---------------------------------------------------
+
+Yellow Line: 
+---------------------------------------------------
+Dempster-Skokie Station
+Latitude - 42.040278 	Longitude - -87.752222
+Location - at-grade
+Wheelchair Accessibility - present
+Line Colors - Yellow  
+---------------------------------------------------
+Oakton-Skokie Station
+Latitude - 42.0273 	Longitude - -87.7476
+Location - street level
+Wheelchair Accessibility - present
+Line Colors - Yellow  
+---------------------------------------------------
+Howard Station
+Latitude - 42.019063 	Longitude - -87.672892
+Location - embankment
+Wheelchair Accessibility - present
+Line Colors - Purple  Red  Yellow  
+---------------------------------------------------
