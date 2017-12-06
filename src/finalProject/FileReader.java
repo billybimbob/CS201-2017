@@ -7,7 +7,7 @@ public class FileReader { //reads from inputed file
 
 	public static void parseFile() {
 		try {
-			File inFile = new File("C:\\Users\\narwhal\\eclipse-workspace\\CS201\\src\\finalProject\\CTAStops.csv"); //file location varies based on computer
+			File inFile = new File("C:\\Users\\funte\\eclipse-workspace\\CS201\\src\\finalProject\\CTAStops.csv"); //file location varies based on computer
 			Scanner input = new Scanner(inFile);
 			
 			input.nextLine(); //accounts for header

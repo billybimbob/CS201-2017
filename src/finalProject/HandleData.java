@@ -120,9 +120,13 @@ public class HandleData { //interprets and stores the inputed data
 					addCheck = false;
 			}
 			
-			if (addCheck)
+			if (addCheck && linesAdd.size()<lineColors.length-1)
 				linesAdd.add(line);
-			else
+			else if (linesAdd.size()==lineColors.length-1) { //checks if all color lines have been selected
+				linesAdd.add(line);
+				System.out.println("Station will be added to all Color Lines");
+				break;
+			} else
 				System.out.println("Color line already picked");
 			
 			System.out.println("Do you want to add station to more color lines?");
